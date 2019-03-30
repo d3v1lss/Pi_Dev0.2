@@ -24,7 +24,7 @@ public class DbConnexion {
         try {
             connexion
                     = DriverManager.getConnection(url, login, password);
-            System.out.println("Connexion établie");
+            System.out.println("Connexion établie  ");
         } catch (SQLException ex) {
             System.out.println("Erreur de connexion à la base de données");
         }

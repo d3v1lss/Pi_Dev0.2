@@ -36,7 +36,7 @@ public class Devils_0 extends Application {
         
         Scene scene = new Scene(root, 300, 250);
         
-        primaryStage.setTitle("Hello World!");
+        primaryStage.setTitle("Hello World !");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
