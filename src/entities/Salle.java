@@ -22,8 +22,8 @@ public class Salle {
     public Salle() {
     }
 
-    public Salle(int id, int capacite, String nom) {
-        this.id = id;
+    public Salle( int capacite, String nom) {
+        
         this.capacite = capacite;
         this.nom = nom;
     }

@@ -5,6 +5,9 @@
  */
 package devils_0;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -12,6 +15,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import sevices.SalleServices;
+import entities.Salle;
 
 /**
  *
@@ -46,6 +51,18 @@ public class Devils_0 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+        SalleServices s = new SalleServices();
+        
+        try {
+            Salle salle = new Salle(254, "salle3");
+            //productService.ajouterProduit(p);
+            s.ajouterSalle(salle);
+            System.out.println("Produit ajouté");
+        } catch (SQLException ex) {
+            //Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+
+ex.printStackTrace();        }
     }
     
 }
