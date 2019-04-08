@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="home" prefHeight="368.0" prefWidth="600.0" style="-fx-background-color: #82b1ff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FirstXMLController">
+   <children>
+      <ImageView disable="true" fitHeight="400.0" fitWidth="600.0" opacity="0.28" pickOnBounds="true">
+         <image>
+            <Image url="@../img/bg.jpg" />
+         </image>
+      </ImageView>
+      <Button fx:id="logB" layoutX="398.0" layoutY="200.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #002f7c;" text="Login" textFill="WHITE" />
+      <TextField fx:id="user" layoutX="333.0" layoutY="75.0" />
+      <Label fx:id="lab" layoutX="283.0" layoutY="376.0" />
+      <PasswordField fx:id="pwd" layoutX="333.0" layoutY="150.0" />
+      <Button fx:id="signB" layoutX="520.0" layoutY="361.0" mnemonicParsing="false" onAction="#signIN" style="-fx-background-color: transparent;" text="SignIn" textFill="WHITE" />
+      <ImageView fx:id="pic" fitHeight="295.0" fitWidth="255.0" layoutX="28.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/logo.png" />
+         </image>
+      </ImageView>
+      <AnchorPane fx:id="sign" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #82b1ff;" visible="false">
+         <children>
+            <ImageView disable="true" fitHeight="400.0" fitWidth="600.0" opacity="0.28" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/bgsignIN.jpg" />
+               </image>
+            </ImageView>
+            <Button fx:id="backB" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: transparent;" text="Back" textFill="WHITE" />
+            <TextField fx:id="userNew" layoutX="207.0" layoutY="76.0" />
+            <PasswordField fx:id="pwdNew" layoutX="207.0" layoutY="141.0" />
+            <TextField fx:id="mail" layoutX="207.0" layoutY="274.0" />
+            <Button fx:id="createB" layoutX="239.0" layoutY="331.0" mnemonicParsing="false" onAction="#create" style="-fx-background-color: #002f7c;" text="Create Account" textFill="WHITE" />
+            <Label layoutX="122.0" layoutY="81.0" text="Username" textFill="WHITE" />
+            <Label layoutX="124.0" layoutY="146.0" text="Password" textFill="WHITE" />
+            <Label layoutX="151.0" layoutY="279.0" text="Email" textFill="WHITE" />
+            <PasswordField fx:id="pwdNewConf" layoutX="207.0" layoutY="206.0" />
+            <Label layoutX="67.0" layoutY="211.0" prefHeight="21.0" prefWidth="122.0" text="Confirm Password" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

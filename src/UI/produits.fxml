@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProduitsController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.69" pickOnBounds="true">
+         <image>
+            <Image url="@../img/background-159244_960_720.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" layoutX="46.0" layoutY="36.0" prefHeight="316.0" prefWidth="507.0">
+        <columns>
+          <TableColumn fx:id="quantité" prefWidth="73.33331489562988" text="quantité" />
+          <TableColumn fx:id="nom" prefWidth="217.9999771118164" text="nom" />
+            <TableColumn fx:id="prix" prefWidth="88.0" text="prix" />
+        </columns>
+      </TableView>
+      <Button fx:id="AfficherPanier" layoutX="218.0" layoutY="360.0" mnemonicParsing="false" text="Afficher Mon panier" />
+   </children>
+</AnchorPane>
