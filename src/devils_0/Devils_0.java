@@ -15,8 +15,10 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import sevices.SalleServices;
+import services.SalleServices;
 import entities.Salle;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 
 /**
  *
@@ -24,26 +26,17 @@ import entities.Salle;
  */
 public class Devils_0 extends Application {
     
-    @Override
-    public void start(Stage primaryStage) {
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
+   @Override
+    public void start(Stage stage) throws Exception {
+       //FXMLLoader loader = new FXMLLoader(getClass().getResource("DivProduit.fxml"));
+       Parent root = FXMLLoader.load(getClass().getResource("/views/ListeSalleUser.fxml"));
+     //  Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
+
         
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        
-        Scene scene = new Scene(root, 300, 250);
-        
-        primaryStage.setTitle("Hello World !");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        Scene scene = new Scene(root);
+      
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
@@ -52,17 +45,7 @@ public class Devils_0 extends Application {
     public static void main(String[] args) {
         launch(args);
         
-        SalleServices s = new SalleServices();
         
-        try {
-            Salle salle = new Salle(254, "salle3");
-            //productService.ajouterProduit(p);
-            s.ajouterSalle(salle);
-            System.out.println("Produit ajouté");
-        } catch (SQLException ex) {
-            //Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-
-ex.printStackTrace();        }
     }
     
 }

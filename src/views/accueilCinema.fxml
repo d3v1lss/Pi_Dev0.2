@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.AccueilSalleController">
+    <stylesheets>
+        <URL value="@accueilsalle.css" />
+    </stylesheets>
+   <children>
+      <ImageView fitHeight="408.0" fitWidth="602.0" layoutY="-7.0">
+         <image>
+            <Image url="@../css/a.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="238.0" layoutY="35.0" text="Cinema">
+         <font>
+            <Font size="38.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="listeFilm" layoutX="155.0" layoutY="172.0" text="Listes des Films" />
+      <JFXButton fx:id="listeSalle" layoutX="394.0" layoutY="172.0" text="liste des Salles" />
+   </children>
+</AnchorPane>

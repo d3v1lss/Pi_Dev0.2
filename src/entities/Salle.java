@@ -54,6 +54,11 @@ public class Salle {
     public void setNom(String nom) {
         this.nom = nom;
     }
+
+    @Override
+    public String toString() {
+        return "Salle{" + "id=" + id + ", capacite=" + capacite + ", nom=" + nom + '}';
+    }
     
     
     

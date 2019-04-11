@@ -3,46 +3,47 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sevices;
+package services;
 
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import utils.DbConnexion;
 import entities.Film;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javafx.embed.swing.SwingFXUtils;
+import javafx.fxml.FXML;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
+import javax.imageio.ImageIO;
+import org.apache.commons.lang3.RandomStringUtils;
+import static services.SalleServices.cnx;
+
 /**
  *
  * @author Houssem
  */
 public class FilmServices {
-    
-    
+
+    public Connection cnx;
     Connection connexion;
 
     public FilmServices() {
         connexion = DbConnexion.getInstance().getConnection();
     }
-    
+
     public void ajouterFilm(Film s) throws SQLException {
-        String req = "INSERT INTO film (nom, discription , duree , datesotie)VALUES ( '"
-                + s.getNom() + "', '" + s.getDiscription() + "' , '" + s.getDuree() + "' , '" + s.getDatesotie() + "') ";
+        String req = "INSERT INTO film (nom, discription , duree , datesotie,image)VALUES ( '"
+                + s.getNom() + "', '" + s.getDiscription() + "' , '" + s.getDuree() + "' , '" + s.getDatesotie() + "','" + s.getImage() + "') ";
         Statement stm = connexion.createStatement();
         stm.executeUpdate(req);
     }
-    
-    /*
-    public void ajouterProduitPs(Salle s) throws SQLException {
-        String req = "INSERT INTO `Product` (`nom`, 'capacite') "
-                + "VALUES ( ?, ?) ";
-        PreparedStatement ps = connexion.prepareStatement(req);
-        ps.setString(1,  s.getNom());
-        ps.setInt(2, s.getCapacite());
-        ps.executeUpdate();
-    }
-    */
-    
+
 }
