@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.AjouterSalleController">
+    <stylesheets>
+        <URL value="@/css/ajoutersalle.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass">
+         <stylesheets>
+            <URL value="@/css/ajouterclub.css" />
+         </stylesheets>
+         <children>
+            <ImageView fitHeight="420.0" fitWidth="620.0" layoutX="-16.0" layoutY="-13.0">
+               <image>
+                  <Image url="@../css/a.png" />
+               </image>
+            </ImageView>
+            <GridPane layoutX="75.0" layoutY="-2.0" prefHeight="407.0" prefWidth="443.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="152.0" minHeight="10.0" prefHeight="42.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="144.0" minHeight="10.0" prefHeight="62.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="133.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="132.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="91.0" minHeight="10.0" prefHeight="49.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="4.0" prefHeight="17.0" prefWidth="200.0" text="Nom :" textFill="#171717" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="1">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="4.0" prefHeight="17.0" prefWidth="236.0" text="capasite :" textFill="#171717" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="2">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txt_nom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txt_cap" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <JFXButton onAction="#ajoutersalle" prefHeight="25.0" prefWidth="208.0" text="Ajouter" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <Label prefHeight="17.0" prefWidth="204.0" text="Ajouter salle:" textFill="#eb1e36" textOverrun="CLIP">
+                     <font>
+                        <Font name="Calibri" size="27.0" />
+                     </font>
+                  </Label>
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
