@@ -7,6 +7,7 @@
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -32,7 +33,7 @@
                         <Image url="@../css/a.png" />
                      </image>
                   </ImageView>
-                  <JFXListView fx:id="table" layoutX="9.0" layoutY="48.0" prefHeight="319.0" prefWidth="605.0" />
+                  <JFXListView fx:id="table" layoutX="9.0" layoutY="48.0" onMouseClicked="#findID" prefHeight="319.0" prefWidth="605.0" />
                   <JFXTextField fx:id="search" layoutX="275.0" layoutY="14.0" prefHeight="25.0" prefWidth="196.0" promptText="search" />
                   <FontAwesomeIconView glyphName="SEARCH" layoutX="437.0" layoutY="30.0" />
                   <JFXTextField fx:id="text_id" layoutX="46.0" layoutY="269.0" visible="false" />
@@ -55,6 +56,7 @@
                      </font>
                   </Label>
                   <JFXButton fx:id="retour" layoutX="542.0" layoutY="14.0" text="Retour" />
+                  <TextField fx:id="txtid" layoutX="471.0" layoutY="375.0" opacity="0.0" prefHeight="12.0" prefWidth="19.0" />
                </children>
             </AnchorPane>
          </children>

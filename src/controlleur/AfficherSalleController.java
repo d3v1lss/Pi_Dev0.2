@@ -27,6 +27,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.SalleServices;
 
@@ -54,6 +56,8 @@ public class AfficherSalleController implements Initializable {
     private JFXButton retour;
     @FXML
     private Button modifSalle;
+    @FXML
+    private TextField txtid;
 
     /**
      * Initializes the controller class.
@@ -141,8 +145,24 @@ public class AfficherSalleController implements Initializable {
         pstm.executeUpdate();
     }
 
+    
+
     @FXML
-    private void delete(ActionEvent event) {
+    private void findID(MouseEvent event) {
+                
+    }
+    
+    
+    
+    @FXML
+    private void delete(ActionEvent event) throws SQLException {
+        
+        String idS = txtid.getText();
+         int id_salle =Integer.parseInt(idS);
+         String query = "DELETE FROM SERVICE where id_salle ='"+txtid.getText()+"' " ;
+        PreparedStatement pstm     =   cnxC.prepareStatement(query);
+        pstm.executeUpdate();
+
     }
 
 }

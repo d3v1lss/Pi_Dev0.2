@@ -23,9 +23,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import services.SalleServices;
 import utils.DbConnexion;
+
 
 /**
  * FXML Controller class
@@ -42,6 +44,8 @@ public class ModifierSalleController implements Initializable {
     private JFXTextField txtNomSalle;
     @FXML
     private JFXTextField txtCapaciteSalle;
+    @FXML
+    private TextField txtid;
 
     /**
      * Initializes the controller class.
@@ -82,10 +86,15 @@ public class ModifierSalleController implements Initializable {
         Ss.modifierSalle(ppa);
         Parent root = FXMLLoader.load(getClass().getResource("/VIEWS/AfficherSalle.fxml"));
          */
+        
+        
+         
+         
         String nom = txtNomSalle.getText();
         int capacite = Integer.parseInt(txtCapaciteSalle.getText());
         
-        Salle s = new Salle();
+        Salle s = new Salle(capacite, nom);
+        
         
         s.setNom(nom);
         s.setCapacite(capacite);
@@ -95,10 +104,11 @@ public class ModifierSalleController implements Initializable {
         
         try {
 
-   String req = "UPDATE salle SET nom=?, capacite=? "; 
+   String req = "UPDATE salle SET nom=?, capacite=?  "; 
    PreparedStatement stm     =   cnx.prepareStatement(req);
      stm.setString(1, s.getNom());
     stm.setInt(2, s.getCapacite());
+    
     stm.executeUpdate(); 
 } 
          catch (SQLException ex) 
