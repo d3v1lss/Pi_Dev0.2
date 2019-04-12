@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
@@ -27,8 +28,8 @@
                </image>
             </ImageView>
             <JFXListView fx:id="table" layoutX="9.0" layoutY="48.0" prefHeight="319.0" prefWidth="605.0" />
-            <JFXTextField fx:id="search" layoutX="226.0" layoutY="369.0" prefHeight="25.0" prefWidth="380.0" promptText="search" />
-            <FontAwesomeIconView glyphName="SEARCH" layoutX="594.0" layoutY="385.0" />
+            <JFXTextField fx:id="search" layoutX="212.0" layoutY="15.0" prefHeight="25.0" prefWidth="260.0" promptText="search" />
+            <FontAwesomeIconView glyphName="SEARCH" layoutX="442.0" layoutY="33.0" text="" />
             <JFXTextField fx:id="text_id" layoutX="46.0" layoutY="269.0" visible="false" />
             <Button layoutX="113.0" layoutY="372.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" text="Supprimer">
                <font>
@@ -47,6 +48,7 @@
                   <Font name="Arial" size="39.0" />
                </font>
             </Label>
+            <JFXButton fx:id="retourFilm" layoutX="543.0" layoutY="16.0" text="Retour" />
          </children>
       </AnchorPane>
    </children>

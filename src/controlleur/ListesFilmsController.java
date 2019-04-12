@@ -5,6 +5,7 @@
  */
 package controlleur;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -41,6 +42,8 @@ public class ListesFilmsController implements Initializable {
     private JFXTextField text_id;
     @FXML
     private Button modif;
+    @FXML
+    private JFXButton retourFilm;
 
     /**
      * Initializes the controller class.
@@ -49,6 +52,22 @@ public class ListesFilmsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
+        retourFilm.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/AccueilCinema.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
         
     }    
     
