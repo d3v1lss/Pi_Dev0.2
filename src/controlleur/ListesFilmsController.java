@@ -24,6 +24,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
 import javafx.stage.Stage;
 import services.FilmServices;
 
@@ -53,6 +54,17 @@ public class ListesFilmsController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        
+        try {
+            services.FilmServices Fs = new services.FilmServices();
+
+            table.getItems().setAll(Fs.FetchAll());
+            table.setCellFactory(lv -> new ListeFilm());
+        } catch (SQLException ex) {
+            Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         
         retourFilm.setOnAction(event->{
             try {
@@ -88,6 +100,26 @@ public class ListesFilmsController implements Initializable {
                 Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
+        
+        /*
+        modif.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/UpdateFilm.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+*/
 
         
     }    

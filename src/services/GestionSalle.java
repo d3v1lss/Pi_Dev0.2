@@ -54,11 +54,12 @@ public class GestionSalle {
         String req = "SELECT * FROM salle";
         ResultSet resultat = stm.executeQuery(req);
         while (resultat.next()) {
+            System.out.println(resultat.getInt("id"));
             int id = resultat.getInt("id");
             String nom = resultat.getString("nom");
             int capacite = resultat.getInt("capacite");
 
-            ListSalle.add(new Salle(capacite, nom));
+            ListSalle.add(new Salle(id,capacite, nom));
 
         }
 

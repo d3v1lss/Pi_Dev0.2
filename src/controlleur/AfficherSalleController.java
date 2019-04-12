@@ -7,6 +7,7 @@ package controlleur;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import static controlleur.ModifierSalleController.idSalle;
 
 import entities.Salle;
 import java.io.IOException;
@@ -77,14 +78,13 @@ public class AfficherSalleController implements Initializable {
         }
 
         //Redirection
-        
-        addFilm.setOnAction(event->{
+        addFilm.setOnAction(event -> {
             try {
-                Parent parent2=FXMLLoader
+                Parent parent2 = FXMLLoader
                         .load(getClass().getResource("/views/ajouterSalle.fxml"));
-                
-                Scene scene=new Scene(parent2);
-                Stage stage=(Stage) ((Node) event.getSource())
+
+                Scene scene = new Scene(parent2);
+                Stage stage = (Stage) ((Node) event.getSource())
                         .getScene().getWindow();
                 stage.setScene(scene);
                 stage.setTitle("Interface 2");
@@ -94,33 +94,33 @@ public class AfficherSalleController implements Initializable {
                 Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
-        
-        
-        modifSalle.setOnAction(event->{
+
+        modifSalle.setOnAction(event -> {
             try {
-                Parent parent2=FXMLLoader
+                ModifierSalleController.idSalle = table.getSelectionModel().getSelectedItem().getId();
+                Parent parent2 = FXMLLoader
                         .load(getClass().getResource("/views/modifierSalle.fxml"));
-                
-                Scene scene=new Scene(parent2);
-                Stage stage=(Stage) ((Node) event.getSource())
+
+                Scene scene = new Scene(parent2);
+                Stage stage = (Stage) ((Node) event.getSource())
                         .getScene().getWindow();
                 stage.setScene(scene);
                 stage.setTitle("Interface 2");
+
                 stage.show();
 
             } catch (IOException ex) {
                 Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
-        retour.setOnAction(event->{
+
+        retour.setOnAction(event -> {
             try {
-                Parent parent2=FXMLLoader
+                Parent parent2 = FXMLLoader
                         .load(getClass().getResource("/views/accueilCinema.fxml"));
-                
-                Scene scene=new Scene(parent2);
-                Stage stage=(Stage) ((Node) event.getSource())
+
+                Scene scene = new Scene(parent2);
+                Stage stage = (Stage) ((Node) event.getSource())
                         .getScene().getWindow();
                 stage.setScene(scene);
                 stage.setTitle("Interface 2");
@@ -130,38 +130,22 @@ public class AfficherSalleController implements Initializable {
                 Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
-        
-        
-        
+
     }
-
-    
-
-    private void supprimer(ActionEvent event) throws SQLException {
-        String query = "DELETE FROM salle where id_service ='"+text_id.getText()+"' " ;
-        PreparedStatement pstm     =   cnxC.prepareStatement(query);
-        pstm.executeUpdate();
-    }
-
-    
 
     @FXML
     private void findID(MouseEvent event) {
-        
-                
+
     }
-    
-    
-    
+
     @FXML
     private void delete(ActionEvent event) throws SQLException {
-        
-        String idS = txtid.getText();
-         int id_salle =Integer.parseInt(idS);
-         String query = "DELETE FROM SERVICE where id_salle ='"+txtid.getText()+"' " ;
-        PreparedStatement pstm     =   cnxC.prepareStatement(query);
-        pstm.executeUpdate();
+        int idUp = idSalle;
+
+        String query = "DELETE FROM salle where where id = ? ' ";
+        PreparedStatement stm = cnx.prepareStatement(query);
+        stm.setInt(1, idUp);
+        stm.executeUpdate();
 
     }
 

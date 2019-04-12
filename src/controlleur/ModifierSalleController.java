@@ -39,6 +39,7 @@ import utils.DbConnexion;
 public class ModifierSalleController implements Initializable {
 
     Connection cnx;
+    public static int idSalle;
 
     @FXML
     private JFXButton RetourModifSalle;
@@ -58,6 +59,8 @@ public class ModifierSalleController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
+        
+        System.out.println(idSalle);
         RetourModifSalle.setOnAction(event -> {
             try {
                 Parent parent2 = FXMLLoader
@@ -78,23 +81,12 @@ public class ModifierSalleController implements Initializable {
 
     @FXML
     private void modifier(ActionEvent event) throws SQLException, IOException {
-        /*
-        SalleServices Ss = new SalleServices();
-        Salle ppa = new Salle();
-        ppa.setNom(nom.getText());
-        ppa.setCapacite(Integer.parseInt(capacite.getText()));
-        Ss.modifierSalle(ppa);
-        Parent root = FXMLLoader.load(getClass().getResource("/VIEWS/AfficherSalle.fxml"));
-         */
-        
-        
-         
-        
-        String nom = txtNomSalle.getText();
+                                 
+                String nom = txtNomSalle.getText();
         int capacite = Integer.parseInt(txtCapaciteSalle.getText());
         
         Salle s = new Salle(capacite, nom);
-        
+        int idUp=idSalle;
         
         
         s.setNom(nom);
@@ -105,11 +97,11 @@ public class ModifierSalleController implements Initializable {
         
         try {
 
-   String req = "UPDATE salle SET nom=?, capacite=? where id = idSalle "; 
+   String req = "UPDATE salle SET nom=?, capacite=? where id = ? "; 
    PreparedStatement stm     =   cnx.prepareStatement(req);
      stm.setString(1, s.getNom());
     stm.setInt(2, s.getCapacite());
-    
+    stm.setInt(3, idUp);
     stm.executeUpdate(); 
 } 
          catch (SQLException ex) 
@@ -117,8 +109,11 @@ public class ModifierSalleController implements Initializable {
              Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
          }
         
-        
-
+       
     }
+    
+    
+    
+    
 
 }

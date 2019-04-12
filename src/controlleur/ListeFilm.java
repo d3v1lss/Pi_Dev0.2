@@ -5,6 +5,7 @@
  */
 package controlleur;
 
+import entities.Film;
 import entities.Salle;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
@@ -21,7 +22,7 @@ import javafx.scene.layout.RowConstraints;
  *
  * @author Houssem
  */
-public class listeFilm extends ListCell<Salle> {
+public class ListeFilm extends ListCell<Film> {
 
     private final GridPane gridPane = new GridPane();
 
@@ -88,7 +89,7 @@ public class listeFilm extends ListCell<Salle> {
         return "listeFilm{" + "gridPane=" + gridPane + ", Nom=" + Nom + ", discription=" + discription + ", duree=" + duree + ", datesotie=" + datesotie + ", image=" + image + ", txtNom=" + txtNom + ", txtdiscription=" + txtdiscription + ", txtduree=" + txtduree + ", txtdatesotie=" + txtdatesotie + ", txtimage=" + txtimage + '}';
     }
 
-    public listeFilm() {
+    public ListeFilm() {
 
         GridPane.setConstraints(txtimage, 0, 0);
         GridPane.setConstraints(txtNom, 0, 1);

@@ -27,6 +27,14 @@ public class Salle {
         this.capacite = capacite;
         this.nom = nom;
     }
+
+    public Salle(int id, int capacite, String nom) {
+        this.id = id;
+        this.capacite = capacite;
+        this.nom = nom;
+    }
+    
+    
     
     
     //Getters and Setters 
