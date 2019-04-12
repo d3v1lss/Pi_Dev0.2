@@ -5,6 +5,7 @@
  */
 package services;
 
+import controlleur.ModifierSalleController;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -56,14 +57,20 @@ public class SalleServices {
      
      
      
-     public static int    update(Salle s ) throws SQLException  {
-        int st=0;
+     public void    update(Salle s )  {
+        try {
+
    String req = "UPDATE salle SET nom=?, capacite=? "; 
    PreparedStatement stm     =   cnx.prepareStatement(req);
      stm.setString(1, s.getNom());
     stm.setInt(2, s.getCapacite());
-    st=stm.executeUpdate();     
-    return st ; 
+    stm.executeUpdate(); 
+} 
+         catch (SQLException ex) 
+         {
+             Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
+         }    
+    
 }
     
      
