@@ -44,6 +44,8 @@ public class ListesFilmsController implements Initializable {
     private Button modif;
     @FXML
     private JFXButton retourFilm;
+    @FXML
+    private Button AjoutFilm;
 
     /**
      * Initializes the controller class.
@@ -68,6 +70,25 @@ public class ListesFilmsController implements Initializable {
                 Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
+        
+        AjoutFilm.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/ajoutFilm.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+
         
     }    
     

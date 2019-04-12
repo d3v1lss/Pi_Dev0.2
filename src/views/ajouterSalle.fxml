@@ -24,6 +24,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Button layoutX="509.0" layoutY="344.0" mnemonicParsing="false" onAction="#ajoutSalle" text="Ajouter" />
+      <Button layoutX="450.0" layoutY="344.0" mnemonicParsing="false" onAction="#ajoutSalle" text="Ajouter" />
+      <Button fx:id="RetourListeSalle" layoutX="526.0" layoutY="344.0" mnemonicParsing="false" text="Annuler" />
    </children>
 </AnchorPane>

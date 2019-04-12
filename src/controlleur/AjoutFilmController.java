@@ -13,10 +13,16 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
@@ -25,6 +31,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
 import services.FilmServices;
@@ -51,13 +58,35 @@ public class AjoutFilmController implements Initializable {
     private DatePicker txt_dateP;
     @FXML
     private TextArea txt_desc;
+    @FXML
+    private Button RetourListeFilm;
+    
+    
     public AjoutFilmController() {
         cnx = DbConnexion.getInstance().getConnection();
     }    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // redirection
+        
+        RetourListeFilm.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/listesFilms.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AjoutFilmController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
     }    
     
     
