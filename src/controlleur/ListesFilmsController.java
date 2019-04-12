@@ -57,7 +57,7 @@ public class ListesFilmsController implements Initializable {
         retourFilm.setOnAction(event->{
             try {
                 Parent parent2=FXMLLoader
-                        .load(getClass().getResource("/views/AccueilCinema.fxml"));
+                        .load(getClass().getResource("/views/accueilCinema.fxml"));
                 
                 Scene scene=new Scene(parent2);
                 Stage stage=(Stage) ((Node) event.getSource())

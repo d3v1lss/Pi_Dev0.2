@@ -28,8 +28,8 @@ public class Devils_0 extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilCinema.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilCinema.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/accueilCinema.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/views/ajoutFilm.fxml"));
         Scene scene = new Scene(root);
 
         stage.setScene(scene);

@@ -54,7 +54,7 @@
                         <Font name="Arial" size="39.0" />
                      </font>
                   </Label>
-                  <JFXButton fx:id="retour" layoutX="542.0" layoutY="14.0" text="Retour" />
+                  <JFXButton fx:id="retour" layoutX="544.0" layoutY="14.0" text="retour" />
                </children>
             </AnchorPane>
          </children>
