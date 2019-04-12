@@ -5,7 +5,6 @@
  */
 package controlleur;
 
-import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import entities.club;
 import java.net.URL;
@@ -21,11 +20,8 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
+
 import services.GestionClub;
 import utils.DbConnexion;
 
@@ -66,5 +62,7 @@ public class AfficherClubController implements Initializable {
     @FXML
     private void updateclubb(ActionEvent event) {
     }
+
+    
 
 }

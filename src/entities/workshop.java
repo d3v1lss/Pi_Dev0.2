@@ -24,6 +24,9 @@ public class workshop {
     private Date datefin;
     private String discription;
 
+    public workshop() {
+    }
+
     public workshop(int user_id, int club_id, String nom, int nombreplaces, Date datedebut, Date datefin, String discription) {
         this.user_id = user_id;
         this.club_id = club_id;
@@ -41,8 +44,6 @@ public class workshop {
         this.datefin = datefin;
         this.discription = discription;
     }
-
-    
 
     @Override
     public int hashCode() {
@@ -138,5 +139,4 @@ public class workshop {
         return "workshop{" + "id=" + id + ", user_id=" + user_id + ", club_id=" + club_id + ", nom=" + nom + ", nombreplaces=" + nombreplaces + ", datedebut=" + datedebut + ", datefin=" + datefin + ", discription=" + discription + '}';
     }
 
-   
 }

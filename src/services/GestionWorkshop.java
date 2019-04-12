@@ -5,6 +5,7 @@
  */
 package services;
 
+
 import entities.workshop;
 import java.sql.Connection;
 import java.sql.Date;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import static services.GestionClub.cnx;
 
 import utils.DbConnexion;
 
@@ -99,4 +101,22 @@ public class GestionWorkshop {
         return ListWorkshop;
 
     }
+
+    public void upadte(workshop w) {
+        String req = "update `workshop` SET `nom`=?, `nombreplaces`=?,`discription`=?,where id=? ";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, w.getNom());
+            preparedStatement.setInt(2, w.getNombreplaces());
+            preparedStatement.setString(3, w.getDiscription());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionWorkshop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+   
 }

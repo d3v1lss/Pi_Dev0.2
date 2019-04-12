@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,9 +13,9 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.AjouterSalleController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.ModifierMonCLubController">
     <stylesheets>
-        <URL value="@/css/ajoutersalle.css" />
+        <URL value="@/css/modifiermonclub.css" />
     </stylesheets>
    <children>
       <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass">
@@ -46,23 +47,32 @@
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="4.0" prefHeight="17.0" prefWidth="236.0" text="capasite :" textFill="#171717" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="2">
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="4.0" prefHeight="17.0" prefWidth="236.0" text="Mail :" textFill="#171717" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="2">
                      <font>
                         <Font name="Arial" size="18.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txt_nom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField fx:id="txt_cap" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <JFXButton onAction="#ajoutersalle" prefHeight="25.0" prefWidth="208.0" text="Ajouter" GridPane.rowIndex="5">
+                  <Label alignment="TOP_LEFT" contentDisplay="TOP" lineSpacing="4.0" prefHeight="17.0" prefWidth="201.0" text="Discription :" textFill="#171717" textOverrun="CENTER_ELLIPSIS" GridPane.rowIndex="3">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="Arial" size="18.0" />
                      </font>
-                  </JFXButton>
-                  <Label prefHeight="17.0" prefWidth="204.0" text="Ajouter salle:" textFill="#eb1e36" textOverrun="CLIP">
+                  </Label>
+                  <Label prefHeight="17.0" prefWidth="205.0" text="Activité :" textFill="#171717" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="txt_dis" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <TextField fx:id="txt_nom" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txt_mail" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txt_act" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Label prefHeight="17.0" prefWidth="204.0" text="Modifier Club :" textFill="#eb1e36" textOverrun="CLIP">
                      <font>
                         <Font name="Calibri" size="27.0" />
                      </font>
                   </Label>
+                  <Button mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="228.0" text="Modifier" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="224.0" text="Retour" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
          </children>

@@ -27,7 +27,6 @@ public class ListWorkshop extends ListCell<workshop> {
 
     private final GridPane gridPane = new GridPane();
 
-    private final Label user_id = new Label();
     private final Label club_id = new Label();
     private final Label nom = new Label();
     private final Label nombreplaces = new Label();
@@ -35,7 +34,6 @@ public class ListWorkshop extends ListCell<workshop> {
     private final Label datefin = new Label();
     private final Label discription = new Label();
 
-    private final Label txt_user_id = new Label();
     private final Label txt_club_id = new Label();
     private final Label txt_nom = new Label();
     private final Label txt_nombreplaces = new Label();
@@ -47,10 +45,6 @@ public class ListWorkshop extends ListCell<workshop> {
 
     public GridPane getGridPane() {
         return gridPane;
-    }
-
-    public Label getUser_id() {
-        return user_id;
     }
 
     public Label getClub_id() {
@@ -75,10 +69,6 @@ public class ListWorkshop extends ListCell<workshop> {
 
     public Label getDiscription() {
         return discription;
-    }
-
-    public Label getTxt_user_id() {
-        return txt_user_id;
     }
 
     public Label getTxt_club_id() {
@@ -111,7 +101,6 @@ public class ListWorkshop extends ListCell<workshop> {
 
     public ListWorkshop() {
 
-        GridPane.setConstraints(txt_user_id, 0, 0);
         GridPane.setConstraints(txt_club_id, 0, 1);
         GridPane.setConstraints(txt_nom, 0, 2);
         GridPane.setConstraints(txt_nombreplaces, 0, 3);
@@ -119,7 +108,6 @@ public class ListWorkshop extends ListCell<workshop> {
         GridPane.setConstraints(txt_datefin, 0, 5);
         GridPane.setConstraints(txt_discription, 0, 6);
 
-        txt_user_id.setText("user : ");
         txt_club_id.setText("club : ");
         txt_nom.setText("Nom : ");
         txt_nombreplaces.setText("Nbre : ");
@@ -127,7 +115,6 @@ public class ListWorkshop extends ListCell<workshop> {
         txt_datefin.setText("date fin : ");
         txt_discription.setText("Description : ");
 
-        GridPane.setConstraints(user_id, 1, 0);
         GridPane.setConstraints(club_id, 1, 1);
         GridPane.setConstraints(nom, 1, 2);
         GridPane.setConstraints(nombreplaces, 1, 3);
@@ -148,8 +135,8 @@ public class ListWorkshop extends ListCell<workshop> {
         gridPane.setVgap(3);
 
         gridPane.getChildren().setAll(
-                txt_user_id, txt_club_id, txt_nom, txt_nombreplaces, txt_datedebut, txt_datefin, txt_discription,
-                user_id, club_id, nom, nombreplaces, datedebut, datefin, discription);
+                txt_club_id, txt_nom, txt_nombreplaces, txt_datedebut, txt_datefin, txt_discription,
+                club_id, nom, nombreplaces, datedebut, datefin, discription);
 
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
@@ -167,7 +154,6 @@ public class ListWorkshop extends ListCell<workshop> {
         setContentDisplay(ContentDisplay.LEFT);
         if (!empty && item != null) {
 
-            user_id.setText(String.valueOf(item.getUser_id()));
             club_id.setText(String.valueOf(item.getClub_id()));
             nom.setText(String.valueOf(item.getNom()));
             nombreplaces.setText(String.valueOf(item.getNombreplaces()));

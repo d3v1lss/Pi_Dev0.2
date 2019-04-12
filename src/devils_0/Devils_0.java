@@ -6,13 +6,11 @@
 package devils_0;
 
 import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+
 import javafx.stage.Stage;
 
 /**
@@ -25,14 +23,14 @@ public class Devils_0 extends Application {
     public void start(Stage stage) throws Exception {
 
         // Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherClub.fxml"));
-           Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherSalle.fxml"));
+        // Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherSalle.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherMonClub.fxml"));
         // Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterClub.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterWorkshop.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherWorkshop.fxml"));
         //Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherMesWorkshop.fxml"));
-       // Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilClub.fxml"));
-         //Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterSalle.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilClub.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterSalle.fxml"));
 
         Scene scene = new Scene(root);
 

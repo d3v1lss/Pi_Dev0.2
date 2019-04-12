@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/devils_0/Devils_0.java</file>
-            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/controlleur/AfficherMonClubController.java</file>
-            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/controlleur/AjouterWorkshopController.java</file>
+            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/controlleur/AfficherMesWorkshopController.java</file>
+            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/services/GestionWorkshop.java</file>
+            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/services/GestionClub.java</file>
+            <file>file:/C:/Users/HCHAICHI/Documents/NetBeansProjects/Pi_Dev0.2/src/controlleur/ModifierMonCLubController.java</file>
         </group>
     </open-files>
 </project-private>

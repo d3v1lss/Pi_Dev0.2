@@ -24,6 +24,7 @@ import utils.DbConnexion;
 public class GestionClub {
 
     public static Connection cnx;
+    private Object connexion;
 
     public GestionClub() throws SQLException {
         cnx = DbConnexion.getInstance().getConnection();
@@ -75,7 +76,7 @@ public class GestionClub {
 
     public ObservableList<club> MonClub() throws SQLException {
 
-        ObservableList<club> ListClub = FXCollections.observableArrayList();
+        ObservableList<club> MonClub = FXCollections.observableArrayList();
         Statement stm = cnx.createStatement();
         String req = "SELECT * FROM club where president=7 ";
         ResultSet resultat = stm.executeQuery(req);
@@ -89,11 +90,30 @@ public class GestionClub {
             int President = resultat.getInt("president");
             String Statut = resultat.getString("statut");
 
-            ListClub.add(new club(nom, mail, discription, nbrparticipant, activite, President, Statut));
+            MonClub.add(new club(nom, mail, discription, nbrparticipant, activite, President, Statut));
 
         }
 
-        return ListClub;
+        return MonClub;
 
     }
+
+    public void update(club C) {
+
+        String req = "update `club` SET `nom`=?, `mail`=?,`discription`=?,`activite`=? "
+                + "where president=7";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, C.getNom());
+            preparedStatement.setString(2, C.getMail());
+            preparedStatement.setString(3, C.getDiscription());
+            preparedStatement.setString(4, C.getActivite());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionClub.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

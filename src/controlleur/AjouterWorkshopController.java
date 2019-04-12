@@ -80,6 +80,7 @@ public class AjouterWorkshopController implements Initializable {
         workshop w = new workshop(Nom, 21, debut, fin, description);
         GestionWorkshop gw = new GestionWorkshop();
         gw.ajouter(w);
+
         new Alert(Alert.AlertType.INFORMATION, "sucess").show();
     }
 

@@ -39,6 +39,8 @@ public class AfficherMonClubController implements Initializable {
     @FXML
     private Button txt_workshop;
 
+    private static club club = new club();
+
     /**
      * Initializes the controller class.
      */
@@ -48,7 +50,7 @@ public class AfficherMonClubController implements Initializable {
             GestionClub gc = new GestionClub();
 
             table.getItems().setAll(gc.MonClub());
-            table.setCellFactory(lv -> new ListClub());
+            table.setCellFactory(lv -> new MonClub());
         } catch (SQLException ex) {
             Logger.getLogger(AfficherMonClubController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -66,6 +68,42 @@ public class AfficherMonClubController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AfficherMonClubController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void modifierclub(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ModifierMonCLub.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherMonClubController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void mesmembres(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherMesWorkshop.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherMonClubController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static club getClub() {
+        return club;
+    }
+
+    public void setClub(club club) {
+        this.club = club;
     }
 
 }
