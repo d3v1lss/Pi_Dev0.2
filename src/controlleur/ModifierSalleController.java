@@ -44,8 +44,6 @@ public class ModifierSalleController implements Initializable {
     private JFXTextField txtNomSalle;
     @FXML
     private JFXTextField txtCapaciteSalle;
-    @FXML
-    private TextField txtid;
 
     /**
      * Initializes the controller class.
