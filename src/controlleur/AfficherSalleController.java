@@ -5,6 +5,7 @@
  */
 package controlleur;
 
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
 import entities.Salle;
@@ -47,6 +48,10 @@ public class AfficherSalleController implements Initializable {
     private JFXTextField search;
     @FXML
     private JFXTextField text_id;
+    @FXML
+    private JFXButton addFilm;
+    @FXML
+    private JFXButton retour;
 
     /**
      * Initializes the controller class.
@@ -66,6 +71,44 @@ public class AfficherSalleController implements Initializable {
             Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        //Redirection
+        
+        addFilm.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/ajouterSalle.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        
+        
+        retour.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/AccueilCinema.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
         
     }
 
