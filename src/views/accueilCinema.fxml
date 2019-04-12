@@ -18,7 +18,7 @@
          </image>
       </ImageView>
       <Button fx:id="Films" layoutX="406.0" layoutY="175.0" mnemonicParsing="false" text="Films" />
-      <Button fx:id="salle" layoutX="134.0" layoutY="175.0" mnemonicParsing="false" text="Salles Cinema" />
       <JFXButton layoutX="490.0" layoutY="31.0" text="Déconnexion" />
+      <Button fx:id="salle" layoutX="151.0" layoutY="175.0" mnemonicParsing="false" text="salle" />
    </children>
 </AnchorPane>

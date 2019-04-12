@@ -55,7 +55,7 @@ public class ListeSalleController implements Initializable {
     }    
 
     @FXML
-    private void modiferSalle(ActionEvent event) throws IOException  {
+    private void update(ActionEvent event)  {
         
        
     }

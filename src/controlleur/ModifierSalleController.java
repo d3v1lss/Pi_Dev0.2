@@ -5,8 +5,10 @@
  */
 package controlleur;
 
+import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+
 import entities.Salle;
 import java.io.IOException;
 import java.net.URL;
@@ -87,11 +89,12 @@ public class ModifierSalleController implements Initializable {
         
         
          
-         
+        
         String nom = txtNomSalle.getText();
         int capacite = Integer.parseInt(txtCapaciteSalle.getText());
         
         Salle s = new Salle(capacite, nom);
+        
         
         
         s.setNom(nom);
@@ -102,7 +105,7 @@ public class ModifierSalleController implements Initializable {
         
         try {
 
-   String req = "UPDATE salle SET nom=?, capacite=?  "; 
+   String req = "UPDATE salle SET nom=?, capacite=? where id = idSalle "; 
    PreparedStatement stm     =   cnx.prepareStatement(req);
      stm.setString(1, s.getNom());
     stm.setInt(2, s.getCapacite());
