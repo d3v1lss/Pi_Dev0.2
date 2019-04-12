@@ -36,7 +36,7 @@
                   <Font size="10.0" />
                </font>
             </Button>
-            <Button fx:id="modif" layoutX="24.0" layoutY="372.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: FF1940;" text="Modifier">
+            <Button fx:id="modifFilm" layoutX="24.0" layoutY="372.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: FF1940;" text="Modifier">
                <font>
                   <Font size="10.0" />
                </font>

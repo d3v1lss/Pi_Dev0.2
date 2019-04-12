@@ -52,6 +52,8 @@ public class AfficherSalleController implements Initializable {
     private JFXButton addFilm;
     @FXML
     private JFXButton retour;
+    @FXML
+    private Button modifSalle;
 
     /**
      * Initializes the controller class.
@@ -77,6 +79,25 @@ public class AfficherSalleController implements Initializable {
             try {
                 Parent parent2=FXMLLoader
                         .load(getClass().getResource("/views/ajouterSalle.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        
+        
+        modifSalle.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/modifierSalle.fxml"));
                 
                 Scene scene=new Scene(parent2);
                 Stage stage=(Stage) ((Node) event.getSource())
