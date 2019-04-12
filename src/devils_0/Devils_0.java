@@ -25,16 +25,13 @@ import javafx.scene.Parent;
  * @author Info-Sys
  */
 public class Devils_0 extends Application {
-    
-   @Override
-    public void start(Stage stage) throws Exception {
-       //FXMLLoader loader = new FXMLLoader(getClass().getResource("DivProduit.fxml"));
-       Parent root = FXMLLoader.load(getClass().getResource("/views/ListeSalleUser.fxml"));
-     //  Parent root = FXMLLoader.load(getClass().getResource("HomePage.fxml"));
 
-        
+    @Override
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilCinema.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilCinema.fxml"));
         Scene scene = new Scene(root);
-      
+
         stage.setScene(scene);
         stage.show();
     }
@@ -44,8 +41,7 @@ public class Devils_0 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        
-        
+
     }
-    
+
 }

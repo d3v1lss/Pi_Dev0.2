@@ -51,19 +51,7 @@ public class SalleServices {
     }
     
     
-     public void  deleteSalle(int id) {
-    String req = "Delete from produit where id=?";
-        PreparedStatement preparedStatement;
-        try {
-            preparedStatement = cnx.prepareStatement(req);
-            preparedStatement.setInt(1, id);
-            preparedStatement.execute();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(SalleServices.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-       }
+     
      
      
      

@@ -5,9 +5,11 @@
  */
 package controlleur;
 
+
 import entities.Salle;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
@@ -19,23 +21,17 @@ import javafx.scene.layout.RowConstraints;
 
 /**
  *
- * @author Houssem
+ * @author HCHAICHI
  */
-public class listeFilm extends ListCell<Salle> {
+public class ListSalle extends ListCell<Salle> {
 
     private final GridPane gridPane = new GridPane();
 
-    private final Label Nom = new Label();
-    private final Label discription = new Label();
-    private final Label duree = new Label();
-    private final Label datesotie = new Label();
-    private final Label image = new Label();
+    private final Label nom = new Label();
+    private final Label capacite = new Label();
 
+    private final Label txt_capacite = new Label();
     private final Label txtNom = new Label();
-    private final Label txtdiscription = new Label();
-    private final Label txtduree = new Label();
-    private final Label txtdatesotie = new Label();
-    private final Label txtimage = new Label();
 
     private final AnchorPane content = new AnchorPane();
 
@@ -44,69 +40,35 @@ public class listeFilm extends ListCell<Salle> {
     }
 
     public Label getNom() {
-        return Nom;
+        return nom;
     }
 
-    public Label getDiscription() {
-        return discription;
+    public Label getCapacite() {
+        return capacite;
     }
 
-    public Label getDuree() {
-        return duree;
-    }
-
-    public Label getDatesotie() {
-        return datesotie;
-    }
-
-    public Label getImage() {
-        return image;
+    public Label getTxt_capacite() {
+        return txt_capacite;
     }
 
     public Label getTxtNom() {
         return txtNom;
     }
 
-    public Label getTxtdiscription() {
-        return txtdiscription;
+    public AnchorPane getContent() {
+        return content;
     }
 
-    public Label getTxtduree() {
-        return txtduree;
-    }
+    public ListSalle() {
 
-    public Label getTxtdatesotie() {
-        return txtdatesotie;
-    }
+        GridPane.setConstraints(txtNom, 0, 0);
+        GridPane.setConstraints(txt_capacite, 0, 1);
 
-    public Label getTxtimage() {
-        return txtimage;
-    }
-
-    @Override
-    public String toString() {
-        return "listeFilm{" + "gridPane=" + gridPane + ", Nom=" + Nom + ", discription=" + discription + ", duree=" + duree + ", datesotie=" + datesotie + ", image=" + image + ", txtNom=" + txtNom + ", txtdiscription=" + txtdiscription + ", txtduree=" + txtduree + ", txtdatesotie=" + txtdatesotie + ", txtimage=" + txtimage + '}';
-    }
-
-    public listeFilm() {
-
-        GridPane.setConstraints(txtimage, 0, 0);
-        GridPane.setConstraints(txtNom, 0, 1);
-        GridPane.setConstraints(txtduree, 0, 2);
-        GridPane.setConstraints(txtdatesotie, 0, 3);
-        GridPane.setConstraints(txtdiscription, 0, 4);
-
-        txtimage.setText("image : ");
         txtNom.setText("Nom : ");
-        txtduree.setText("discription : ");
-        txtdatesotie.setText("duree : ");
-        txtdiscription.setText("datesotie : ");
+        txt_capacite.setText("capacite : ");
 
-        GridPane.setConstraints(image, 1, 0);
-        GridPane.setConstraints(Nom, 1, 1);
-        GridPane.setConstraints(duree, 1, 2);
-        GridPane.setConstraints(datesotie, 1, 3);
-        GridPane.setConstraints(discription, 1, 4);
+        GridPane.setConstraints(nom, 1, 0);
+        GridPane.setConstraints(capacite, 1, 1);
 
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.CENTER, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
@@ -120,7 +82,7 @@ public class listeFilm extends ListCell<Salle> {
         gridPane.setHgap(3);
         gridPane.setVgap(3);
 
-        gridPane.getChildren().setAll(txtimage, txtNom, txtduree, txtdatesotie, txtdiscription, image, Nom, duree, datesotie, discription);
+        gridPane.getChildren().setAll(txtNom, txt_capacite, nom, capacite);
 
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
@@ -128,7 +90,23 @@ public class listeFilm extends ListCell<Salle> {
         AnchorPane.setRightAnchor(gridPane, 0d);
 
         content.getChildren().add(gridPane);
-
     }
 
+    protected void updateItem(Salle item, boolean empty) {
+
+        super.updateItem(item, empty);
+        setGraphic(null);
+        setText(null);
+        setContentDisplay(ContentDisplay.LEFT);
+        if (!empty && item != null) {
+
+            nom.setText(String.valueOf(item.getNom()));
+            capacite.setText(String.valueOf(item.getCapacite()));
+
+            setText(null);
+            setGraphic(content);
+            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        }
+
+    }
 }

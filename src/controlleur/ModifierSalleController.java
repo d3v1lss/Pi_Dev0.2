@@ -5,6 +5,7 @@
  */
 package controlleur;
 
+import com.jfoenix.controls.JFXTextField;
 import entities.Salle;
 import java.io.IOException;
 import java.net.URL;
@@ -15,8 +16,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 import services.SalleServices;
 
 /**
@@ -24,14 +23,12 @@ import services.SalleServices;
  *
  * @author Houssem
  */
-public class ModifSalleController implements Initializable {
+public class ModifierSalleController implements Initializable {
 
     @FXML
-    private TextField nomSalleUpdate;
+    private JFXTextField nom;
     @FXML
-    private TextField capaciteSalleUpdate;
-    @FXML
-    private Button modifier;
+    private JFXTextField capacite;
 
     /**
      * Initializes the controller class.
@@ -39,19 +36,21 @@ public class ModifSalleController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     @FXML
-    private void update(ActionEvent event) throws SQLException, IOException {
+    private void modifier(ActionEvent event) throws SQLException, IOException {
+
+        SalleServices Ss = new SalleServices();
+        Salle ppa = new Salle();
+        ppa.setNom(nom.getText());
+        ppa.setCapacite(Integer.parseInt(capacite.getText()));
+        Ss.modifierSalle(ppa);
+        Parent root = FXMLLoader.load(getClass().getResource("/VIEWS/AfficherSalle.fxml"));
         
-         SalleServices Ss = new SalleServices();
-         Salle salle =new Salle();
-           salle.setNom(nomSalleUpdate.getText());
-           salle.setCapacite(Integer.parseInt(capaciteSalleUpdate.getText()));
-           
-           Ss.modifierSalle(salle);
-            Parent root= FXMLLoader.load(getClass().getResource("/views/listeSalles.fxml"));
-               modifier.getScene().setRoot(root);
     }
     
+    
+    
+
 }
