@@ -42,11 +42,11 @@ public class ListesFilmsController implements Initializable {
     @FXML
     private JFXTextField text_id;
     @FXML
-    private Button modif;
-    @FXML
     private JFXButton retourFilm;
     @FXML
     private Button AjoutFilm;
+    @FXML
+    private Button modifFilm;
 
     /**
      * Initializes the controller class.
@@ -57,10 +57,13 @@ public class ListesFilmsController implements Initializable {
         
         
         try {
-            services.FilmServices Fs = new services.FilmServices();
+            services.FilmServices Fs = new FilmServices();
+            System.out.println("new service");
 
             table.getItems().setAll(Fs.FetchAll());
+            System.out.println("liste comptete");
             table.setCellFactory(lv -> new ListeFilm());
+            System.out.println("lam bda");
         } catch (SQLException ex) {
             Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
         }

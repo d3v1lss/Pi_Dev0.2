@@ -139,7 +139,7 @@ public class AfficherSalleController implements Initializable {
     }
 
     @FXML
-    private void delete(ActionEvent event) throws SQLException {
+    private void deleteSalle(ActionEvent event) throws SQLException {
         int idUp = idSalle;
 
         String query = "DELETE FROM salle where where id = ? ' ";

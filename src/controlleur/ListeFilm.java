@@ -6,9 +6,9 @@
 package controlleur;
 
 import entities.Film;
-import entities.Salle;
 import javafx.geometry.HPos;
 import javafx.geometry.VPos;
+import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.layout.AnchorPane;
@@ -129,6 +129,28 @@ public class ListeFilm extends ListCell<Film> {
         AnchorPane.setRightAnchor(gridPane, 0d);
 
         content.getChildren().add(gridPane);
+
+    }
+    
+    protected void updateItem(Film item, boolean empty) {
+
+        super.updateItem(item, empty);
+        setGraphic(null);
+        setText(null);
+        setContentDisplay(ContentDisplay.LEFT);
+        if (!empty && item != null) {
+
+            Nom.setText(String.valueOf(item.getNom()));
+            discription.setText(String.valueOf(item.getDiscription()));
+            duree.setText(String.valueOf(item.getDuree()));
+            datesotie.setText(String.valueOf(item.getDatesotie()));
+            image.setText(String.valueOf(item.getImage())); 
+            
+
+            setText(null);
+            setGraphic(content);
+            setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
+        }
 
     }
 
