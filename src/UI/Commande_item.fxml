@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="175.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Commande_itemController">
+   <children>
+      <HBox prefHeight="175.0" prefWidth="410.0">
+         <children>
+            <VBox prefHeight="165.0" prefWidth="407.0">
+               <children>
+                  <Label text="Nom de la Commande" />
+                  <Label fx:id="Nom_Commande" />
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label prefHeight="17.0" prefWidth="66.0" text="Prix Total" />
+                  <Label fx:id="Prix_Commande" />
+                  <Separator prefWidth="200.0" />
+                  <Label text="Etat de la commande" />
+                  <Label fx:id="Etat_Commande" />
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="Annuler" buttonType="RAISED" ripplerFill="#a11717" style="-fx-border-color: #da0b1f; -fx-border-radius: 10Px;" text="Annuler" textFill="#da0b1f" />
+                        <JFXButton fx:id="Imprimer" buttonType="RAISED" ripplerFill="#18a04b" style="-fx-border-color: #18a04b; -fx-border-radius: 10Px;" text="Imprimer" textFill="#18a04b">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
