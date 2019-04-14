@@ -5,28 +5,41 @@
  */
 package Entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author Med Amine Bouarrouj
  */
 public class User {
-
+protected static User instance;
     private int Id;
     private String Username;
     private String Mdp;
     private String Email;
+    private String role;
 
     public User(String Username, String Mdp, String Email) {
         this.Username = Username;
         this.Mdp = Mdp;
         this.Email = Email;
     }
-
+  public static User getInstance(){
+        return instance;
+    }
     public User(int Id, String Username, String Mdp, String Email) {
         this.Id = Id;
         this.Username = Username;
         this.Mdp = Mdp;
         this.Email = Email;
+    }
+       public User(int Id, String Username, String Mdp, String Email,String role) {
+        this.Id = Id;
+        this.Username = Username;
+        this.Mdp = Mdp;
+        this.Email = Email;
+        this.role=role;
+           System.out.println("rols:"+role);
     }
 
     public User() {
@@ -69,6 +82,15 @@ public class User {
         this.Email = Email;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    
     @Override
     public String toString() {
         return "User{" + "Id=" + Id + ", Username=" + Username + ", Mdp=" + Mdp + ", Email=" + Email + '}';
