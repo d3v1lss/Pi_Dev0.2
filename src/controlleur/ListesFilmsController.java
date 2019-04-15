@@ -57,13 +57,14 @@ public class ListesFilmsController implements Initializable {
         
         
         try {
+            
             services.FilmServices Fs = new FilmServices();
-            System.out.println("new service");
+            
 
             table.getItems().setAll(Fs.FetchAll());
-            System.out.println("liste comptete");
+            
             table.setCellFactory(lv -> new ListeFilm());
-            System.out.println("lam bda");
+            
         } catch (SQLException ex) {
             Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,8 +106,8 @@ public class ListesFilmsController implements Initializable {
         });
         
         
-        /*
-        modif.setOnAction(event->{
+        
+        modifFilm.setOnAction(event->{
             try {
                 Parent parent2=FXMLLoader
                         .load(getClass().getResource("/views/UpdateFilm.fxml"));
@@ -122,7 +123,7 @@ public class ListesFilmsController implements Initializable {
                 Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-*/
+
 
         
     }    

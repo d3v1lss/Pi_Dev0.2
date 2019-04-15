@@ -140,12 +140,37 @@ public class AfficherSalleController implements Initializable {
 
     @FXML
     private void deleteSalle(ActionEvent event) throws SQLException {
-        int idUp = idSalle;
+        System.out.println("d5al lil fonction");
+        int idSalle = table.getSelectionModel().getSelectedItem().getId();
+        System.out.println(" l9a el id ");
+        System.out.println(idSalle);
+        //int idUp = idSalle;
 
-        String query = "DELETE FROM salle where where id = ? ' ";
-        PreparedStatement stm = cnx.prepareStatement(query);
-        stm.setInt(1, idUp);
-        stm.executeUpdate();
+        String req = "Delete from salle where id=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setInt(1, idSalle);
+            preparedStatement.execute();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/AfficherSalle.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
     }
 

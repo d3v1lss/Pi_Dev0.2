@@ -56,26 +56,26 @@ public class FilmServices {
     public ObservableList<Film> FetchAll() throws SQLException {
 
         ObservableList<Film> ListFilm = FXCollections.observableArrayList();
-        System.out.println("observable liste");
+        
         Statement stm = cnx.createStatement();
-        System.out.println(" cnx BD");
+        
         String req = "SELECT * FROM film";
-        System.out.println("requette");
+        
         ResultSet resultat = stm.executeQuery(req);
-        System.out.println("resultat");
+        
         while (resultat.next()) {
             
             String image = resultat.getString("image");
-            System.out.println("nom");
+            
             int id = resultat.getInt("id");
-            System.out.println("id");
+            
             String duree = resultat.getString("duree");
-            System.out.println("duree");
+            
             String nom = resultat.getString("nom");
             Date datesotie = resultat.getDate("datesotie");
-            System.out.println("date");
+            
             String discription = resultat.getString("discription");
-            System.out.println("description");
+            
             
 
             ListFilm.add(new Film(nom, discription, duree, datesotie, image));
