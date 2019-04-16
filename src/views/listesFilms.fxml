@@ -24,7 +24,7 @@
             <JFXTextField fx:id="search" layoutX="212.0" layoutY="15.0" prefHeight="25.0" prefWidth="260.0" promptText="search" />
             <FontAwesomeIconView glyphName="SEARCH" layoutX="442.0" layoutY="33.0" text="" />
             <JFXTextField fx:id="text_id" layoutX="46.0" layoutY="269.0" visible="false" />
-            <Button layoutX="113.0" layoutY="372.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="88.0" text="Supprimer">
+            <Button layoutX="113.0" layoutY="372.0" mnemonicParsing="false" onAction="#suppFilm" prefHeight="32.0" prefWidth="88.0" text="Supprimer">
                <font>
                   <Font size="10.0" />
                </font>

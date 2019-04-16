@@ -78,7 +78,7 @@ public class FilmServices {
             
             
 
-            ListFilm.add(new Film(nom, discription, duree, datesotie, image));
+            ListFilm.add(new Film(id, nom, discription, duree, datesotie, image));
 
         }
 

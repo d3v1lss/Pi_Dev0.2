@@ -140,7 +140,7 @@ public class AfficherSalleController implements Initializable {
 
     @FXML
     private void deleteSalle(ActionEvent event) throws SQLException {
-        System.out.println("d5al lil fonction");
+        
         int idSalle = table.getSelectionModel().getSelectedItem().getId();
         System.out.println(" l9a el id ");
         System.out.println(idSalle);

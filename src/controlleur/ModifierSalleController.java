@@ -92,8 +92,7 @@ public class ModifierSalleController implements Initializable {
         s.setNom(nom);
         s.setCapacite(capacite);
         
-        txtCapaciteSalle.clear();
-        txtCapaciteSalle.clear();
+        
         
         try {
 

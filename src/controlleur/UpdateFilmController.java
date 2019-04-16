@@ -5,8 +5,13 @@
  */
 package controlleur;
 
+import entities.Film;
 import java.net.URL;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +27,8 @@ import javafx.scene.control.TextField;
  */
 public class UpdateFilmController implements Initializable {
 
+    
+    
     @FXML
     private TextField txt_Nom;
     @FXML
@@ -39,15 +46,30 @@ public class UpdateFilmController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+    }
+/*
     @FXML
     private void ModifFilm(ActionEvent event) {
         String nom = txt_Nom.getText();
         String duree = txt_duree.getText();
-        String desc = txt_desc.getText();
+        String description = txt_desc.getText();
+        java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(txt_dateP.getValue());
+
+        Film F = new Film(nom, description, duree, gettedDatePickerDate, nameImage1);
         
-        int capacite = Integer.parseInt(txtCapaciteSalle.getText());
+        
+        String req = "UPDATE salle SET nom=?, capacite=? where id = ? "; 
+   PreparedStatement stm     =   cnx.prepareStatement(req);
+     stm.setString(1, F.getNom());
+    stm.setInt(2, s.getCapacite());
+    stm.setInt(3, idUp);
+    stm.executeUpdate(); 
+} 
+         catch (SQLException ex) 
+         {
+             Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
+         }
+
     }
-    
+*/
 }
