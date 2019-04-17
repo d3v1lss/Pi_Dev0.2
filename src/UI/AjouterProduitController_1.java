@@ -41,7 +41,7 @@ import javax.imageio.ImageIO;
  *
  * @author Dorra
  */
-public class AjouterProduitController implements Initializable {
+public class AjouterProduitController_1 implements Initializable {
 
     @FXML
     private TextField nomProduit;

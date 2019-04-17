@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="168.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Single_ProduitController">
+   <children>
+      <HBox prefHeight="168.0" prefWidth="399.0">
+         <children>
+            <ImageView fx:id="Product_Pic" fitHeight="169.0" fitWidth="206.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox prefHeight="158.0" prefWidth="244.0">
+               <children>
+                  <Label text="Nom du produit" />
+                  <Label fx:id="Nom_Produit" />
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Prix" />
+                  <Label fx:id="Prix_Produit" />
+                  <Separator prefWidth="200.0">
+                     <VBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Separator>
+                  <Label text="Disponibilité" />
+                  <Label fx:id="Quantite_Produit" />
+                  <Separator prefWidth="200.0" />
+                  <HBox alignment="CENTER" prefHeight="27.0" prefWidth="195.0">
+                     <children>
+                        <JFXButton fx:id="Voirplus" buttonType="RAISED" prefHeight="27.0" prefWidth="90.0" ripplerFill="#e4a38f" style="-fx-border-color: blue; -fx-border-radius: 10Px;" text="Voir details .." textFill="#5291ea" />
+                        <JFXButton fx:id="Commander_BTN" buttonType="RAISED" onAction="#Commander" prefHeight="27.0" prefWidth="105.0" ripplerFill="#73c2be" style="-fx-border-color: blue; -fx-border-radius: 10Px;" text="Commander" textFill="#5291ea" />
+                     </children></HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="5.0" top="5.0" />
+               </HBox.margin>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

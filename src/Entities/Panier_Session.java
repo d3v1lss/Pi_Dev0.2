@@ -14,7 +14,5 @@ import java.util.List;
  */
 public class Panier_Session {
     public static List<LigneCommande> Produit_Panier = new ArrayList<LigneCommande>() ;
-    
-    
-    
+  
 }

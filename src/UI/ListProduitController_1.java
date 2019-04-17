@@ -35,7 +35,7 @@ import javafx.stage.StageStyle;
  *
  * @author ignitedev
  */
-public class ListProduitController implements Initializable {
+public class ListProduitController_1 implements Initializable {
 
     @FXML
     private HBox Show_Product;
@@ -120,7 +120,7 @@ public class ListProduitController implements Initializable {
                             stage.showAndWait();
                             
                         } catch (IOException ex) {
-                            Logger.getLogger(ListProduitController.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(ListProduitController_1.class.getName()).log(Level.SEVERE, null, ex);
                         }
                         
                     });
@@ -130,7 +130,7 @@ public class ListProduitController implements Initializable {
                     i++;
                     
                 } catch (IOException ex) {
-                    Logger.getLogger(ListProduitController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(ListProduitController_1.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -151,7 +151,7 @@ public class ListProduitController implements Initializable {
                 stage.show();
 
             } catch (IOException ex) {
-                Logger.getLogger(ListProduitController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ListProduitController_1.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         });

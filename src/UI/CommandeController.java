@@ -86,7 +86,7 @@ public class CommandeController implements Initializable {
                     Etat_Commande.setText("Validé");
                     Annuler.setVisible(false);
                     Imprimer.setVisible(true);
-                    String QRText = item.getNom() +" "+ item.getIdCommande() +" "+ item.getTotal();
+                    String QRText = item.getReference()+" "+ item.getIdCommande() +" "+ item.getTotal();
                     
                 };
                 

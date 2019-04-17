@@ -11,23 +11,24 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
  *
  * @author ignitedev
  */
-public class Single_PanierController implements Initializable {
+public class Commande_itemController_1 implements Initializable {
 
     @FXML
-    private ImageView Product_Pic;
+    private Label Nom_Commande;
     @FXML
-    private Label Nom_Produit;
+    private Label Prix_Commande;
     @FXML
-    private Label Prix_Produit;
+    private Label Etat_Commande;
     @FXML
-    private JFXButton Supprimer;
+    private JFXButton Annuler;
+    @FXML
+    private JFXButton Imprimer;
 
     /**
      * Initializes the controller class.

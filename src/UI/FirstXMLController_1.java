@@ -31,7 +31,7 @@ import org.mindrot.jbcrypt.BCrypt;
  *
  * @author Dorra
  */
-public class FirstXMLController implements Initializable {
+public class FirstXMLController_1 implements Initializable {
 
     private Button button;
     private TextField texte;

@@ -49,7 +49,7 @@ import javafx.stage.StageStyle;
  *
  * @author ignitedev
  */
-public class PanierController implements Initializable {
+public class PanierController_1 implements Initializable {
 
     @FXML
     private ScrollPane body_pane;
@@ -105,9 +105,9 @@ public class PanierController implements Initializable {
                 content.getChildren().add(nodes[j]);
                 j++;
             } catch (IOException ex) {
-                Logger.getLogger(PanierController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanierController_1.class.getName()).log(Level.SEVERE, null, ex);
             } catch (SQLException ex) {
-                Logger.getLogger(PanierController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(PanierController_1.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }

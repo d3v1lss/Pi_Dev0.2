@@ -46,7 +46,7 @@ import javafx.stage.StageStyle;
  *
  * @author oumayma haouet
  */
-public class ProduitsclientsFXMLController implements Initializable {
+public class ProduitsclientsFXMLController_1 implements Initializable {
 
     public static String ServerImg = "http://localhost/img/";
     private ObservableList<Produit> dataUser;
@@ -185,7 +185,7 @@ public class ProduitsclientsFXMLController implements Initializable {
 
                         stage.showAndWait();
                     } catch (IOException ex) {
-                        Logger.getLogger(ProduitsclientsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(ProduitsclientsFXMLController_1.class.getName()).log(Level.SEVERE, null, ex);
                     }
 
                 });
@@ -234,7 +234,7 @@ public class ProduitsclientsFXMLController implements Initializable {
                 i++;
 
             } catch (IOException ex) {
-                Logger.getLogger(ProduitsclientsFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ProduitsclientsFXMLController_1.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }

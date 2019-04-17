@@ -15,28 +15,20 @@ public class LigneCommande {
 
     private int idLigneCommande;
     private int idProduit;
+    private String nomProduit;
     private int idCommande;
-
-    public String getLibelle() {
-        return libelle;
-    }
-
-    public void setLibelle(String libelle) {
-        this.libelle = libelle;
-    }
-
-    public int getQuantiteTotale() {
-        return quantiteTotale;
-    }
-
-    public void setQuantiteTotale(int quantiteTotale) {
-        this.quantiteTotale = quantiteTotale;
-    }
     private int Quantite;
     private Date dateAjout;
-     private String libelle;
-    private int quantiteTotale;
 
+    public String getNomProduit() {
+        return nomProduit;
+    }
+
+    public void setNomProduit(String nomProduit) {
+        this.nomProduit = nomProduit;
+    }
+
+    
     public int getIdLigneCommande() {
         return idLigneCommande;
     }
@@ -84,7 +76,6 @@ public class LigneCommande {
 
     public LigneCommande() {
     }
-    
-    
+
 
 }

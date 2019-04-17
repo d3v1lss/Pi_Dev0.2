@@ -41,6 +41,8 @@ public class UserService {
         String req = "INSERT INTO user (username,email,password) VALUES (?,?,?);";
         String req2 = "SELECT username FROM user where username=?";
         String req3 = "SELECT email from user where email=?";
+        String req4 = "SELECT roles from user where email=?";
+        
 
         try {
 
@@ -75,7 +77,7 @@ public class UserService {
         return -1;
     }
 
-    public int login(User p) {
+  /*  public int login(User p) {
         String req = "SELECT password from USER where username=?";
         PreparedStatement preparedStatement;
         try {
@@ -94,6 +96,50 @@ public class UserService {
             Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return -1;
+    }*/
+    public User logMeIn (String password ,String login){
+        try {
+            String req = "SELECT * from USER where username=? ";
+            PreparedStatement preparedStatement =cnx.prepareStatement(req);
+            preparedStatement.setString(1, login);
+            System.out.println("login:"+login);
+                    System.out.println("pass:"+password);
+            ResultSet res= preparedStatement.executeQuery();
+            if(res.next()){
+                if(BCrypt.checkpw(password,res.getString("password").replaceFirst("y","a"))){
+                //  public User(int Id, String Username, String Mdp, String Email,String role) {
+               return new User(res.getInt("id"),res.getString("username"),res.getString("password").replaceFirst("y","a"),res.getString("email"),res.getString("roles")) ;
+            }
+                return null;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+        return null;
     }
+    public String getName(int id) {
+        
+        String req2 = "SELECT username FROM user where id=?";
+        
+        
+
+        try {
+
+            PreparedStatement preparedStatment2 = cnx.prepareStatement(req2);
+            preparedStatment2.setInt(1,id);
+
+            ResultSet resultat = preparedStatment2.executeQuery();
+
+            if (resultat.next()) {
+                return resultat.getString("username");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+      return null;
+    }  
   
 }

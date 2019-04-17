@@ -5,6 +5,8 @@
  */
 package Entities;
 
+import javafx.scene.control.ChoiceBox;
+
 /**
  *
  * @author Dorra
@@ -28,6 +30,8 @@ public class Produit {
         this.disponible = disponible;
     }
 
+   
+
     public double getPrix() {
         return prix;
     }
@@ -43,12 +47,13 @@ public class Produit {
         this.photo = photo;
     }
 
-    public Produit(String nom, double prix, String description, String photo, boolean disponible) {
+    public Produit(String nom, double prix, String description, int tva_id,String photo, boolean disponible) {
         this.nom = nom;
         this.prix = prix;
         this.description = description;
         this.photo = photo;
         this.disponible = disponible;
+        this.tva_id = tva_id;
     }
 
     public Produit(int id, double prix, int tva_id, String nom, String description, String photo, boolean disponible) {

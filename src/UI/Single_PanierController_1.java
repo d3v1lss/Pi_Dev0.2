@@ -18,7 +18,7 @@ import javafx.scene.image.ImageView;
  *
  * @author ignitedev
  */
-public class Single_PanierController implements Initializable {
+public class Single_PanierController_1 implements Initializable {
 
     @FXML
     private ImageView Product_Pic;

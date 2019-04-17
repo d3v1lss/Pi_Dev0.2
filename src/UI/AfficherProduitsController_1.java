@@ -35,7 +35,7 @@ import javafx.util.Callback;
  *
  * @author Dorra
  */
-public class AfficherProduitsController implements Initializable {
+public class AfficherProduitsController_1 implements Initializable {
 
     @FXML
     private TableView<Produit> table;
@@ -97,7 +97,7 @@ public class AfficherProduitsController implements Initializable {
                                 table.getScene().setRoot(root);
 
                             } catch (IOException ex) {
-                                Logger.getLogger(AfficherProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(AfficherProduitsController_1.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                         });
@@ -142,7 +142,7 @@ public class AfficherProduitsController implements Initializable {
                                 table.getScene().setRoot(root);
 
                             } catch (IOException ex) {
-                                Logger.getLogger(AfficherProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(AfficherProduitsController_1.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
                         });
@@ -187,7 +187,7 @@ public class AfficherProduitsController implements Initializable {
                                 table.getScene().setRoot(root);
 
                             } catch (IOException ex) {
-                                Logger.getLogger(AfficherProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+                                Logger.getLogger(AfficherProduitsController_1.class.getName()).log(Level.SEVERE, null, ex);
                             }
 
     }
