@@ -10,6 +10,8 @@ import services.GestionClub;
 import entities.UserSession;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import entities.listeclub;
+import entities.listeworkshop;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -26,6 +28,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
@@ -55,6 +59,8 @@ public class AfficherClubsController implements Initializable {
     UserSession us;
     private int iduser;
     ListClub l = new ListClub();
+    @FXML
+    private JFXTextField text_id;
 
     /**
      * Initializes the controller class.
@@ -110,6 +116,7 @@ public class AfficherClubsController implements Initializable {
         }
 
         l.getNom().setUserData(TextFieldTableCell.forTableColumn());
+
     }
 
     @FXML
@@ -123,13 +130,21 @@ public class AfficherClubsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class
                     .getName()).log(Level.SEVERE, null, ex);
+            new Alert(Alert.AlertType.INFORMATION, "inscrt fait").show();
         }
 
     }
 
     @FXML
-    private void inscrit(ActionEvent event) {
+    private void inscrit(ActionEvent event) throws SQLException {
 
+        String club = nom.getText();
+        String user = "AKRAM";
+
+        listeclub lclub = new listeclub(club, user);
+
+        GestionClub gc = new GestionClub();
+        gc.inscrit(lclub);
     }
 
     @FXML

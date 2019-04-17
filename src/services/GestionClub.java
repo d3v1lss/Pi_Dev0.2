@@ -6,6 +6,7 @@
 package services;
 
 import entities.club;
+import entities.listeclub;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +17,7 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utils.DbConnexion;
+
 /**
  *
  * @author HCHAICHI
@@ -42,6 +44,21 @@ public class GestionClub {
             preparedStatement.setInt(4, C.getNbrparticipant());
             preparedStatement.setString(5, C.getActivite());
             preparedStatement.setString(6, C.getStatut());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionClub.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void inscrit(listeclub lclub) {
+        String req = "INSERT INTO `listeclub`(`club`, `membres`) "
+                + " VALUES (?,?)";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, lclub.getClub());
+            preparedStatement.setString(2, lclub.getMembres());
 
             preparedStatement.execute();
         } catch (SQLException ex) {

@@ -11,18 +11,19 @@ import java.util.Objects;
  *
  * @author HCHAICHI
  */
-public class listeclub {
+public class listeworkshop {
 
     private int id;
-    private String club;
+    private String workshop;
     private String membres;
 
-    public listeclub() {
+    public listeworkshop(String workshop, String membres) {
+        this.workshop = workshop;
+        this.membres = membres;
     }
 
-    public listeclub(String club, String membres) {
-        this.club = club;
-        this.membres = membres;
+    public listeworkshop() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -33,12 +34,12 @@ public class listeclub {
         this.id = id;
     }
 
-    public String getClub() {
-        return club;
+    public String getWorkshop() {
+        return workshop;
     }
 
-    public void setClub(String club) {
-        this.club = club;
+    public void setWorkshop(String workshop) {
+        this.workshop = workshop;
     }
 
     public String getMembres() {
@@ -53,8 +54,8 @@ public class listeclub {
     public int hashCode() {
         int hash = 7;
 
-        hash = 89 * hash + Objects.hashCode(this.club);
-        hash = 89 * hash + Objects.hashCode(this.membres);
+        hash = 29 * hash + Objects.hashCode(this.workshop);
+        hash = 29 * hash + Objects.hashCode(this.membres);
         return hash;
     }
 
@@ -66,9 +67,9 @@ public class listeclub {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final listeclub other = (listeclub) obj;
+        final listeworkshop other = (listeworkshop) obj;
 
-        if (!Objects.equals(this.club, other.club)) {
+        if (!Objects.equals(this.workshop, other.workshop)) {
             return false;
         }
         if (!Objects.equals(this.membres, other.membres)) {
@@ -79,7 +80,7 @@ public class listeclub {
 
     @Override
     public String toString() {
-        return "listeclub{" + "id=" + id + ", club=" + club + ", membres=" + membres + '}';
+        return "listeworkshop{" + "id=" + id + ", workshop=" + workshop + ", membres=" + membres + '}';
     }
 
 }

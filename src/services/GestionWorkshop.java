@@ -5,7 +5,7 @@
  */
 package services;
 
-
+import entities.listeworkshop;
 import entities.workshop;
 import java.sql.Connection;
 import java.sql.Date;
@@ -17,7 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
 
 import utils.DbConnexion;
 
@@ -35,23 +34,40 @@ public class GestionWorkshop {
 
     public void ajouter(workshop w) {
 
-        String req = "INSERT INTO `workshop`(`nom`, `nombreplaces`, `datedebut`"
+        String req = "INSERT INTO `workshop`(`user_id`,`nom`, `nombreplaces`, `datedebut`"
                 + ", `datefin`, `discription`) "
-                + " VALUES (?,?,?,?,?)";
+                + " VALUES (?,?,?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = cnx.prepareStatement(req);
-            preparedStatement.setString(1, w.getNom());
-            preparedStatement.setInt(2, w.getNombreplaces());
-            preparedStatement.setDate(3, w.getDatedebut());
-            preparedStatement.setDate(4, w.getDatefin());
-            preparedStatement.setString(5, w.getDiscription());
+
+            preparedStatement.setInt(1, w.getUser_id());
+            preparedStatement.setString(2, w.getNom());
+            preparedStatement.setInt(3, w.getNombreplaces());
+            preparedStatement.setDate(4, w.getDatedebut());
+            preparedStatement.setDate(5, w.getDatefin());
+            preparedStatement.setString(6, w.getDiscription());
 
             preparedStatement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(GestionClub.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+    }
+
+    public void inscrit(listeworkshop lworkshop) {
+        String req = "INSERT INTO `listeworkshop`(`workshop`, `membres`) "
+                + " VALUES (?,?)";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, lworkshop.getWorkshop());
+            preparedStatement.setString(2, lworkshop.getMembres());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionClub.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public ObservableList<workshop> FetchAll() throws SQLException {
@@ -118,5 +134,4 @@ public class GestionWorkshop {
 
     }
 
-   
 }

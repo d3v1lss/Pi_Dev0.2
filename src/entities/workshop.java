@@ -37,7 +37,8 @@ public class workshop {
         this.discription = discription;
     }
 
-    public workshop(String nom, int nombreplaces, Date datedebut, Date datefin, String discription) {
+    public workshop(int user_id, String nom, int nombreplaces, Date datedebut, Date datefin, String discription) {
+        this.user_id = user_id;
         this.nom = nom;
         this.nombreplaces = nombreplaces;
         this.datedebut = datedebut;

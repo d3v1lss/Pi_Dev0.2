@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.MesWorkshopsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.MesWorkshopsController">
     <stylesheets>
         <URL value="@/css/mesworkshops.css" />
     </stylesheets>
@@ -36,19 +36,21 @@
                   <Font name="Arial" size="39.0" />
                </font>
             </Label>
-            <GridPane layoutX="84.0" layoutY="360.0" prefHeight="39.0" prefWidth="523.0">
+            <GridPane layoutX="-6.0" layoutY="360.0" prefHeight="39.0" prefWidth="613.0">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="304.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="219.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="219.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="183.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="160.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="157.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="140.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <Button mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="186.0" text="Retour" />
-                  <Button mnemonicParsing="false" onAction="#supp" prefHeight="25.0" prefWidth="162.0" text="Supprimer" GridPane.columnIndex="2" />
-                  <Button mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="149.0" text="Modifer" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="186.0" text="Retour" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#supp" prefHeight="25.0" prefWidth="162.0" text="Supprimer" GridPane.columnIndex="3" />
+                  <Button mnemonicParsing="false" onAction="#modifier" prefHeight="25.0" prefWidth="149.0" text="Modifer" GridPane.columnIndex="2" />
+                  <Button mnemonicParsing="false" onAction="#ajouter" prefHeight="25.0" prefWidth="177.0" text="Ajouter" />
                </children>
             </GridPane>
             <GridPane layoutX="341.0" layoutY="81.0" prefHeight="218.0" prefWidth="253.0">

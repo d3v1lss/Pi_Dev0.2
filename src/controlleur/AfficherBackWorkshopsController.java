@@ -33,7 +33,7 @@ import services.GestionWorkshop;
  *
  * @author HCHAICHI
  */
-public class MesWorkshopsController implements Initializable {
+public class AfficherBackWorkshopsController implements Initializable {
 
     @FXML
     private JFXListView<workshop> table;
@@ -51,20 +51,21 @@ public class MesWorkshopsController implements Initializable {
     private JFXDatePicker debut;
     @FXML
     private JFXDatePicker fin;
-
     private int selectIndex;
-    MesWorkshops l = new MesWorkshops();
+    ListWorkshop l = new ListWorkshop();
 
     /**
      * Initializes the controller class.
      */
     @Override
+
     public void initialize(URL url, ResourceBundle rb) {
+
         try {
             GestionWorkshop gw = new GestionWorkshop();
 
             table.getItems().setAll(gw.FetchAll());
-            table.setCellFactory(lv -> new MesWorkshops());
+            table.setCellFactory(lv -> new ListWorkshop());
 
             table.setOnMouseClicked(event -> {
                 workshop w = table.getSelectionModel().getSelectedItem();
@@ -77,15 +78,14 @@ public class MesWorkshopsController implements Initializable {
             });
 
         } catch (SQLException ex) {
-            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
         search.textProperty().addListener(new ChangeListener() {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                 try {
                     filtrerWorkshop((String) oldValue, (String) newValue);
                 } catch (SQLException ex) {
-                    Logger.getLogger(AfficherClubsController.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
             }
@@ -99,7 +99,7 @@ public class MesWorkshopsController implements Initializable {
                 l.getTxt_nom().setUserData(new PropertyValueFactory<>("nom"));
 
             } catch (SQLException ex) {
-                Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
 
@@ -109,36 +109,14 @@ public class MesWorkshopsController implements Initializable {
 
     @FXML
     private void retour(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/MonClub.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherBackClubs.fxml"));
         Parent root;
         try {
             root = loader.load();
             table.getScene().setRoot(root);
 
         } catch (IOException ex) {
-            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
-    private void supp(ActionEvent event) {
-    }
-
-    @FXML
-    private void modifier(ActionEvent event) {
-
-    }
-
-    @FXML
-    private void ajouter(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AjouterWorkshop.fxml"));
-        Parent root;
-        try {
-            root = loader.load();
-            table.getScene().setRoot(root);
-
-        } catch (IOException ex) {
-            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

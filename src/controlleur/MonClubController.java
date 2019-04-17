@@ -13,7 +13,6 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 
-
 import java.sql.SQLException;
 
 import java.util.ResourceBundle;
@@ -60,7 +59,6 @@ public class MonClubController implements Initializable {
 
     @FXML
     private void modifierclub(ActionEvent event) {
-    
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ModifierMonClub.fxml"));
         Parent root;
@@ -75,6 +73,16 @@ public class MonClubController implements Initializable {
 
     @FXML
     private void mesmembres(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/MesMembres.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MonClubController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML

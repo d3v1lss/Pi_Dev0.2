@@ -10,6 +10,7 @@ import services.GestionWorkshop;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
+import entities.listeworkshop;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -27,6 +28,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import services.GestionClub;
 
 /**
  * FXML Controller class
@@ -109,8 +111,15 @@ public class AfficherWorkshopsController implements Initializable {
     }
 
     @FXML
-    private void inscrit(ActionEvent event) {
+    private void inscrit(ActionEvent event) throws SQLException {
 
+        String workshop = nom.getText();
+        String user = "AKRAM";
+
+        listeworkshop lworkshop = new listeworkshop(workshop, user);
+
+        GestionWorkshop gw = new GestionWorkshop();
+        gw.inscrit(lworkshop);
     }
 
     @FXML
@@ -147,4 +156,5 @@ public class AfficherWorkshopsController implements Initializable {
             table.setItems(filteredList);
         }
     }
+    
 }

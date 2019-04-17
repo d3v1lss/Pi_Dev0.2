@@ -113,7 +113,7 @@ public class AfficherBackClubsController implements Initializable {
 
     @FXML
     private void workshops(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherWorkshops.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherBackWorkshops.fxml"));
         Parent root;
         try {
             root = loader.load();
