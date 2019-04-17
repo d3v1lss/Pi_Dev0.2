@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import utils.DbConnexion;
-
 /**
  *
  * @author HCHAICHI
@@ -78,7 +77,7 @@ public class GestionClub {
 
         ObservableList<club> MonClub = FXCollections.observableArrayList();
         Statement stm = cnx.createStatement();
-        String req = "SELECT * FROM club where president=7 ";
+        String req = "SELECT * FROM club where president=13 ";
         ResultSet resultat = stm.executeQuery(req);
         while (resultat.next()) {
             int id = resultat.getInt("id");

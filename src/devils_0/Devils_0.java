@@ -22,16 +22,8 @@ public class Devils_0 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        // Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherClub.fxml"));
-        // Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherSalle.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherMonClub.fxml"));
-        // Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterClub.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterWorkshop.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherWorkshop.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/views/AfficherMesWorkshop.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("/views/AccueilClub.fxml"));
-        //Parent root = FXMLLoader.load(getClass().getResource("/views/AjouterSalle.fxml"));
-
+        Parent root = FXMLLoader.load(getClass().getResource("/views/firstXML.fxml"));
+       
         Scene scene = new Scene(root);
 
         stage.setScene(scene);

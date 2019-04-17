@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import static services.GestionClub.cnx;
+
 
 import utils.DbConnexion;
 
@@ -82,7 +82,7 @@ public class GestionWorkshop {
 
         ObservableList<workshop> ListWorkshop = FXCollections.observableArrayList();
         Statement stm = cnx.createStatement();
-        String req = "SELECT * FROM workshop where user_id=7 ";
+        String req = "SELECT * FROM workshop where user_id=13 ";
         ResultSet resultat = stm.executeQuery(req);
         while (resultat.next()) {
             int id = resultat.getInt("id");

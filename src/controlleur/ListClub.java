@@ -26,22 +26,9 @@ public class ListClub extends ListCell<club> {
 
     private final GridPane gridPane = new GridPane();
 
-    private final Label description = new Label();
-    private final Label Mail = new Label();
     private final Label Nom = new Label();
-    private final Label Nbre = new Label();
-    private final Label Status = new Label();
-    private final Label Activite = new Label();
-    private final Label descriptionLabel = new Label();
 
-    private final Label txt_Mail = new Label();
-    private final Label txt_Activite = new Label();
     private final Label txtNom = new Label();
-    private final Label txt_Status = new Label();
-    private final Label txt_desc = new Label();
-    private final Label txt_President = new Label();
-    private final Label President = new Label();
-    private final Label txt_NbrPlace = new Label();
 
     private final AnchorPane content = new AnchorPane();
 
@@ -53,60 +40,8 @@ public class ListClub extends ListCell<club> {
         return gridPane;
     }
 
-    public Label getDescription() {
-        return description;
-    }
-
-    public Label getMail() {
-        return Mail;
-    }
-
-    public Label getNbre() {
-        return Nbre;
-    }
-
-    public Label getStatus() {
-        return Status;
-    }
-
-    public Label getActivite() {
-        return Activite;
-    }
-
-    public Label getDescriptionLabel() {
-        return descriptionLabel;
-    }
-
-    public Label getTxt_Mail() {
-        return txt_Mail;
-    }
-
-    public Label getTxt_President() {
-        return txt_President;
-    }
-
-    public Label getPresident() {
-        return President;
-    }
-
-    public Label getTxt_Activite() {
-        return txt_Activite;
-    }
-
     public Label getTxtNom() {
         return txtNom;
-    }
-
-    public Label getTxtStatus() {
-        return txt_Status;
-    }
-
-    public Label getTxt_desc() {
-        return txt_desc;
-    }
-
-    public Label getTxt_NbrPlace() {
-        return txt_NbrPlace;
     }
 
     public AnchorPane getContent() {
@@ -117,27 +52,10 @@ public class ListClub extends ListCell<club> {
         /*  description.setStyle("-fx-font-style: italic; -fx-font-size: 0.9em; -fx-opacity: 0.5;-fx-border-style: none;"); */
 
         GridPane.setConstraints(txtNom, 0, 0);
-        GridPane.setConstraints(txt_Mail, 0, 1);
-        GridPane.setConstraints(txt_desc, 0, 2);
-        GridPane.setConstraints(txt_NbrPlace, 0, 3);
-        GridPane.setConstraints(txt_Activite, 0, 4);
-        GridPane.setConstraints(txt_President, 0, 5);
-        GridPane.setConstraints(txt_Status, 0, 6);
+
         txtNom.setText("Nom : ");
-        txt_Mail.setText("Mail : ");
-        txt_desc.setText("Description : ");
-        txt_NbrPlace.setText("Nbre : ");
-        txt_Activite.setText("Activite : ");
-        txt_President.setText("president : ");
-        txt_Status.setText("status : ");
 
         GridPane.setConstraints(Nom, 1, 0);
-        GridPane.setConstraints(Mail, 1, 1);
-        GridPane.setConstraints(description, 1, 2);
-        GridPane.setConstraints(Nbre, 1, 3);
-        GridPane.setConstraints(Activite, 1, 4);
-        GridPane.setConstraints(President, 1, 5);
-        GridPane.setConstraints(Status, 1, 6);
 
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.CENTER, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
@@ -151,7 +69,7 @@ public class ListClub extends ListCell<club> {
         gridPane.setHgap(3);
         gridPane.setVgap(3);
 
-        gridPane.getChildren().setAll(txtNom, txt_Mail, txt_desc, txt_NbrPlace, txt_Activite, txt_President, txt_Status, Nom, Mail, description, Nbre, Activite, President, Status);
+        gridPane.getChildren().setAll(txtNom, Nom);
 
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
@@ -171,12 +89,7 @@ public class ListClub extends ListCell<club> {
         if (!empty && item != null) {
 
             Nom.setText(String.valueOf(item.getNom()));
-            Mail.setText(String.valueOf(item.getMail()));
-            description.setText(String.valueOf(item.getDiscription()));
-            Nbre.setText(String.valueOf(item.getNbrparticipant()));
-            Activite.setText(String.valueOf(item.getActivite()));
-            President.setText(String.valueOf(item.getPresident()));
-            Status.setText(String.valueOf(item.getStatut()));
+
             setText(null);
             setGraphic(content);
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);

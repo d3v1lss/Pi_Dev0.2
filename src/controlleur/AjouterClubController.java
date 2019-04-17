@@ -5,8 +5,9 @@
  */
 package controlleur;
 
-import com.jfoenix.controls.JFXButton;
 import entities.club;
+import services.GestionClub;
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import services.GestionClub;
+import javafx.scene.layout.GridPane;
 
 /**
  * FXML Controller class
@@ -40,6 +41,8 @@ public class AjouterClubController implements Initializable {
     private TextField txt_act;
     @FXML
     private JFXButton retour;
+    @FXML
+    private GridPane table;
 
     /**
      * Initializes the controller class.
@@ -50,7 +53,7 @@ public class AjouterClubController implements Initializable {
     }
 
     @FXML
-    private void ajouterclub(ActionEvent event) throws SQLException, IOException {
+    private void ajouterclub(ActionEvent event) throws SQLException {
 
         String description = txt_dis.getText();
         String Mail = txt_mail.getText();
@@ -62,7 +65,21 @@ public class AjouterClubController implements Initializable {
 
         GestionClub gc = new GestionClub();
         gc.ajouter(C);
-        new Alert(Alert.AlertType.INFORMATION, "sucess").show();
+        new Alert(Alert.AlertType.INFORMATION, "Club Ajouté").show();
+    }
+
+    @FXML
+    private void retour(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherClubs.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }

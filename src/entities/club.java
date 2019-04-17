@@ -25,6 +25,17 @@ public class club {
     public club() {
     }
 
+    public club(int id, String nom, String mail, String discription, int nbrparticipant, String activite, int president, String statut) {
+        this.id = id;
+        this.nom = nom;
+        this.mail = mail;
+        this.discription = discription;
+        this.nbrparticipant = nbrparticipant;
+        this.activite = activite;
+        this.president = president;
+        this.statut = statut;
+    }
+
     public club(String nom, String mail, String discription, int nbrparticipant, String activite, int president, String statut) {
         this.nom = nom;
         this.mail = mail;
