@@ -5,6 +5,7 @@
  */
 package services;
 
+import controlleur.LesParticipants;
 import entities.listeworkshop;
 import entities.workshop;
 import java.sql.Connection;
@@ -91,6 +92,24 @@ public class GestionWorkshop {
         }
 
         return ListWorkshop;
+
+    }
+
+    public ObservableList<listeworkshop> Fetch() throws SQLException {
+
+        ObservableList<listeworkshop> LesParticipants = FXCollections.observableArrayList();
+        Statement stm = cnx.createStatement();
+        String req = "SELECT * FROM listeworkshop";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+
+            String nom = resultat.getString("membres");
+
+            LesParticipants.add(new listeworkshop(nom));
+
+        }
+
+        return LesParticipants;
 
     }
 

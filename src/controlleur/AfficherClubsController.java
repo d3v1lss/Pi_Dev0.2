@@ -87,6 +87,8 @@ public class AfficherClubsController implements Initializable {
                 act.setText(c.getActivite());
                 des.setText(c.getDiscription());
                 mail.setText(c.getMail());
+                System.out.println(selectIndex);
+
             });
 
         } catch (SQLException ex) {
@@ -130,7 +132,7 @@ public class AfficherClubsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class
                     .getName()).log(Level.SEVERE, null, ex);
-            new Alert(Alert.AlertType.INFORMATION, "inscrt fait").show();
+           
         }
 
     }
@@ -145,6 +147,7 @@ public class AfficherClubsController implements Initializable {
 
         GestionClub gc = new GestionClub();
         gc.inscrit(lclub);
+         new Alert(Alert.AlertType.INFORMATION, "inscrt fait").show();
     }
 
     @FXML

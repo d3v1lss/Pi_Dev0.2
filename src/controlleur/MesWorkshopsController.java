@@ -11,6 +11,9 @@ import com.jfoenix.controls.JFXTextField;
 import entities.workshop;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -24,8 +27,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import static services.GestionClub.cnx;
 import services.GestionWorkshop;
 
 /**
@@ -35,6 +40,7 @@ import services.GestionWorkshop;
  */
 public class MesWorkshopsController implements Initializable {
 
+    Connection cnxC;
     @FXML
     private JFXListView<workshop> table;
     @FXML
@@ -53,6 +59,7 @@ public class MesWorkshopsController implements Initializable {
     private JFXDatePicker fin;
 
     private int selectIndex;
+
     MesWorkshops l = new MesWorkshops();
 
     /**
@@ -74,6 +81,8 @@ public class MesWorkshopsController implements Initializable {
                 nbr.setText(w.getNombreplaces() + "");
                 // debut.setDate(w.getDatedebut() + "");
                 // debut.setDate(w.getDatefin() + "");
+
+                System.out.println(w.getId());
             });
 
         } catch (SQLException ex) {
@@ -121,11 +130,43 @@ public class MesWorkshopsController implements Initializable {
     }
 
     @FXML
-    private void supp(ActionEvent event) {
+    private void supp(ActionEvent event) throws SQLException {
+
+        String query = "DELETE FROM workshop where nom ='" + nom.getText() + "' ";
+        PreparedStatement pstm = cnxC.prepareStatement(query);
+        pstm.executeUpdate();
+        getAll(event);
     }
 
     @FXML
     private void modifier(ActionEvent event) {
+
+        int nb = Integer.parseInt(nbr.getText());
+        String n = nom.getText();
+        String d = des.getText();
+//        java.sql.Date de = java.sql.Date.valueOf(debut.getValue());
+        //java.sql.Date f = java.sql.Date.valueOf(fin.getValue());
+        workshop w = new workshop();
+        w.setNom(n);
+        w.setDiscription(d);
+        // w.setDatedebut(de);
+        // w.setDatefin(f);
+        w.setNombreplaces(nb);
+        try {
+
+            String req = "UPDATE workshop SET nom=?, nombreplaces=?,discription=? where nom ='" + nom.getText() + "' ";
+            PreparedStatement stm = cnx.prepareStatement(req);
+            stm.setString(1, w.getNom());
+            stm.setInt(2, w.getNombreplaces());
+            //stm.setDate(3, w.getDatedebut());
+            //stm.setDate(4, w.getDatefin());
+            stm.setString(3, w.getDiscription());
+
+            stm.executeUpdate();
+            new Alert(Alert.AlertType.INFORMATION, "workshop modifié").show();
+        } catch (SQLException ex) {
+            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
 
@@ -154,6 +195,31 @@ public class MesWorkshopsController implements Initializable {
     private void ajouter(ActionEvent event) {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AjouterWorkshop.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void getAll(ActionEvent event) throws SQLException {
+
+        GestionWorkshop gw = new GestionWorkshop();
+
+        table.getItems().setAll(gw.FetchAll());
+        table.setCellFactory(lv -> new MesWorkshops());
+
+        workshop w = table.getSelectionModel().getSelectedItem();
+        selectIndex = table.getSelectionModel().getSelectedIndex();
+
+    }
+
+    @FXML
+    private void LesParticipants(ActionEvent event) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/LesParticipants.fxml"));
         Parent root;
         try {
             root = loader.load();

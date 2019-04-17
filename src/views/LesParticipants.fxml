@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.LesParticipantsController">
+    <stylesheets>
+        <URL value="@/css/lesparticipants.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane id="AnchorPane" prefHeight="406.0" prefWidth="620.0" styleClass="mainFxmlClass" stylesheets="&#10;           &#10;         ">
+         <children>
+            <ImageView fitHeight="420.0" fitWidth="620.0" layoutY="-14.0">
+               <image>
+                  <Image url="@../css/background-159244_960_720.png" />
+               </image>
+            </ImageView>
+            <JFXListView fx:id="table" layoutX="8.0" layoutY="70.0" prefHeight="233.0" prefWidth="598.0" />
+            <JFXTextField fx:id="text_id" layoutX="46.0" layoutY="269.0" visible="false" />
+            <Label layoutX="12.0" layoutY="-1.0" prefHeight="56.0" prefWidth="605.0" text="Les Participants :" textFill="#d70c0c">
+               <font>
+                  <Font name="Arial" size="39.0" />
+               </font>
+            </Label>
+            <GridPane layoutX="8.0" layoutY="347.0" prefHeight="25.0" prefWidth="605.0">
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#Retour" prefHeight="72.0" prefWidth="202.0" text="Retour" />
+               </children>
+            </GridPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

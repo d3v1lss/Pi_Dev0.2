@@ -54,7 +54,9 @@ public class AfficherBackClubsController implements Initializable {
     private JFXTextField mail;
     @FXML
     private JFXTextArea des;
+    
     private int selectIndex;
+    
     ListClub l = new ListClub();
 
     public AfficherBackClubsController() throws SQLException {
