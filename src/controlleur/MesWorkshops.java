@@ -27,17 +27,10 @@ public class MesWorkshops extends ListCell<workshop> {
     private final GridPane gridPane = new GridPane();
 
     private final Label nom = new Label();
-    private final Label nombreplaces = new Label();
-    private final Label datedebut = new Label();
-    private final Label datefin = new Label();
-    private final Label discription = new Label();
+    
 
     private final Label txt_nom = new Label();
-    private final Label txt_nombreplaces = new Label();
-    private final Label txt_datedebut = new Label();
-    private final Label txt_datefin = new Label();
-    private final Label txt_discription = new Label();
-
+    
     private final AnchorPane content = new AnchorPane();
 
     public GridPane getGridPane() {
@@ -48,41 +41,13 @@ public class MesWorkshops extends ListCell<workshop> {
         return nom;
     }
 
-    public Label getNombreplaces() {
-        return nombreplaces;
-    }
-
-    public Label getDatedebut() {
-        return datedebut;
-    }
-
-    public Label getDatefin() {
-        return datefin;
-    }
-
-    public Label getDiscription() {
-        return discription;
-    }
+ 
 
     public Label getTxt_nom() {
         return txt_nom;
     }
 
-    public Label getTxt_nombreplaces() {
-        return txt_nombreplaces;
-    }
-
-    public Label getTxt_datedebut() {
-        return txt_datedebut;
-    }
-
-    public Label getTxt_datefin() {
-        return txt_datefin;
-    }
-
-    public Label getTxt_discription() {
-        return txt_discription;
-    }
+   
 
     public AnchorPane getContent() {
         return content;
@@ -91,22 +56,11 @@ public class MesWorkshops extends ListCell<workshop> {
     public MesWorkshops() {
 
         GridPane.setConstraints(txt_nom, 0, 1);
-        GridPane.setConstraints(txt_nombreplaces, 0, 2);
-        GridPane.setConstraints(txt_datedebut, 0, 3);
-        GridPane.setConstraints(txt_datefin, 0, 4);
-        GridPane.setConstraints(txt_discription, 0, 5);
-
+        
         txt_nom.setText("Nom : ");
-        txt_nombreplaces.setText("Nbre : ");
-        txt_datedebut.setText("date debut : ");
-        txt_datefin.setText("date fin : ");
-        txt_discription.setText("Description : ");
-
+       
         GridPane.setConstraints(nom, 1, 1);
-        GridPane.setConstraints(nombreplaces, 1, 2);
-        GridPane.setConstraints(datedebut, 1, 3);
-        GridPane.setConstraints(datefin, 1, 4);
-        GridPane.setConstraints(discription, 1, 5);
+       
 
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.CENTER, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
@@ -121,8 +75,8 @@ public class MesWorkshops extends ListCell<workshop> {
         gridPane.setVgap(3);
 
         gridPane.getChildren().setAll(
-                txt_nom, txt_nombreplaces, txt_datedebut, txt_datefin, txt_discription,
-                nom, nombreplaces, datedebut, datefin, discription);
+                txt_nom, 
+                nom);
 
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
@@ -141,10 +95,7 @@ public class MesWorkshops extends ListCell<workshop> {
         if (!empty && item != null) {
 
             nom.setText(String.valueOf(item.getNom()));
-            nombreplaces.setText(String.valueOf(item.getNombreplaces()));
-            datedebut.setText(String.valueOf(item.getDatedebut()));
-            datefin.setText(String.valueOf(item.getDatefin()));
-            discription.setText(String.valueOf(item.getDiscription()));
+            
 
             setText(null);
             setGraphic(content);

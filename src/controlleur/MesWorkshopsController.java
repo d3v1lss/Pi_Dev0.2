@@ -129,19 +129,6 @@ public class MesWorkshopsController implements Initializable {
 
     }
 
-    @FXML
-    private void ajouter(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AjouterWorkshop.fxml"));
-        Parent root;
-        try {
-            root = loader.load();
-            table.getScene().setRoot(root);
-
-        } catch (IOException ex) {
-            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
     public void filtrerWorkshop(String oldValue, String newValue) throws SQLException {
         GestionWorkshop gw = new GestionWorkshop();
 
@@ -160,6 +147,20 @@ public class MesWorkshopsController implements Initializable {
                 }
             }
             table.setItems(filteredList);
+        }
+    }
+
+    @FXML
+    private void ajouter(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AjouterWorkshop.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
