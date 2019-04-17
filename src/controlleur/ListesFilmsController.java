@@ -135,6 +135,8 @@ public class ListesFilmsController implements Initializable {
          */
         modifFilm.setOnAction(event -> {
             try {
+                UpdateFilmController.idFilm = table.getSelectionModel().getSelectedItem().getId();
+
                 Parent parent2 = FXMLLoader
                         .load(getClass().getResource("/views/UpdateFilm.fxml"));
 
@@ -155,7 +157,7 @@ public class ListesFilmsController implements Initializable {
     @FXML
     private void suppFilm(ActionEvent event) {
 
-         idFilm = table.getSelectionModel().getSelectedItem().getId();
+        idFilm = table.getSelectionModel().getSelectedItem().getId();
         System.out.println(" l9a el id ");
         System.out.println(idFilm);
         //int idUp = idSalle;

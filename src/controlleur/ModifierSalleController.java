@@ -108,8 +108,27 @@ public class ModifierSalleController implements Initializable {
              Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
          }
         
+        
+        try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/AfficherSalle.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
        
     }
+    
+    
+    
     
     
     

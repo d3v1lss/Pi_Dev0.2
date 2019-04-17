@@ -5,8 +5,12 @@
  */
 package controlleur;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXListView;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -15,6 +19,15 @@ import javafx.fxml.Initializable;
  * @author Houssem
  */
 public class ListeFilmUserController implements Initializable {
+
+    @FXML
+    private JFXListView<?> table;
+    @FXML
+    private JFXTextField text_id;
+    @FXML
+    private JFXButton retourFilm;
+    @FXML
+    private JFXTextField search;
 
     /**
      * Initializes the controller class.

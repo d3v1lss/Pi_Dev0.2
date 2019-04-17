@@ -48,8 +48,6 @@ public class AfficherSalleController implements Initializable {
     @FXML
     private ListView<Salle> table;
     @FXML
-    private JFXTextField search;
-    @FXML
     private JFXTextField text_id;
     @FXML
     private JFXButton addFilm;
@@ -58,6 +56,8 @@ public class AfficherSalleController implements Initializable {
     @FXML
     private Button modifSalle;
     private TextField txtid;
+    @FXML
+    private JFXTextField rechercher;
 
     /**
      * Initializes the controller class.
@@ -130,6 +130,30 @@ public class AfficherSalleController implements Initializable {
                 Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
+        
+        
+        rechercher.setOnAction(event -> {
+            
+            
+            
+            try {
+                Parent parent2 = FXMLLoader
+                        .load(getClass().getResource("/views/AfficherSalle.fxml"));
+
+                Scene scene = new Scene(parent2);
+                Stage stage = (Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        
 
     }
 
