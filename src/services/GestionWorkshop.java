@@ -78,16 +78,14 @@ public class GestionWorkshop {
         String req = "SELECT * FROM workshop";
         ResultSet resultat = stm.executeQuery(req);
         while (resultat.next()) {
-            int id = resultat.getInt("id");
-            int user = resultat.getInt("user_id");
-            int club = resultat.getInt("club_id");
+
             String nom = resultat.getString("nom");
             int nombreplaces = resultat.getInt("nombreplaces");
             Date datedebut = resultat.getDate("datedebut");
             Date datefin = resultat.getDate("datefin");
             String discription = resultat.getString("discription");
 
-            ListWorkshop.add(new workshop(user, club, nom, nombreplaces, datedebut, datefin, discription));
+            ListWorkshop.add(new workshop(nom, nombreplaces, datedebut, datefin, discription));
 
         }
 

@@ -5,16 +5,27 @@
  */
 package controlleur;
 
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import entities.workshop;
 import services.GestionWorkshop;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import entities.listeworkshop;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,8 +41,9 @@ import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import services.GestionClub;
+
 import static services.GestionWorkshop.cnx;
+import utils.DbConnexion;
 
 /**
  * FXML Controller class
@@ -60,6 +72,11 @@ public class AfficherWorkshopsController implements Initializable {
     private JFXTextField des;
     private int selectIndex;
     ListWorkshop l = new ListWorkshop();
+    public static Connection cnx;
+
+    public AfficherWorkshopsController() throws SQLException {
+        cnx = DbConnexion.getInstance().getConnection();
+    }
 
     /**
      * Initializes the controller class.
@@ -155,6 +172,54 @@ public class AfficherWorkshopsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void Telecharger(ActionEvent event) throws SQLException {
+
+        try {
+
+            String nomf = "C:\\Users\\HCHAICHI\\Downloads\\PDFJAVA\\ListeWorkshops.pdf";
+            Document doc = new Document();
+            PdfWriter.getInstance(doc, new FileOutputStream(nomf));
+
+            doc.open();
+            Font R = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL, BaseColor.RED);
+            doc.add(new Paragraph(new java.util.Date().toGMTString(), R));
+            Paragraph p10 = new Paragraph("\n");
+            doc.add(p10);
+            Font bold = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL, BaseColor.BLUE);
+            Font b = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL, BaseColor.DARK_GRAY);
+            Paragraph p1 = new Paragraph("LES WORKSHOPS :", b);
+            doc.add(p1);
+            Paragraph p0 = new Paragraph("\n");
+            doc.add(p0);
+            Statement stm = cnx.createStatement();
+            String req = "SELECT * FROM workshop  ";
+            ResultSet resultat = stm.executeQuery(req);
+            while (resultat.next()) {
+                Paragraph p2 = new Paragraph("Nom:" + resultat.getString("nom"), bold);
+                doc.add(p2);
+                Paragraph p3 = new Paragraph("nombre places:" + resultat.getInt("nombreplaces"), bold);
+                doc.add(p3);
+                Paragraph p4 = new Paragraph("date debut:" + resultat.getDate("datedebut") + "", bold);
+                doc.add(p4);
+                Paragraph p5 = new Paragraph("date fin:" + resultat.getDate("datefin") + "", bold);
+                doc.add(p5);
+                Paragraph p6 = new Paragraph("description:" + resultat.getString("discription"), bold);
+                doc.add(p6);
+                Paragraph p7 = new Paragraph("\n");
+                doc.add(p7);
+
+            }
+
+            System.out.println("test");
+            doc.close();
+
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
     }
 
     public void filtrerWorkshop(String oldValue, String newValue) throws SQLException {

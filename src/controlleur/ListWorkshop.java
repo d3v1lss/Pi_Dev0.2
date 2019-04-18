@@ -98,4 +98,10 @@ public class ListWorkshop extends ListCell<workshop> {
         }
 
     }
+
+    @Override
+    public String toString() {
+        return "ListWorkshop{" + "nom=" + nom + ", txt_nom=" + txt_nom + '}';
+    }
+    
 }

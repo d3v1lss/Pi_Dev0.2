@@ -37,6 +37,14 @@ public class workshop {
         this.discription = discription;
     }
 
+    public workshop(String nom, int nombreplaces, Date datedebut, Date datefin, String discription) {
+        this.nom = nom;
+        this.nombreplaces = nombreplaces;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.discription = discription;
+    }
+
     public workshop(int user_id, String nom, int nombreplaces, Date datedebut, Date datefin, String discription) {
         this.user_id = user_id;
         this.nom = nom;
@@ -137,7 +145,7 @@ public class workshop {
 
     @Override
     public String toString() {
-        return "workshop{" + "id=" + id + ", user_id=" + user_id + ", club_id=" + club_id + ", nom=" + nom + ", nombreplaces=" + nombreplaces + ", datedebut=" + datedebut + ", datefin=" + datefin + ", discription=" + discription + '}';
+        return "workshop{ nom=" + nom + ", nombreplaces=" + nombreplaces + ", datedebut=" + datedebut + ", datefin=" + datefin + ", discription=" + discription + '}';
     }
 
 }

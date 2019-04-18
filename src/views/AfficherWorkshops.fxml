@@ -32,17 +32,19 @@
                   <Font name="Arial" size="39.0" />
                </font>
             </Label>
-            <GridPane layoutY="350.0" prefHeight="39.0" prefWidth="523.0">
+            <GridPane layoutX="52.0" layoutY="350.0" onDragDetected="#Telecharger" prefHeight="39.0" prefWidth="409.0">
                <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="152.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="371.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="162.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="153.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="371.0" minWidth="10.0" prefWidth="153.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
                   <Button mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="151.0" text="Retour" />
-                  <Button mnemonicParsing="false" onAction="#inscrit" prefHeight="25.0" prefWidth="162.0" text="S'inscrit" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#inscrit" prefHeight="25.0" prefWidth="130.0" text="S'inscrit" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#Telecharger" prefHeight="25.0" prefWidth="147.0" text="Telecharger" GridPane.columnIndex="2" />
                </children>
             </GridPane>
             <GridPane layoutX="341.0" layoutY="81.0" prefHeight="248.0" prefWidth="232.0">
@@ -72,5 +74,6 @@
             </GridPane>
          </children>
       </AnchorPane>
+      <Button layoutX="-52.0" layoutY="-40.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
