@@ -198,4 +198,24 @@ public class AfficherSalleController implements Initializable {
 
     }
 
+    @FXML
+    private void recherche(ActionEvent event) {
+        
+        
+                String rech= rechercher.getText();
+                 String req = "Select *from salle where nom=?";
+        PreparedStatement preparedStatement;
+        try {
+            preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, rech);
+            preparedStatement.execute();
+            System.out.println(req);
+        } catch (SQLException ex) {
+            Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+                
+        
+    }
+
 }

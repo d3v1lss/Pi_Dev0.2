@@ -30,7 +30,6 @@ import javafx.stage.Stage;
 import services.SalleServices;
 import utils.DbConnexion;
 
-
 /**
  * FXML Controller class
  *
@@ -59,7 +58,6 @@ public class ModifierSalleController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
-        
         System.out.println(idSalle);
         RetourModifSalle.setOnAction(event -> {
             try {
@@ -81,57 +79,43 @@ public class ModifierSalleController implements Initializable {
 
     @FXML
     private void modifier(ActionEvent event) throws SQLException, IOException {
-                                 
-                String nom = txtNomSalle.getText();
+
+        String nom = txtNomSalle.getText();
         int capacite = Integer.parseInt(txtCapaciteSalle.getText());
-        
+
         Salle s = new Salle(capacite, nom);
-        int idUp=idSalle;
-        
-        
+        int idUp = idSalle;
+
         s.setNom(nom);
         s.setCapacite(capacite);
-        
-        
-        
+
         try {
 
-   String req = "UPDATE salle SET nom=?, capacite=? where id = ? "; 
-   PreparedStatement stm     =   cnx.prepareStatement(req);
-     stm.setString(1, s.getNom());
-    stm.setInt(2, s.getCapacite());
-    stm.setInt(3, idUp);
-    stm.executeUpdate(); 
-} 
-         catch (SQLException ex) 
-         {
-             Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        
-        
-        try {
-                Parent parent2=FXMLLoader
-                        .load(getClass().getResource("/views/AfficherSalle.fxml"));
-                
-                Scene scene=new Scene(parent2);
-                Stage stage=(Stage) ((Node) event.getSource())
-                        .getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle("Interface 2");
-                stage.show();
+            String req = "UPDATE salle SET nom=?, capacite=? where id = ? ";
+            PreparedStatement stm = cnx.prepareStatement(req);
+            stm.setString(1, s.getNom());
+            stm.setInt(2, s.getCapacite());
+            stm.setInt(3, idUp);
+            stm.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-            } catch (IOException ex) {
-                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-       
+        try {
+            Parent parent2 = FXMLLoader
+                    .load(getClass().getResource("/views/AfficherSalle.fxml"));
+
+            Scene scene = new Scene(parent2);
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Interface 2");
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
-    
-    
-    
-    
-    
-    
 
 }

@@ -19,6 +19,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+
 /**
  *
  * @author Houssem
@@ -28,9 +30,11 @@ public class SalleServices {
     
     Connection connexion;
     static Connection cnx;
+    static Connection cnx1;
 
     public SalleServices() {
         connexion = DbConnexion.getInstance().getConnection();
+        cnx1 = DbConnexion.getInstance().getConnection();
     }
     
     public void ajouterSalle(Salle s) throws SQLException {
@@ -111,6 +115,28 @@ public class SalleServices {
         return ListSalle;
 
     }
+    
+    
+     public ObservableList<Salle> AddAll() throws SQLException {
+
+        ObservableList<Salle> ListSalle = FXCollections.observableArrayList();
+        Statement stm= cnx1.createStatement();
+        String req = "SELECT * FROM salle";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+            System.out.println(resultat.getInt("id"));
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            int capacite = resultat.getInt("capacite");
+
+            ListSalle.add(new Salle(id,capacite, nom));
+
+        }
+
+        return ListSalle;
+
+    }
+    
     
      
     
