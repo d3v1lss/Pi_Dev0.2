@@ -178,7 +178,7 @@ public class AfficherSalleController implements Initializable {
             table.setItems(salle);
         } else {
             newValue = newValue.toUpperCase();
-            for (salle s : table.getItems()) {
+            for (Salle s : table.getItems()) {
                 String nom = s.getNom();
 
                 if (nom.toUpperCase().contains(newValue)) {
