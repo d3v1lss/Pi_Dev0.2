@@ -28,7 +28,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
-import static services.GestionSalle.cnx;
+
 import static services.SalleServices.cnx;
 
 /**

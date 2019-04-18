@@ -11,6 +11,8 @@ import javafx.geometry.VPos;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -30,8 +32,8 @@ public class ListeFilm extends ListCell<Film> {
     private final Label discription = new Label();
     private final Label duree = new Label();
     private final Label datesotie = new Label();
-    private final Label image = new Label();
-
+    //private final Label image = new Label();
+    private final ImageView image = new ImageView();
     private final Label txtNom = new Label();
     private final Label txtdiscription = new Label();
     private final Label txtduree = new Label();
@@ -60,7 +62,7 @@ public class ListeFilm extends ListCell<Film> {
         return datesotie;
     }
 
-    public Label getImage() {
+    public ImageView getImage() {
         return image;
     }
 
@@ -144,7 +146,9 @@ public class ListeFilm extends ListCell<Film> {
             discription.setText(String.valueOf(item.getDiscription()));
             duree.setText(String.valueOf(item.getDuree()));
             datesotie.setText(String.valueOf(item.getDatesotie()));
-            image.setText(String.valueOf(item.getImage())); 
+            image.setFitWidth(50);
+            image.setFitHeight(50);
+            image.setImage(new Image("http://localhost/film/images/"+item.getImage())); 
             
 
             setText(null);
