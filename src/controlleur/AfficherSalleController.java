@@ -159,10 +159,10 @@ public class AfficherSalleController implements Initializable {
 
         if (rechercher.getText() == null) {
             SalleServices Sc = new SalleServices();
-            l.getTxt_nom().setUserData(new PropertyValueFactory<>("nom"));
+            l.getNom().setUserData(new PropertyValueFactory<>("nom"));
         }
 
-        l.getTxt_nom().setUserData(TextFieldTableCell.forTableColumn());
+        l.getNom().setUserData(TextFieldTableCell.forTableColumn());
 
     }
 
