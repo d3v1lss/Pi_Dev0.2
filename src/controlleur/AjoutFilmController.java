@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -32,10 +33,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
 import services.FilmServices;
 import utils.DbConnexion;
+
 
 /**
  * FXML Controller class
@@ -138,5 +141,11 @@ public class AjoutFilmController implements Initializable {
                      
                      FilmServices Fs =new FilmServices();
                        Fs.ajouterFilm(F);
+                       
+                       
+                       
+                       
+                       
+                       
     }
 }
