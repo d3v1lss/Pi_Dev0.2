@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.LesParticipantsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.LesParticipantsController">
     <stylesheets>
         <URL value="@/css/lesparticipants.css" />
     </stylesheets>
@@ -25,7 +25,7 @@
                   <Image url="@../css/background-159244_960_720.png" />
                </image>
             </ImageView>
-            <JFXListView fx:id="table" layoutX="8.0" layoutY="70.0" prefHeight="233.0" prefWidth="598.0" />
+            <JFXListView fx:id="table" layoutX="8.0" layoutY="70.0" prefHeight="233.0" prefWidth="560.0" />
             <JFXTextField fx:id="text_id" layoutX="46.0" layoutY="269.0" visible="false" />
             <Label layoutX="12.0" layoutY="-1.0" prefHeight="56.0" prefWidth="605.0" text="Les Participants :" textFill="#d70c0c">
                <font>

@@ -13,6 +13,7 @@ import com.jfoenix.controls.JFXTextField;
 import entities.listeworkshop;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -26,9 +27,11 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import services.GestionClub;
+import static services.GestionWorkshop.cnx;
 
 /**
  * FXML Controller class
@@ -76,6 +79,7 @@ public class AfficherWorkshopsController implements Initializable {
                 nom.setText(w.getNom());
                 des.setText(w.getDiscription());
                 nbr.setText(w.getNombreplaces() + "");
+                int i = w.getNombreplaces();
                 // debut.setDate(w.getDatedebut() + "");
                 // debut.setDate(w.getDatefin() + "");
             });
@@ -115,11 +119,28 @@ public class AfficherWorkshopsController implements Initializable {
 
         String workshop = nom.getText();
         String user = "AKRAM";
-
+        int i = Integer.parseInt(nbr.getText());
         listeworkshop lworkshop = new listeworkshop(workshop, user);
 
         GestionWorkshop gw = new GestionWorkshop();
         gw.inscrit(lworkshop);
+        workshop w = new workshop();
+
+        System.out.println(i);
+        int y = i - 1;
+        System.out.println(y);
+        w.setNombreplaces(y);
+        String req = "update `workshop` SET `nombreplaces`=?  where nom ='" + nom.getText() + "' ";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setInt(1, w.getNombreplaces());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionWorkshop.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        new Alert(Alert.AlertType.INFORMATION, "inscrit fait").show();
     }
 
     @FXML
@@ -156,5 +177,5 @@ public class AfficherWorkshopsController implements Initializable {
             table.setItems(filteredList);
         }
     }
-    
+
 }

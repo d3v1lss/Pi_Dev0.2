@@ -60,10 +60,9 @@ public class AjouterClubController implements Initializable {
         String Nom = txt_nom.getText();
         String Activite = txt_act.getText();
         String S = "Non";
-
-        club C = new club(Nom, Mail, description, 0, Activite, S);
-
         GestionClub gc = new GestionClub();
+        club C = new club(gc.getLasT()+1, Nom, Mail, description, 0, Activite,13 ,S);
+
         gc.ajouter(C);
         new Alert(Alert.AlertType.INFORMATION, "Club Ajouté").show();
     }

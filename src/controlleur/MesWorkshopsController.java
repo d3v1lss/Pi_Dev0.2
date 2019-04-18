@@ -32,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import static services.GestionClub.cnx;
 import services.GestionWorkshop;
+import utils.DbConnexion;
 
 /**
  * FXML Controller class
@@ -61,6 +62,10 @@ public class MesWorkshopsController implements Initializable {
     private int selectIndex;
 
     MesWorkshops l = new MesWorkshops();
+
+    public MesWorkshopsController() throws SQLException {
+        cnxC = DbConnexion.getInstance().getConnection();
+    }
 
     /**
      * Initializes the controller class.
@@ -153,7 +158,7 @@ public class MesWorkshopsController implements Initializable {
         // w.setDatefin(f);
         w.setNombreplaces(nb);
         try {
-
+ 
             String req = "UPDATE workshop SET nom=?, nombreplaces=?,discription=? where nom ='" + nom.getText() + "' ";
             PreparedStatement stm = cnx.prepareStatement(req);
             stm.setString(1, w.getNom());

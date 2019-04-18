@@ -26,24 +26,45 @@ public class GestionClub {
 
     public static Connection cnx;
     private Object connexion;
+    private String req;
+    private Statement stm;
+    private ResultSet resultat;
+    int lastid;
 
     public GestionClub() throws SQLException {
         cnx = DbConnexion.getInstance().getConnection();
     }
 
+    public int getLasT() throws SQLException {
+        req = "SELECT max(id) FROM club";
+        try {
+            stm = cnx.createStatement();
+            resultat = stm.executeQuery(req);
+            while (resultat.next()) {
+                lastid = resultat.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(System.err);
+        }
+
+        return lastid;
+    }
+
     public void ajouter(club C) {
-        String req = "INSERT INTO `club`(`nom`, `mail`, `discription`"
-                + ", `nbrparticipant`, `activite`, `statut`) "
-                + " VALUES (?,?,?,?,?,?)";
+        req = "INSERT INTO `club`(`id`,`nom`, `mail`, `discription`"
+                + ", `nbrparticipant`, `activite`,`president`, `statut`) "
+                + " VALUES (?,?,?,?,?,?,?,?)";
 
         try {
             PreparedStatement preparedStatement = cnx.prepareStatement(req);
-            preparedStatement.setString(1, C.getNom());
-            preparedStatement.setString(2, C.getMail());
-            preparedStatement.setString(3, C.getDiscription());
-            preparedStatement.setInt(4, C.getNbrparticipant());
-            preparedStatement.setString(5, C.getActivite());
-            preparedStatement.setString(6, C.getStatut());
+            preparedStatement.setInt(1, C.getId());
+            preparedStatement.setString(2, C.getNom());
+            preparedStatement.setString(3, C.getMail());
+            preparedStatement.setString(4, C.getDiscription());
+            preparedStatement.setInt(5, C.getNbrparticipant());
+            preparedStatement.setString(6, C.getActivite());
+            preparedStatement.setInt(7, C.getPresident());
+            preparedStatement.setString(8, C.getStatut());
 
             preparedStatement.execute();
         } catch (SQLException ex) {
@@ -52,7 +73,7 @@ public class GestionClub {
     }
 
     public void inscrit(listeclub lclub) {
-        String req = "INSERT INTO `listeclub`(`club`, `membres`) "
+        req = "INSERT INTO `listeclub`(`club`, `membres`) "
                 + " VALUES (?,?)";
 
         try {
@@ -69,9 +90,9 @@ public class GestionClub {
     public ObservableList<club> FetchAll() throws SQLException {
 
         ObservableList<club> ListClub = FXCollections.observableArrayList();
-        Statement stm = cnx.createStatement();
-        String req = "SELECT * FROM club";
-        ResultSet resultat = stm.executeQuery(req);
+        stm = cnx.createStatement();
+        req = "SELECT * FROM club";
+        resultat = stm.executeQuery(req);
         while (resultat.next()) {
             int id = resultat.getInt("id");
             String nom = resultat.getString("nom");
@@ -93,9 +114,9 @@ public class GestionClub {
     public ObservableList<club> MonClub() throws SQLException {
 
         ObservableList<club> MonClub = FXCollections.observableArrayList();
-        Statement stm = cnx.createStatement();
-        String req = "SELECT * FROM club where president=13 ";
-        ResultSet resultat = stm.executeQuery(req);
+        stm = cnx.createStatement();
+        req = "SELECT * FROM club where president=13 ";
+        resultat = stm.executeQuery(req);
         while (resultat.next()) {
             int id = resultat.getInt("id");
             String nom = resultat.getString("nom");
@@ -116,8 +137,8 @@ public class GestionClub {
 
     public void update(club C) {
 
-        String req = "update `club` SET `nom`=?, `mail`=?,`discription`=?,`activite`=? "
-                + "where president=7";
+        req = "update `club` SET `nom`=?, `mail`=?,`discription`=?,`activite`=? "
+                + "where president=13";
 
         try {
             PreparedStatement preparedStatement = cnx.prepareStatement(req);
@@ -132,4 +153,22 @@ public class GestionClub {
         }
     }
 
+    public ObservableList<listeclub> Fetch() throws SQLException {
+
+        ObservableList<listeclub> MesMembres = FXCollections.observableArrayList();
+
+        Statement st = cnx.createStatement();
+        String re = "SELECT * FROM listeclub";
+        ResultSet res = st.executeQuery(re);
+
+        while (res.next()) {
+            String nom = res.getString("membres");
+
+            MesMembres.add(new listeclub(nom));
+
+        }
+
+        return MesMembres;
+
+    }
 }

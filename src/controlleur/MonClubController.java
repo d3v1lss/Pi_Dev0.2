@@ -23,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import static services.GestionClub.cnx;
 
 /**
@@ -68,7 +69,9 @@ public class MonClubController implements Initializable {
 
         } catch (IOException ex) {
             Logger.getLogger(MonClubController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
+        new Alert(Alert.AlertType.INFORMATION, "club Ajouté").show();
     }
 
     @FXML

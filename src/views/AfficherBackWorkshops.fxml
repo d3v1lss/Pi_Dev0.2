@@ -15,41 +15,38 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="controlleur.AfficherBackWorkshopsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.AfficherBackWorkshopsController">
     <stylesheets>
         <URL value="@/css/afficherbackworkshops.css" />
     </stylesheets>
    <children>
       <AnchorPane id="AnchorPane" layoutX="20.0" layoutY="20.0" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" stylesheets="&#10;              &#10;               ">
          <children>
-            <ImageView fitHeight="422.0" fitWidth="647.0" layoutX="-26.0" layoutY="-20.0">
+            <ImageView fitHeight="422.0" fitWidth="630.0" layoutX="-26.0" layoutY="-20.0">
                <image>
                   <Image url="@../css/background-159244_960_720.png" />
                </image>
             </ImageView>
-            <JFXListView fx:id="table" layoutX="14.0" layoutY="50.0" prefHeight="300.0" prefWidth="306.0" />
-            <JFXTextField fx:id="search" layoutX="317.0" layoutY="15.0" prefHeight="25.0" prefWidth="268.0" promptText="search" />
-            <FontAwesomeIconView glyphName="SEARCH" layoutX="588.0" layoutY="31.0" text="" />
+            <JFXListView fx:id="table" layoutX="-6.0" layoutY="50.0" prefHeight="271.0" prefWidth="253.0" />
+            <JFXTextField fx:id="search" layoutX="317.0" layoutY="15.0" prefHeight="25.0" prefWidth="219.0" promptText="search" />
+            <FontAwesomeIconView glyphName="SEARCH" layoutX="524.0" layoutY="31.0" text="" />
             <JFXTextField fx:id="text_id" layoutX="46.0" layoutY="269.0" visible="false" />
-            <Label layoutX="8.0" prefHeight="56.0" prefWidth="315.0" text="Liste workshops :" textFill="#d70c0c">
+            <Label layoutX="-13.0" layoutY="-13.0" prefHeight="56.0" prefWidth="315.0" text="Liste workshops :" textFill="#d70c0c">
                <font>
                   <Font name="Arial" size="39.0" />
                </font>
             </Label>
-            <GridPane layoutX="84.0" layoutY="360.0" prefHeight="39.0" prefWidth="523.0">
+            <GridPane layoutX="62.0" layoutY="350.0" prefHeight="4.0" prefWidth="184.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="304.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="219.0" />
                </columnConstraints>
                <rowConstraints>
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
-               <children>
-                  <Button mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="186.0" text="Retour" />
-               </children>
             </GridPane>
-            <GridPane layoutX="341.0" layoutY="81.0" prefHeight="218.0" prefWidth="253.0">
+            <GridPane layoutX="268.0" layoutY="76.0" prefHeight="247.0" prefWidth="275.0">
                <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>
                <rowConstraints>
@@ -60,13 +57,19 @@
                   <RowConstraints maxHeight="45.0" minHeight="10.0" prefHeight="45.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <JFXTextField fx:id="nom" />
-                  <JFXTextField fx:id="nbr" GridPane.rowIndex="1" />
-                  <JFXTextField fx:id="des" GridPane.rowIndex="4" />
-                  <JFXDatePicker fx:id="debut" prefHeight="25.0" prefWidth="256.0" GridPane.rowIndex="2" />
-                  <JFXDatePicker fx:id="fin" prefHeight="25.0" prefWidth="258.0" GridPane.rowIndex="3" />
+                  <JFXTextField fx:id="nom" GridPane.columnIndex="1" />
+                  <JFXTextField fx:id="nbr" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <JFXTextField fx:id="des" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <JFXDatePicker fx:id="debut" prefHeight="25.0" prefWidth="256.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <JFXDatePicker fx:id="fin" prefHeight="25.0" prefWidth="258.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label prefHeight="17.0" prefWidth="141.0" text="nom :" />
+                  <Label prefHeight="17.0" prefWidth="152.0" text="nombreplaces :" GridPane.rowIndex="1" />
+                  <Label prefHeight="17.0" prefWidth="156.0" text="datedebut :" GridPane.rowIndex="2" />
+                  <Label prefHeight="17.0" prefWidth="150.0" text="datefin :" GridPane.rowIndex="3" />
+                  <Label prefHeight="17.0" prefWidth="165.0" text="description :" GridPane.rowIndex="4" />
                </children>
             </GridPane>
+            <Button layoutX="28.0" layoutY="338.0" mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="186.0" text="Retour" />
          </children>
       </AnchorPane>
    </children>

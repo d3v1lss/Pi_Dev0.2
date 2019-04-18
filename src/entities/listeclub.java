@@ -17,7 +17,8 @@ public class listeclub {
     private String club;
     private String membres;
 
-    public listeclub() {
+    public listeclub(String membres) {
+        this.membres = membres;
     }
 
     public listeclub(String club, String membres) {

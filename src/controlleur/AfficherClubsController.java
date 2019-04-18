@@ -15,6 +15,7 @@ import entities.listeworkshop;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -33,6 +34,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import static services.GestionClub.cnx;
 
 /**
  * FXML Controller class
@@ -46,7 +48,8 @@ public class AfficherClubsController implements Initializable {
     private ListView<club> table;
     @FXML
     private JFXTextField search;
-
+    @FXML
+    private JFXTextField nbr;
     @FXML
     private JFXTextField nom;
     @FXML
@@ -67,11 +70,6 @@ public class AfficherClubsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        us = UserSession.getInstace();
-        System.out.println(us);
-        iduser = us.getId();
-
-        System.out.println(iduser);
 
         try {
             GestionClub gc = new GestionClub();
@@ -87,8 +85,7 @@ public class AfficherClubsController implements Initializable {
                 act.setText(c.getActivite());
                 des.setText(c.getDiscription());
                 mail.setText(c.getMail());
-                System.out.println(selectIndex);
-
+                nbr.setText(c.getNbrparticipant() + "");
             });
 
         } catch (SQLException ex) {
@@ -132,7 +129,7 @@ public class AfficherClubsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class
                     .getName()).log(Level.SEVERE, null, ex);
-           
+
         }
 
     }
@@ -142,12 +139,28 @@ public class AfficherClubsController implements Initializable {
 
         String club = nom.getText();
         String user = "AKRAM";
-
+        int i = Integer.parseInt(nbr.getText());
         listeclub lclub = new listeclub(club, user);
 
         GestionClub gc = new GestionClub();
         gc.inscrit(lclub);
-         new Alert(Alert.AlertType.INFORMATION, "inscrt fait").show();
+        club c = new club();
+        System.out.println(i);
+        int y = i + 1;
+        System.out.println(y);
+        c.setNbrparticipant(y);
+        String req = "update `club` SET `nbrparticipant`=?  where nom ='" + nom.getText() + "' ";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setInt(1, c.getNbrparticipant());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(GestionClub.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        new Alert(Alert.AlertType.INFORMATION, "inscrit fait").show();
     }
 
     @FXML

@@ -60,21 +60,18 @@ public class AjouterWorkshopController implements Initializable {
     @FXML
     private void ajouterworkshop(ActionEvent event) throws SQLException {
         String description = des.getText();
-      
-        
-        int nbr =Integer.parseInt(txt_nbr.getText());
-        
+
+        int nbr = Integer.parseInt(txt_nbr.getText());
+
         String Nom = txt_nom.getText();
         java.sql.Date d = java.sql.Date.valueOf(debut.getValue());
         java.sql.Date f = java.sql.Date.valueOf(fin.getValue());
-        int id=13;
+        int id = 13;
         workshop w = new workshop(id, Nom, nbr, d, f, description);
-        GestionWorkshop gw=new GestionWorkshop();
+        GestionWorkshop gw = new GestionWorkshop();
         gw.ajouter(w);
         new Alert(Alert.AlertType.INFORMATION, "workshop Ajouté").show();
-        
-        
-        
+
     }
 
     @FXML

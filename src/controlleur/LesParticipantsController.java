@@ -46,7 +46,7 @@ public class LesParticipantsController implements Initializable {
             table.setCellFactory(lv -> new LesParticipants());
 
         } catch (SQLException ex) {
-            Logger.getLogger(AfficherClubsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LesParticipantsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -60,7 +60,7 @@ public class LesParticipantsController implements Initializable {
             table.getScene().setRoot(root);
 
         } catch (IOException ex) {
-            Logger.getLogger(MesWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(LesParticipantsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
