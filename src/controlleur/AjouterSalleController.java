@@ -38,7 +38,7 @@ import org.controlsfx.control.Notifications;
 public class AjouterSalleController implements Initializable {
 
     Connection cnx;
-    
+
     @FXML
     private TextField txtsalle;
     @FXML
@@ -52,8 +52,7 @@ public class AjouterSalleController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // Redirection
-        
-        
+
         RetourListeSalle.setOnAction(event -> {
             try {
                 Parent parent2 = FXMLLoader
@@ -71,45 +70,43 @@ public class AjouterSalleController implements Initializable {
             }
         });
 
-    }    
-
-   
+    }
 
     public AjouterSalleController() {
         cnx = DbConnexion.getInstance().getConnection();
     }
-    
-    
-     @FXML
+
+    @FXML
     private void ajoutSalle(ActionEvent event) throws SQLException {
-        
-        String nom= txtsalle.getText();
-        int capacite =Integer.parseInt(txtcap.getText());
-        
-         Salle S = new Salle(capacite, nom);
-         SalleServices Ss = new SalleServices();
-         Ss.ajouterSalle(S);
-         
-          Notifications.create()
-                               .title("film ajouté")
-                               .graphic(null)
-                               .hideAfter(Duration.seconds(5))
-                               .position(Pos.CENTER).show();
-        
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
-         
+
+        String nom = txtsalle.getText();
+        int capacite = Integer.parseInt(txtcap.getText());
+
+        Salle S = new Salle(capacite, nom);
+        SalleServices Ss = new SalleServices();
+        Ss.ajouterSalle(S);
+
+        Notifications.create()
+                .title("film ajouté")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.CENTER).showConfirm();
+
+        try {
+            Parent parent2 = FXMLLoader
+                    .load(getClass().getResource("/views/AfficherSalle.fxml"));
+
+            Scene scene = new Scene(parent2);
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Interface 2");
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
-    
-    
-    
+
 }
