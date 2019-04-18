@@ -66,6 +66,9 @@ public class AfficherSalleController implements Initializable {
     @FXML
     private JFXTextField rechercher;
 
+    ListSalle l = new ListSalle();
+    
+    
     /**
      * Initializes the controller class.
      */
@@ -140,36 +143,6 @@ public class AfficherSalleController implements Initializable {
         
         
         
-        
-        /*
-        rechercher.textProperty().addListener(new ChangeListener() {
-            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
-                try {
-                    filtrerSalle((String) oldValue, (String) newValue);
-                } catch (SQLException ex) {
-                    Logger.getLogger(AfficherClubsController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-
-            }
-
-        });
-        
-        if (rechercher.getText() == null) {
-            try {
-                SalleServices Sc = new SalleServices();
-
-                l.getNom().setUserData(new PropertyValueFactory<>("nom"));
-
-            } catch (SQLException ex) {
-                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-
-        l.getNom().setUserData(TextFieldTableCell.forTableColumn());
-
-    }
-
-        */
         
         
         rechercher.textProperty().addListener(new ChangeListener() {
