@@ -19,6 +19,10 @@ import java.sql.Statement;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,9 +33,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import services.SalleServices;
+
 
 
 import utils.DbConnexion;
@@ -133,25 +140,7 @@ public class AfficherSalleController implements Initializable {
         
         
         
-        rechercher.setOnAction(event -> {
-            
-            
-            
-            try {
-                Parent parent2 = FXMLLoader
-                        .load(getClass().getResource("/views/AfficherSalle.fxml"));
-
-                Scene scene = new Scene(parent2);
-                Stage stage = (Stage) ((Node) event.getSource())
-                        .getScene().getWindow();
-                stage.setScene(scene);
-                stage.setTitle("Interface 2");
-                stage.show();
-
-            } catch (IOException ex) {
-                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        });
+        
         /*
         rechercher.textProperty().addListener(new ChangeListener() {
             public void changed(ObservableValue observable, Object oldValue, Object newValue) {
@@ -181,8 +170,62 @@ public class AfficherSalleController implements Initializable {
     }
 
         */
+        
+        
+        rechercher.textProperty().addListener(new ChangeListener() {
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                try {
+                    Resultat((String) oldValue, (String) newValue);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        });
+
+        if (rechercher.getText() == null) {
+            SalleServices Sc = new SalleServices();
+            l.getTxt_nom().setUserData(new PropertyValueFactory<>("nom"));
+        }
+
+        l.getTxt_nom().setUserData(TextFieldTableCell.forTableColumn());
 
     }
+
+        
+     
+    public void Resultat(String oldValue, String newValue) throws SQLException {
+        SalleServices Ss = new SalleServices();
+
+        ObservableList<Salle> salle = FXCollections.observableArrayList(Ss.FetchAll());
+        ObservableList<Salle> filteredList = FXCollections.observableArrayList();
+
+        if (rechercher == null || (newValue.length() < oldValue.length()) || newValue == null) {
+            table.setItems(salle);
+        } else {
+            newValue = newValue.toUpperCase();
+            for (salle s : table.getItems()) {
+                String nom = s.getNom();
+
+                if (nom.toUpperCase().contains(newValue)) {
+                    filteredList.add(s);
+                }
+            }
+            table.setItems(filteredList);
+        }
+    }
+
+    
+    
+    
+    
+    
+        
+        
+        
+
+    
 
     @FXML
     private void findID(MouseEvent event) {
