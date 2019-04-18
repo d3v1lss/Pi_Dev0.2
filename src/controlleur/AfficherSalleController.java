@@ -69,9 +69,9 @@ public class AfficherSalleController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            GestionSalle gs = new GestionSalle();
+            SalleServices Ss = new SalleServices();
 
-            table.getItems().setAll(gs.FetchAll());
+            table.getItems().setAll(Ss.FetchAll());
             table.setCellFactory(lv -> new ListSalle());
         } catch (SQLException ex) {
             Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
@@ -152,8 +152,35 @@ public class AfficherSalleController implements Initializable {
                 Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        /*
+        rechercher.textProperty().addListener(new ChangeListener() {
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                try {
+                    filtrerSalle((String) oldValue, (String) newValue);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AfficherClubsController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        });
         
-        
+        if (rechercher.getText() == null) {
+            try {
+                SalleServices Sc = new SalleServices();
+
+                l.getNom().setUserData(new PropertyValueFactory<>("nom"));
+
+            } catch (SQLException ex) {
+                Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        l.getNom().setUserData(TextFieldTableCell.forTableColumn());
+
+    }
+
+        */
 
     }
 
@@ -198,7 +225,6 @@ public class AfficherSalleController implements Initializable {
 
     }
 
-    @FXML
     private void recherche(ActionEvent event) {
         
         

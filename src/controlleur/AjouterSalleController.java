@@ -84,7 +84,7 @@ public class AjouterSalleController implements Initializable {
 
         Salle S = new Salle(capacite, nom);
         SalleServices Ss = new SalleServices();
-        Ss.ajouterSalle(S);
+        Ss.ajouterSalle1(S);
 
         Notifications.create()
                 .title("film ajouté")

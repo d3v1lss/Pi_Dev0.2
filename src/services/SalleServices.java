@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import static services.GestionSalle.cnx;
 
 
 /**
@@ -35,9 +36,10 @@ public class SalleServices {
     public SalleServices() {
         connexion = DbConnexion.getInstance().getConnection();
         cnx1 = DbConnexion.getInstance().getConnection();
+        cnx = DbConnexion.getInstance().getConnection();
     }
     
-    public void ajouterSalle(Salle s) throws SQLException {
+    public void ajouterSalle1(Salle s) throws SQLException {
         String req = "INSERT INTO salle (nom, capacite)VALUES ( '"
                 + s.getNom() + "', '" + s.getCapacite() + "') ";
         Statement stm = connexion.createStatement();
@@ -96,7 +98,7 @@ public class SalleServices {
         }
         return salle;
     }
-    
+    /*
     public ObservableList<Salle> FetchAll() throws SQLException {
 
         ObservableList<Salle> ListSalle = FXCollections.observableArrayList();
@@ -116,7 +118,7 @@ public class SalleServices {
 
     }
     
-    
+    */
      public ObservableList<Salle> AddAll() throws SQLException {
 
         ObservableList<Salle> ListSalle = FXCollections.observableArrayList();
@@ -138,6 +140,40 @@ public class SalleServices {
     }
     
     
-     
+      public void ajouter(Salle s) {
+        String req = "INSERT INTO `salle`(`nom`, `capacite` ) "
+                + " VALUES (?,?)";
+
+        try {
+            PreparedStatement preparedStatement = cnx.prepareStatement(req);
+            preparedStatement.setString(1, s.getNom());
+            preparedStatement.setInt(2, s.getCapacite());
+
+            preparedStatement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(SalleServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    public ObservableList<Salle> FetchAll() throws SQLException {
+
+        ObservableList<Salle> ListSalle = FXCollections.observableArrayList();
+        Statement stm = cnx.createStatement();
+        String req = "SELECT * FROM salle";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+            System.out.println(resultat.getInt("id"));
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            int capacite = resultat.getInt("capacite");
+
+            ListSalle.add(new Salle(id,capacite, nom));
+
+        }
+
+        return ListSalle;
+
+    }
     
 }
