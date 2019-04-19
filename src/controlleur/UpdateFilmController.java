@@ -12,6 +12,7 @@ import entities.Film;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -39,8 +40,8 @@ import utils.DbConnexion;
  */
 public class UpdateFilmController implements Initializable {
 
-Connection cnx;    
-    
+    Connection cnx;
+    Connection cnx1;
     @FXML
     private TextField txt_Nom;
     @FXML
@@ -51,35 +52,29 @@ Connection cnx;
     private DatePicker txt_dateP;
     @FXML
     private Button RetourListeFilm;
-    
+
     public static int idFilm;
 
     /**
      * Initializes the controller class.
      */
-    
-    
-    
-    
-    
     public UpdateFilmController() {
         cnx = DbConnexion.getInstance().getConnection();
+        cnx1 = DbConnexion.getInstance().getConnection();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-         System.out.println(idSalle);
-         
-         
-         
-         RetourListeFilm.setOnAction(event->{
+        System.out.println(idSalle);
+
+        RetourListeFilm.setOnAction(event -> {
             try {
-                Parent parent2=FXMLLoader
+                Parent parent2 = FXMLLoader
                         .load(getClass().getResource("/views/listesFilms.fxml"));
-                
-                Scene scene=new Scene(parent2);
-                Stage stage=(Stage) ((Node) event.getSource())
+
+                Scene scene = new Scene(parent2);
+                Stage stage = (Stage) ((Node) event.getSource())
                         .getScene().getWindow();
                 stage.setScene(scene);
                 stage.setTitle("Interface 2");
@@ -89,48 +84,41 @@ Connection cnx;
                 Logger.getLogger(UpdateFilmController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-         
-         
-         
-         
-         
-         
-         
+
     }
-    
-    
 
     @FXML
     private void ModifFilm(ActionEvent event) {
-       
+
         System.out.println(" l9a el id ");
         System.out.println(idFilm);
 
+        int idFilm1 = idFilm;
         String nom = txt_Nom.getText();
         String duree = txt_duree.getText();
         String description = txt_desc.getText();
+        Date gettedDatePickerDate = Date.valueOf(txt_dateP.getValue());
+        System.out.println("date");
+        System.out.println(gettedDatePickerDate);
 
-        java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(txt_dateP.getValue());
-        
-        
+        Film f = new Film(nom, description, duree, gettedDatePickerDate);
+
         try {
 
-            String req = "UPDATE salle SET nom=?, duree=? , discription=?   , gettedDatePickerDate=?	 where id = ? ";
-            PreparedStatement stmp = cnx.prepareStatement(req);
-            stmp.setString(1, nom);
-            stmp.setString(2, duree);
-            stmp.setString(3, description);
+            String req = "UPDATE salle SET nom=?, duree=? , discription=? , datesotie=? 	 where id = ? ";
+            PreparedStatement stmp = cnx1.prepareStatement(req);
+            stmp.setString(1, f.getNom());
+            stmp.setString(2, f.getDuree());
+            stmp.setString(3, f.getDiscription());
             stmp.setDate(4, gettedDatePickerDate);
-            stmp.setInt(5, idFilm);
+            stmp.setInt(4, idFilm1);
             System.out.println("famma mochkel");
             stmp.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
-        
-         try {
+
+        try {
             Parent parent2 = FXMLLoader
                     .load(getClass().getResource("/views/listesFilms.fxml"));
 
@@ -144,8 +132,6 @@ Connection cnx;
         } catch (IOException ex) {
             Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
 
     }
 }

@@ -32,6 +32,16 @@ public class Film {
     }
     
     
+    
+    public Film(String nom, String discription, String duree, Date datesotie) {
+        
+        this.nom = nom;
+        this.discription = discription;
+        this.duree = duree;
+        this.datesotie = datesotie;
+    }
+    
+    
     public Film(String nom, String discription, String duree, Date datesotie, String image) {
         
         this.nom = nom;
