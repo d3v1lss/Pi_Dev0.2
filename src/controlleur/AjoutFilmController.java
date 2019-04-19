@@ -36,9 +36,9 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 import javax.imageio.ImageIO;
 import org.apache.commons.lang3.RandomStringUtils;
+import org.controlsfx.control.Notifications;
 import services.FilmServices;
 import utils.DbConnexion;
-
 
 /**
  * FXML Controller class
@@ -50,8 +50,8 @@ public class AjoutFilmController implements Initializable {
     /**
      * Initializes the controller class.
      */
-        Connection cnx;
-        @FXML
+    Connection cnx;
+    @FXML
     private ImageView pic1;
     @FXML
     private TextField txt_Nom;
@@ -63,23 +63,22 @@ public class AjoutFilmController implements Initializable {
     private TextArea txt_desc;
     @FXML
     private Button RetourListeFilm;
-    
-    
+
     public AjoutFilmController() {
         cnx = DbConnexion.getInstance().getConnection();
-    }    
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // redirection
-        
-        RetourListeFilm.setOnAction(event->{
+
+        RetourListeFilm.setOnAction(event -> {
             try {
-                Parent parent2=FXMLLoader
+                Parent parent2 = FXMLLoader
                         .load(getClass().getResource("/views/listesFilms.fxml"));
-                
-                Scene scene=new Scene(parent2);
-                Stage stage=(Stage) ((Node) event.getSource())
+
+                Scene scene = new Scene(parent2);
+                Stage stage = (Stage) ((Node) event.getSource())
                         .getScene().getWindow();
                 stage.setScene(scene);
                 stage.setTitle("Interface 2");
@@ -89,28 +88,22 @@ public class AjoutFilmController implements Initializable {
                 Logger.getLogger(AjoutFilmController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
-        
-        
-        
-        
-    }    
-    
-    
-    
-     public static String saveToFileImageNormal(Image image)throws SQLException, IOException  {
 
-      String ext = "jpg";
+    }
+
+    public static String saveToFileImageNormal(Image image) throws SQLException, IOException {
+
+        String ext = "jpg";
         File dir = new File("C:/wamp64/www/Film/images");
         String name = String.format("%s.%s", RandomStringUtils.randomAlphanumeric(8), ext);
         File outputFile = new File(dir, name);
         BufferedImage bImage = SwingFXUtils.fromFXImage(image, null);
-       ImageIO.write(bImage, "png", outputFile);
+        ImageIO.write(bImage, "png", outputFile);
         return name;
     }
-   
-    
-        @FXML
-    private void addImage(MouseEvent event) throws IOException{
+
+    @FXML
+    private void addImage(MouseEvent event) throws IOException {
         FileChooser fc = new FileChooser();
 
         FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (.jpg)", "*.JPG");
@@ -124,30 +117,34 @@ public class AjoutFilmController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
 
     @FXML
     private void AddMovies(ActionEvent event) throws SQLException, IOException {
         Image image1 = pic1.getImage();
-              
-                     String nameImage1 = saveToFileImageNormal(image1);
-                     String nom= txt_Nom.getText();
-                     String duree= txt_duree.getText();
-                     String description= txt_desc.getText();
-                    
-                     java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(txt_dateP.getValue());
-                     
-                     
-                     Film F =new Film(nom, description, duree, gettedDatePickerDate,nameImage1);
-                     
-                     FilmServices Fs =new FilmServices();
-                       Fs.ajouterFilm(F);
-                       
-                       
-                       
-                       
-                       
-                       
+
+        String nameImage1 = saveToFileImageNormal(image1);
+        String nom = txt_Nom.getText();
+        String duree = txt_duree.getText();
+        String description = txt_desc.getText();
+
+        java.sql.Date gettedDatePickerDate = java.sql.Date.valueOf(txt_dateP.getValue());
+
+        Film F = new Film(nom, description, duree, gettedDatePickerDate, nameImage1);
+
+        FilmServices Fs = new FilmServices();
+        Fs.ajouterFilm(F);
+
+        Notifications.create()
+                .title("film ajouté")
+                .graphic(null)
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.CENTER).showConfirm();
+        
+        
+       
+        
+
     }
 }

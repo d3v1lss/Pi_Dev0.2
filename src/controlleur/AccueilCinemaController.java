@@ -33,6 +33,8 @@ public class AccueilCinemaController implements Initializable {
     
     @FXML
     private Button salle;
+    @FXML
+    private Button mail;
     
 
     /**
@@ -76,6 +78,30 @@ public class AccueilCinemaController implements Initializable {
                 Logger.getLogger(AccueilCinemaController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
+        
+        mail.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/DonnerVotreAvis.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AccueilCinemaController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+        
+        
+        
+        
+        
+        
         
     }
 

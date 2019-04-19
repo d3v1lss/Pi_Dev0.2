@@ -105,13 +105,13 @@ public class UpdateFilmController implements Initializable {
 
         try {
 
-            String req = "UPDATE salle SET nom=?, duree=? , discription=? , datesotie=? 	 where id = ? ";
+            String req = "UPDATE film SET nom=?, duree=? , discription=? , datesotie=? 	 where id = ? ";
             PreparedStatement stmp = cnx1.prepareStatement(req);
             stmp.setString(1, f.getNom());
             stmp.setString(2, f.getDuree());
             stmp.setString(3, f.getDiscription());
             stmp.setDate(4, gettedDatePickerDate);
-            stmp.setInt(4, idFilm1);
+            stmp.setInt(5, idFilm1);
             System.out.println("famma mochkel");
             stmp.executeUpdate();
         } catch (SQLException ex) {

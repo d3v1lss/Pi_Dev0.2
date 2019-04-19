@@ -87,7 +87,7 @@ public class AjouterSalleController implements Initializable {
         Ss.ajouterSalle1(S);
 
         Notifications.create()
-                .title("film ajouté")
+                .title("salle ajouté")
                 .graphic(null)
                 .hideAfter(Duration.seconds(5))
                 .position(Pos.CENTER).showConfirm();
