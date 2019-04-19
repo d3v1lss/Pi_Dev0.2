@@ -25,6 +25,8 @@ public class BackHomeController implements Initializable {
 
     @FXML
     private Button Boutique;
+    @FXML
+    private Button Quitter;
 
     /**
      * Initializes the controller class.
@@ -38,6 +40,14 @@ public class BackHomeController implements Initializable {
     private void Boutique(ActionEvent event) {
          try {
             Boutique.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/AfficherProduits.fxml")));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void Quitter(ActionEvent event) {  try {
+            Boutique.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/firstXML.fxml")));
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }

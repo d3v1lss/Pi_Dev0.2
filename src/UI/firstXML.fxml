@@ -7,6 +7,8 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" fx:id="home" prefHeight="368.0" prefWidth="600.0" style="-fx-background-color: #82b1ff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.FirstXMLController">
    <children>
@@ -15,10 +17,11 @@
             <Image url="@../img/bg.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="logB" layoutX="398.0" layoutY="200.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #002f7c;" text="Login" textFill="WHITE" />
-      <TextField fx:id="user" layoutX="333.0" layoutY="75.0" />
+      <TextField fx:id="user" layoutX="333.0" layoutY="95.0" />
       <Label fx:id="lab" layoutX="283.0" layoutY="376.0" />
-      <PasswordField fx:id="pwd" layoutX="333.0" layoutY="150.0" />
+      <PasswordField fx:id="pwd" layoutX="333.0" layoutY="160.0" />
+      <Button fx:id="mdpOublier" layoutX="342.0" layoutY="189.0" mnemonicParsing="false" onAction="#mdpOublier" style="-fx-background-color: transparent;" text="Mot de passe Oublié" textFill="WHITE" underline="true" />
+      <Button fx:id="logB" layoutX="384.0" layoutY="219.0" mnemonicParsing="false" onAction="#login" style="-fx-background-color: #002f7c;" text="Login" textFill="WHITE" />
       <Button fx:id="signB" layoutX="520.0" layoutY="361.0" mnemonicParsing="false" onAction="#signIN" style="-fx-background-color: transparent;" text="SignIn" textFill="WHITE" />
       <ImageView fx:id="pic" fitHeight="295.0" fitWidth="255.0" layoutX="28.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -35,13 +38,41 @@
             <Button fx:id="backB" mnemonicParsing="false" onAction="#back" prefHeight="43.0" prefWidth="67.0" style="-fx-background-color: transparent;" text="Back" textFill="WHITE" />
             <TextField fx:id="userNew" layoutX="207.0" layoutY="76.0" />
             <PasswordField fx:id="pwdNew" layoutX="207.0" layoutY="141.0" />
+            <PasswordField fx:id="pwdNewConf" layoutX="207.0" layoutY="206.0" onKeyReleased="#verifAction" />
             <TextField fx:id="mail" layoutX="207.0" layoutY="274.0" />
             <Button fx:id="createB" layoutX="239.0" layoutY="331.0" mnemonicParsing="false" onAction="#create" style="-fx-background-color: #002f7c;" text="Create Account" textFill="WHITE" />
             <Label layoutX="122.0" layoutY="81.0" text="Username" textFill="WHITE" />
             <Label layoutX="124.0" layoutY="146.0" text="Password" textFill="WHITE" />
             <Label layoutX="151.0" layoutY="279.0" text="Email" textFill="WHITE" />
-            <PasswordField fx:id="pwdNewConf" layoutX="207.0" layoutY="206.0" />
             <Label layoutX="67.0" layoutY="211.0" prefHeight="21.0" prefWidth="122.0" text="Confirm Password" textFill="WHITE" />
+            <Label fx:id="verifLab" layoutX="363.0" layoutY="213.0" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchoVerif" layoutX="146.0" layoutY="96.0" prefHeight="177.0" prefWidth="307.0" visible="false">
+         <children>
+            <ImageView fitHeight="186.0" fitWidth="307.0" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/back.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="codeVerif" layoutX="79.0" layoutY="100.0" />
+            <Button layoutX="119.0" layoutY="149.0" mnemonicParsing="false" onAction="#verifCompteAction" style="-fx-background-color: #002f7c;" text="Confirmer" textFill="WHITE" />
+            <Label layoutX="81.0" layoutY="9.0" text="Compte Crée avec succés" textFill="WHITE" underline="true">
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="277.0" layoutY="-1.0" mnemonicParsing="false" onAction="#fermerAction" style="-fx-background-color: transparent;" text="x" textFill="RED">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="96.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Code de confirmation">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="1.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Un email avec le code de confirmation vous a été envoyé" />
          </children>
       </AnchorPane>
    </children>

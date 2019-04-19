@@ -56,6 +56,9 @@ public class Tva {
     public void setMultiplicate(double multiplicate) {
         this.multiplicate = multiplicate;
     }
+    public String toString(){
+        return nom;
+    }
     
     
 }

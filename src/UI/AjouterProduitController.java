@@ -8,14 +8,18 @@ package UI;
 import Entities.Produit;
 import Entities.Tva;
 import Services.ProduitService;
+import Services.TvaService;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -68,25 +72,24 @@ public class AjouterProduitController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         ArrayList<Tva> tvas = new ArrayList<Tva>();
-        tvas.add(new Tva(0, "blabla", 0, 0));
-        tvas.add(new Tva(0, "xxxx", 0, 0));
-        
-        
-            
+        TvaService tv = new TvaService();
+        tv.getTva().forEach(x -> {
+            tvas.add(x);
+        });
+
         tva.setItems(FXCollections.observableArrayList(tvas));
-        
-    }    
+
+    }
 
     @FXML
-    private void ajouterProduit(ActionEvent event)throws IOException {
-      
-      
-        Produit p =new Produit(nomProduit.getText(), Double.valueOf(prix.getText()) ,description.getText() , image,disponible.isSelected());
-        ProduitService produitService=new ProduitService();
+    private void ajouterProduit(ActionEvent event) throws IOException {
+
+        Produit p = new Produit(nomProduit.getText(), Double.valueOf(prix.getText()), description.getText(), tva.getSelectionModel().selectedItemProperty().get().getIdTva(), image, disponible.isSelected());
+        ProduitService produitService = new ProduitService();
         produitService.insert(p);
-        FXMLLoader loader =new FXMLLoader(getClass().getResource("/UI/AfficherProduits.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/AfficherProduits.fxml"));
         Parent root;
-        root =loader.load();
+        root = loader.load();
         ajouterProduit.getScene().setRoot(root);
         /*/
         Parent root=FXMLLoader.load(getClass().getResource("./List.fxml"));
@@ -97,15 +100,16 @@ public class AjouterProduitController implements Initializable {
         //*/
         new Alert(Alert.AlertType.INFORMATION, "sucess").show();
     }
-      @FXML
+
+    @FXML
     private void Annuler() throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/UI/AfficherProduits.fxml"));
         Parent root;
         root = loader.load();
         annuler.getScene().setRoot(root);
     }
-    
-     @FXML
+
+    @FXML
     private void AjouterPhoto(ActionEvent event) {
         final FileChooser fileChooser = new FileChooser();
         configureFileChooser(fileChooser);
@@ -113,19 +117,28 @@ public class AjouterProduitController implements Initializable {
         if (file != null) {
             openFile(file);
         }
+
         image = file.getName();
-         System.out.println("image: " + image);
+        HttpPost httpPost;
+        try {
+            httpPost = new HttpPost(new URL("http://127.0.0.1/upload.php"));
+            httpPost.setFileNames(new String[]{file.toPath().toString()});
+            httpPost.post();
+            System.out.println("=======");
+            System.out.println(httpPost.getOutput());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(AjouterProduitController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
-    
-    
+
     private void openFile(File file) {
         FileInputStream input;
         try {
-            File dest = new File("src/img/" + file.getName());
+            File dest = new File("D:/wamp64/www/img/" + file.getName());
             Files.copy(file.toPath(), dest.toPath(), StandardCopyOption.REPLACE_EXISTING);
             String url = dest.toPath().toString();
-            System.out.println("Image enregistrée avec succés");
-            System.out.println(url);
+
             input = new FileInputStream(url);
             WritableImage photoProduit = SwingFXUtils.toFXImage(ImageIO.read(input), null);
             photo.setImage(photoProduit);
@@ -142,9 +155,11 @@ public class AjouterProduitController implements Initializable {
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("JPG", "*.jpg"),
                 new FileChooser.ExtensionFilter("JPEG", "*.jpeg"),
-                new FileChooser.ExtensionFilter("PNG", "*.png")
+                new FileChooser.ExtensionFilter("PNG", "*.png"),
+                new FileChooser.ExtensionFilter("JPG", "*.JPG"),
+                new FileChooser.ExtensionFilter("JPEG", "*.JPEG"),
+                new FileChooser.ExtensionFilter("PNG", "*.PNG")
         );
-}
+    }
 
-   
 }

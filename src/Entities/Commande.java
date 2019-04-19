@@ -14,14 +14,15 @@ import java.util.Date;
 public class Commande {
 
     private int idCommande;
-    private String Nom;
+    private int reference;
     private Date dateAjout;
     private boolean valider;
     private int idUtilisateur;
-    private double Total ;
+    private String username;
+    private double Total;
 
-    public Commande(int idCommande, boolean valider, int idUtilisateur) {
-        this.idCommande = idCommande;
+    public Commande(int reference, boolean valider, int idUtilisateur) {
+        this.reference = reference;
         this.valider = valider;
         this.idUtilisateur = idUtilisateur;
     }
@@ -29,24 +30,44 @@ public class Commande {
     public Commande() {
     }
 
+    public Commande(int reference, boolean valider, String username) {
+        this.reference = reference;
+        this.valider = valider;
+        this.username = username;
+    }
+
+    public Commande(int id, int reference, boolean valider, String username) {
+        
+        this.idCommande=id;
+        this.reference = reference;
+        this.valider = valider;
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     @Override
     public String toString() {
-        return "Commande{" + "idCommande=" + idCommande + ", Nom=" + Nom + ", dateAjout=" + dateAjout + ", Etat=" + valider + ", idUtilisateur=" + idUtilisateur + '}';
+        return "Commande{" + "idCommande=" + idCommande + ", reference=" + reference + ", dateAjout=" + dateAjout + ", Etat=" + valider + ", idUtilisateur=" + idUtilisateur + '}';
     }
 
     public int getIdCommande() {
         return idCommande;
     }
 
-    public String getNom() {
-        return Nom;
+    public int getReference() {
+        return reference;
     }
 
     public Date getDateAjout() {
         return dateAjout;
     }
-
-    
 
     public int getIdUtilisateur() {
         return idUtilisateur;
@@ -56,8 +77,8 @@ public class Commande {
         this.idCommande = idCommande;
     }
 
-    public void setNom(String Nom) {
-        this.Nom = Nom;
+    public void setReference(int reference) {
+        this.reference = reference;
     }
 
     public void setDateAjout(Date dateAjout) {
@@ -71,8 +92,6 @@ public class Commande {
     public void setValider(boolean valider) {
         this.valider = valider;
     }
-
-    
 
     public void setIdUtilisateur(int idUtilisateur) {
         this.idUtilisateur = idUtilisateur;

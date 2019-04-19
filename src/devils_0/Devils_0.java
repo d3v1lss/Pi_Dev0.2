@@ -20,7 +20,8 @@ public class Devils_0 extends Application {
     
     @Override
     public void start(Stage primaryStage) throws IOException {
-      Parent root= FXMLLoader.load(getClass().getResource("/UI/ProduitsClientsFXML.fxml"));
+     // Parent root= FXMLLoader.load(getClass().getResource("/UI/ProduitsClientsFXML.fxml"));
+      Parent root= FXMLLoader.load(getClass().getResource("/UI/firstXML.fxml"));
        //Parent root= FXMLLoader.load(getClass().getResource("/UI/produits.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("Hello World!");

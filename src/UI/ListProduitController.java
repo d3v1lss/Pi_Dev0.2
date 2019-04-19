@@ -73,7 +73,7 @@ public class ListProduitController implements Initializable {
                     Label Prix_Produit = (Label) nodes[i].lookup("#Prix_Produit");
                     Label Quantite_Produit = (Label) nodes[i].lookup("#Quantite_Produit");
                     JFXButton Commander_BTN = (JFXButton) nodes[i].lookup("#Commander_BTN");
-                    Image image = new Image(item.getPhoto());
+                    Image image = new Image("/"+item.getPhoto());
                     ImageView Product_Pic = (ImageView) nodes[i].lookup("#Product_Pic");
                     Product_Pic.setImage(image);
                     Product_Pic.setFitWidth(127);
@@ -101,9 +101,11 @@ public class ListProduitController implements Initializable {
                             Label Nom_Produit_Panier = (Label) root1.lookup("#Nom_Produit");
                             Label Qte_Produit_Panier = (Label) root1.lookup("#Quantite_Produit");
                             
-                            /*Image image_panier = new Image(item.getImage());
+                            Image image_panier = new Image(item.getPhoto());
                             Image_Produit.setImage(image_panier);
-                            Image_Produit.setFitHeight(150);*/
+                       
+                                                    Image_Produit.setFitHeight(50);
+                        Image_Produit.setFitWidth(50);
                             Nom_Produit_Panier.setText(item.getNom());
                             boolean res1 = item.isDisponible();
                             if (res1 == true) {

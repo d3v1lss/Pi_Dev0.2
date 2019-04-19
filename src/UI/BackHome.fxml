@@ -5,8 +5,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.BackHomeController">
    <children>
       <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.7" pickOnBounds="true">
          <image>
@@ -16,8 +15,9 @@
       <Button fx:id="Boutique" layoutX="93.0" layoutY="96.0" mnemonicParsing="false" onAction="#Boutique" prefHeight="33.0" prefWidth="143.0" text="Boutique" />
       <Button layoutX="97.0" layoutY="242.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Clubs" />
       <Button layoutX="93.0" layoutY="166.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Cinema" />
-      <Button layoutX="369.0" layoutY="166.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Button" />
-      <Button layoutX="369.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Button" />
-      <Button layoutX="369.0" layoutY="248.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Button" />
+      <Button layoutX="369.0" layoutY="166.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Event" />
+      <Button layoutX="369.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="forum" />
+      <Button layoutX="369.0" layoutY="248.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Bibliothéque" />
+      <Button fx:id="Quitter" layoutX="21.0" layoutY="21.0" mnemonicParsing="false" onAction="#Quitter" prefHeight="33.0" prefWidth="63.0" text="Quitter" />
    </children>
 </AnchorPane>

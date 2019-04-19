@@ -30,8 +30,6 @@ public class Single_ProduitController implements Initializable {
     @FXML
     private JFXButton Commander_BTN;
     @FXML
-    private JFXButton Voirplus;
-    @FXML
     private ImageView Product_Pic;
     @FXML
     private Label Nom_Produit;
@@ -39,6 +37,8 @@ public class Single_ProduitController implements Initializable {
     private Label Prix_Produit;
     @FXML
     private Label Quantite_Produit;
+    @FXML
+    private JFXButton Voirplus;
     
     
 
@@ -51,9 +51,5 @@ public class Single_ProduitController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void Commander(ActionEvent event) {
-        
-    }
     
 }

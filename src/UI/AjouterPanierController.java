@@ -61,7 +61,7 @@ public class AjouterPanierController implements Initializable {
 
     public void SetProduit(Produit P1) {
         P = P1;
-        System.out.println("produit set !");
+       
     }
 
     public Produit GetProduit() {

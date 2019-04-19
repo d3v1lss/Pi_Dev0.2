@@ -1,18 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PanierController">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="358.0" style="-fx-border-color: #3287a1; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PanierController">
    <children>
-      <TableView layoutX="77.0" layoutY="75.0" prefHeight="265.0" prefWidth="419.0">
-        <columns>
-          <TableColumn fx:id="nom" prefWidth="113.99999237060547" text="nom du produit" />
-          <TableColumn fx:id="qte" prefWidth="36.66668701171875" text="qte" />
-            <TableColumn fx:id="prix" prefWidth="148.66676330566406" text="Prix" />
-        </columns>
-      </TableView>
+      <ImageView fitHeight="458.0" fitWidth="349.0" layoutX="5.0" layoutY="5.0" opacity="0.45" pickOnBounds="true">
+         <image>
+            <Image url="@../img/background-159244_960_720.png" />
+         </image>
+      </ImageView>
+      <VBox alignment="CENTER" layoutX="30.0" layoutY="29.0" prefHeight="411.0" prefWidth="300.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="77.0" prefWidth="300.0">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Images/shopping-cart.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="body_pane" prefHeight="231.0" prefWidth="263.0">
+               <content>
+                  <VBox fx:id="content" prefHeight="649.0" prefWidth="285.0" />
+               </content>
+            </ScrollPane>
+            <Label style="-fx-font-weight: bold;" text="Prix Total :" textFill="#3287a1">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+        <Label fx:id="prixT" text="">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="80.0" prefWidth="300.0">
+               <children>
+                  <JFXButton fx:id="Close_BTN" alignment="CENTER" onAction="#Close" prefHeight="39.0" prefWidth="124.0" ripplerFill="#e00932" style="-fx-border-color: #b10d0d; -fx-border-radius: 10px;" text="Annuler" textFill="#b10d0d">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="Commander_BTN" alignment="CENTER" onAction="#Commander" prefHeight="38.0" prefWidth="118.0" ripplerFill="#08e16d" style="-fx-border-color: #208226; -fx-border-radius: 10px;" text="Commander" textFill="#208226" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

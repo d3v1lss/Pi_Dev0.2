@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="370.0" prefWidth="420.0" style="-fx-border-color: #3287a1; -fx-border-width: 6;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ProfilXMLController">
+   <children>
+      <AnchorPane id="AnchorPane" layoutX="147.0" layoutY="157.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="127.0" prefWidth="191.0">
+         <children>
+            <Pane layoutX="-147.0" layoutY="-153.0" prefHeight="307.0" prefWidth="420.0">
+               <children>
+                  <Separator layoutX="24.0" layoutY="55.0" prefHeight="14.0" prefWidth="354.0" />
+                  <Label layoutX="54.0" layoutY="27.0" text="Mon Profil" textFill="#3287a1">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="51.0" layoutY="76.0" text="Prénom" textAlignment="CENTER" textFill="#aeacac" textOverrun="CENTER_ELLIPSIS" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="131.0" text="Username" textFill="#aeacac" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="269.0" layoutY="73.0" text="Nom" textFill="#aeacac" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="187.0" text="E-Mail" textFill="#aeacac" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="First_Name" layoutX="52.0" layoutY="102.0" prefHeight="23.0" prefWidth="114.0" textFill="#4d4c4c">
+                     <font>
+                        <Font name="Arial" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Last_Name" layoutX="269.0" layoutY="102.0" prefHeight="23.0" prefWidth="114.0" textFill="#4d4c4c">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Username" layoutX="53.0" layoutY="155.0" prefHeight="23.0" prefWidth="101.0" textFill="#4d4c4c">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="E_mail" layoutX="54.0" layoutY="218.0" prefHeight="23.0" prefWidth="191.0" textFill="#4d4c4c">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="53.0" layoutY="250.0" text="Telephone" textFill="#aeacac" underline="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="Phone" layoutX="52.0" layoutY="277.0" prefHeight="23.0" prefWidth="166.0" textFill="#4d4c4c">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <effect>
+                  <DropShadow color="#d7d2d2" height="50.0" radius="24.5" width="50.0" />
+               </effect>
+            </Pane>
+         </children>
+      </AnchorPane>
+      <Pane layoutX="10.0" layoutY="319.0" prefHeight="43.0" prefWidth="378.0" style="-fx-background-color: #F0F0F0;">
+         <children>
+            <JFXButton fx:id="Modifier" alignment="CENTER" buttonType="RAISED" layoutX="52.0" layoutY="1.0" onAction="#modifier" prefHeight="41.0" prefWidth="157.0" text="Modifier" textFill="#5acadb">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#3287a1" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="close" alignment="CENTER" buttonType="RAISED" layoutX="198.0" layoutY="1.0" onAction="#fermer" prefHeight="41.0" prefWidth="137.0" text="Annuler" textFill="#b10d0d">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#de0b35e9" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </Pane>
+      <Separator layoutX="10.0" layoutY="306.0" prefHeight="14.0" prefWidth="378.0" />
+   </children>
+</AnchorPane>
