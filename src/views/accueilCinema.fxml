@@ -11,6 +11,6 @@
    <children>
       <Button fx:id="Films" layoutX="236.0" layoutY="156.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="86.0" text="Films" />
       <Button fx:id="salle" layoutX="100.0" layoutY="156.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="76.0" text="salle" />
-      <Button fx:id="mail" layoutX="404.0" layoutY="156.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="76.0" text="donner votre avis" />
+      <Button fx:id="mail" layoutX="404.0" layoutY="156.0" mnemonicParsing="false" prefHeight="66.0" prefWidth="117.0" text="donner votre avis" />
    </children>
 </AnchorPane>
