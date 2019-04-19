@@ -14,12 +14,17 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import services.FilmServices;
 import entities.Film;
+import entities.Salle;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,8 +34,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import services.FilmServices;
+import services.SalleServices;
 import utils.DbConnexion;
 
 /**
@@ -54,6 +62,8 @@ public class ListesFilmsController implements Initializable {
     private Button modifFilm;
     @FXML
     private JFXTextField search;
+    
+    ListeFilm lf = new ListeFilm();
 
     /**
      * Initializes the controller class.
@@ -151,8 +161,53 @@ public class ListesFilmsController implements Initializable {
                 Logger.getLogger(ListesFilmsController.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
+        
+        
+        search.textProperty().addListener(new ChangeListener() {
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                try {
+                    Resultat((String) oldValue, (String) newValue);
+                } catch (SQLException ex) {
+                    Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+
+        });
+
+        if (search.getText() == null) {
+            SalleServices Sc = new SalleServices();
+            lf.getNom().setUserData(new PropertyValueFactory<>("nom"));
+        }
+
+        lf.getNom().setUserData(TextFieldTableCell.forTableColumn());
 
     }
+
+        
+     
+    public void Resultat(String oldValue, String newValue) throws SQLException {
+        FilmServices Fs = new FilmServices();
+
+        ObservableList<Film> film = FXCollections.observableArrayList(Fs.FetchAll());
+        ObservableList<Film> filteredList = FXCollections.observableArrayList();
+
+        if (search == null || (newValue.length() < oldValue.length()) || newValue == null) {
+            table.setItems(film);
+        } else {
+            newValue = newValue.toUpperCase();
+            for (Film s : table.getItems()) {
+                String nom = s.getNom();
+
+                if (nom.toUpperCase().contains(newValue)) {
+                    filteredList.add(s);
+                }
+            }
+            table.setItems(filteredList);
+        }
+    }
+
+    
 
     @FXML
     private void suppFilm(ActionEvent event) {
