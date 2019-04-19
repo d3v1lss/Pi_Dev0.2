@@ -1,47 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.image.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="175.0" prefWidth="232.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Single_PanierController">
-   <children>
-      <HBox prefHeight="175.0" prefWidth="232.0">
-         <children>
-            <ImageView fx:id="Product_Pic" fitHeight="175.0" fitWidth="127.0" pickOnBounds="true" preserveRatio="true" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="213.0" prefWidth="263.0" style="-fx-border-color: #3287a1; -fx-border-width: 2;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Single_PanierController">
+    <children>
+        <HBox layoutX="4.0" prefHeight="209.0" prefWidth="257.0">
+            <children>
+            <VBox prefHeight="209.0" prefWidth="117.0">
                <children>
-                  <Label text="Nom du produit" />
-                  <Label fx:id="Nom_Produit" />
-                  <Separator prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Separator>
-                  <Label text="Prix" />
-                  <Label fx:id="Prix_Produit" />
-                  <Separator prefWidth="200.0">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                  </Separator>
-                  
-                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-                     <children>
-                        <JFXButton fx:id="Supprimer" buttonType="RAISED" ripplerFill="#a11717" style="-fx-border-color: #da0b1f; -fx-border-radius: 10Px;" text="Supprimmer" textFill="#da0b1f" />
-                     </children>
-                  </HBox>
+                      <Label text=" " />
+                  <Label text=" " />
+                      <ImageView fx:id="Product_Pic" fitHeight="82.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true" />
                </children>
-               <HBox.margin>
-                  <Insets bottom="5.0" top="5.0" />
-               </HBox.margin>
             </VBox>
-         </children>
-      </HBox>
-   </children>
+                <VBox layoutX="90.0" layoutY="50.0" prefHeight="199.0" prefWidth="136.0">
+                    <children>
+                  <Label prefHeight="21.0" prefWidth="130.0" text="Nom du produit " textFill="#3287a1" />
+                        <Label fx:id="Nom_Produit">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                        <Separator prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Separator>
+                  <Label prefHeight="21.0" prefWidth="40.0" text="Qte" textFill="#3287a1" />
+                  <ChoiceBox fx:id="qte" prefHeight="25.0" prefWidth="37.0" style="-fx-background-color: blanc; -fx-border-color: #3287a1;" />
+                        <Separator prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Separator>
+                  <Label prefHeight="21.0" prefWidth="130.0" text="Sous-Total" textFill="#3287a1" />
+                        <Label fx:id="sous_total">
+                     <font>
+                        <Font size="13.0" />
+                     </font></Label>
+                        <Separator prefWidth="200.0">
+                            <VBox.margin>
+                                <Insets bottom="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Separator>
+                  
+                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <JFXButton fx:id="Supprimer" buttonType="RAISED" prefHeight="26.0" prefWidth="95.0" ripplerFill="#a11717" style="-fx-border-color: #da0b1f; -fx-border-radius: 10Px;" text="Supprimmer" textFill="#da0b1f">
+                           <font>
+                              <Font size="11.0" />
+                           </font></JFXButton>
+                            </children>
+                        </HBox>
+                    </children>
+                    <HBox.margin>
+                        <Insets bottom="5.0" top="5.0" />
+                    </HBox.margin>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
 </AnchorPane>

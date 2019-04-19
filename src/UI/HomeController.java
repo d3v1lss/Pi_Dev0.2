@@ -5,6 +5,7 @@
  */
 package UI;
 
+import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,6 +18,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -26,19 +31,19 @@ import javafx.scene.control.Button;
 public class HomeController implements Initializable {
 
     @FXML
-    private Button Evenement;
+    private ImageView Boutique;
     @FXML
-    private Button Cinema;
+    private AnchorPane dashPane;
     @FXML
-    private Button Boutique;
+    private AnchorPane bgColor;
     @FXML
-    private Button Clubs;
+    private JFXButton Boutique1;
     @FXML
-    private Button Forum;
+    private Label welcomeLab;
     @FXML
-    private Button Bibliotheque;
+    private Label deconnect;
     @FXML
-    private Button Quitter;
+    private ImageView profil;
 
     /**
      * Initializes the controller class.
@@ -48,13 +53,57 @@ public class HomeController implements Initializable {
         
     }   
 
+ 
+
     @FXML
-    private void Boutique(ActionEvent event) {
+    private void ShopAction(ActionEvent event) {
         try {
             Boutique.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/ProduitsclientsFXML.fxml")));
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void FilmAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void eventAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void ClubAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void ForumAction(MouseEvent event) {
+    }
+
+    @FXML
+    private void profileAction(MouseEvent event) {
+    }
+
+   @FXML
+    private void DeconnectAction(ActionEvent event) {
+         try {
+            Boutique1.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/firstXML.fxml")));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void profileAction(ActionEvent event) {
+        try {
+            Boutique1.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/profilXML.fxml")));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+ 
+    @FXML
+    private void BiblioAction(MouseEvent event) {
     }
      
    

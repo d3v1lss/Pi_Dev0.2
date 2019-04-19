@@ -110,7 +110,6 @@ public class CommandeService {
 
                 Commande c = new Commande(id,reference, valider, user);
                 Commandes.add(c);
-                System.out.println(c.toString());
             }
         } catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
@@ -165,4 +164,24 @@ public class CommandeService {
         }
     }
 
+    public List<Commande> AfficherCommandesClient(int id) {
+        List<Commande> Commandes = new ArrayList();
+        String req = "select reference,valider from commande where user_id=? order by id desc";
+        try {
+            PreparedStatement statement = db.prepareCall(req);
+            statement.setInt(1, id);
+            ResultSet resultat = statement.executeQuery();
+
+            while (resultat.next()) {
+                int reference = resultat.getInt("reference");
+                boolean valider = resultat.getBoolean("valider");
+
+                Commande c = new Commande(reference, valider);
+                Commandes.add(c);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return Commandes;
+    }
 }

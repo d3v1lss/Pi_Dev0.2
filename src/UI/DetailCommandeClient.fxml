@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="360.0" prefWidth="465.0" style="-fx-border-color: #3287a1; -fx-border-width: 5;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.DetailCommandeClientController">
+   <children>
+      <ImageView fitHeight="352.0" fitWidth="460.0" layoutY="3.0" opacity="0.43" pickOnBounds="true">
+         <image>
+            <Image url="@../img/background-159244_960_720.png" />
+         </image>
+      </ImageView>
+      <TableView fx:id="table" editable="true" layoutX="25.0" layoutY="55.0" prefHeight="257.0" prefWidth="415.0" style="-fx-border-color: #3287a1; -fx-border-width: 4;">
+        <columns>
+            <TableColumn fx:id="photoCol" prefWidth="210.0" text="Photo" />
+          <TableColumn fx:id="nom" prefWidth="140.0" text="Nom du produit" />
+            <TableColumn fx:id="qte" prefWidth="53.0" text="Qte" />
+        </columns>
+      </TableView>
+      <Label layoutX="26.0" layoutY="20.0" text="Commande Numero :" textFill="#3287a1">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Label>
+      <Label fx:id="ref" layoutX="189.0" layoutY="22.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="105.0" />
+      <JFXButton fx:id="retour" buttonType="RAISED" layoutX="199.0" layoutY="315.0" onAction="#retour" text="Quitter" textFill="#3287a1">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#010101" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+   </children>
+</AnchorPane>

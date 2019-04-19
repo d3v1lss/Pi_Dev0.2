@@ -43,5 +43,6 @@
             <Blend />
          </effect>
       </Label>
+      <Button fx:id="statistique" layoutX="26.0" layoutY="37.0" mnemonicParsing="false" onAction="#statistique" prefHeight="25.0" prefWidth="77.0" style="-fx-background-color: transparent; -fx-border-color: #002f7c;" text="Stat" textFill="#002f7c" />
    </children>
 </AnchorPane>

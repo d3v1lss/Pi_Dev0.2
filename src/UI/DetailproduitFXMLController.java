@@ -26,18 +26,19 @@ public class DetailproduitFXMLController implements Initializable {
     
     private Produit P;
     @FXML
-    private HBox Show_Product;
-    @FXML
     private ImageView Image_Produit;
     @FXML
     private Label Nom_Produit;
   
-    @FXML
     private JFXButton Close_BTN;
     @FXML
     private Label Description;
     @FXML
     private Label Quantite_Produit11;
+    @FXML
+    private JFXButton commander;
+    @FXML
+    private JFXButton retour;
 
     /**
      * Initializes the controller class.
@@ -56,7 +57,6 @@ public class DetailproduitFXMLController implements Initializable {
         return P;
     }
 
-    @FXML
     private void Close(ActionEvent event) {
           Stage stage = (Stage) Close_BTN.getScene().getWindow();
         stage.close();

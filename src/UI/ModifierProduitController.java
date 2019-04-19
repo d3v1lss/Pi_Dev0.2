@@ -36,10 +36,7 @@ public class ModifierProduitController implements Initializable {
     @FXML
     private TextArea description;
     @FXML
-    private ChoiceBox<?> tva;
-    @FXML
     private CheckBox disponibilité;
-    @FXML
     private TextField photo;
     @FXML
     private Button modifier;
@@ -74,7 +71,7 @@ public class ModifierProduitController implements Initializable {
         produit.setNom(nom.getText());
         produit.setPrix(Double.parseDouble(prix.getText()));
         produit.setDescription(description.getText());
-        produit.setPhoto(photo.getText());
+       
         produit.setDisponible(disponibilité.isSelected());
         ProduitService ps= new ProduitService();
         ps.update(produit);

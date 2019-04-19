@@ -7,12 +7,8 @@ package UI;
 
 import Entities.Commande;
 import Entities.LigneCommande;
-import Entities.Produit;
-import Services.CommandeService;
 import Services.LigneCommandeService;
 import static UI.CommandeBackController.c_details;
-import static UI.CommandeBackController.x;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -22,23 +18,22 @@ import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author Dorra
  */
-public class DetailCommandeBackController implements Initializable {
+public class DetailCommandeClientController implements Initializable {
 
+    @FXML
+    private TableView<LigneCommande> table;
     @FXML
     private TableColumn<LigneCommande, String> nom;
     @FXML
@@ -47,19 +42,12 @@ public class DetailCommandeBackController implements Initializable {
     private Button fermer;
     @FXML
     private Label ref;
-    @FXML
-    private TableView<LigneCommande> table;
-    @FXML
-    private Button valider;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-//        if (c_details.isValider()) {
-//            valider.setDisable(true);
-//        }
         try {
             LigneCommandeService CS = new LigneCommandeService();
             List<LigneCommande> lc = CS.Display_CommandeBack(c_details.getIdCommande());
@@ -70,27 +58,10 @@ public class DetailCommandeBackController implements Initializable {
         } catch (SQLException ex) {
             Logger.getLogger(DetailCommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-    }
+    }    
 
     @FXML
     private void retour(ActionEvent event) {
-
-        Stage stage = (Stage) fermer.getScene().getWindow();
-        stage.close();
-
     }
-
-    @FXML
-    private void valider(ActionEvent event) {
-        try {
-            CommandeService CS = new CommandeService();
-            CS.updateEtat(c_details.getIdCommande());
-            this.retour(event);
-        } catch (SQLException ex) {
-            Logger.getLogger(DetailCommandeBackController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
+    
 }

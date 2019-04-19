@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MailMdpController">
+   <children>
+      <AnchorPane fx:id="anchoMail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="208.0" prefWidth="388.0" style="-fx-border-width: 5; -fx-border-color: #3287a1;">
+         <children>
+            <ImageView fitHeight="201.0" fitWidth="384.0" layoutY="3.0" opacity="0.42" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/back.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="29.0" layoutY="82.0" prefHeight="25.0" prefWidth="105.0" text="Adresse Mail" textFill="#101111" />
+            <TextField fx:id="mail" layoutX="152.0" layoutY="79.0" promptText="Entrez votre adresse mail" />
+            <JFXButton fx:id="confirmer" buttonType="RAISED" layoutX="244.0" layoutY="136.0" text="Confirmer" textFill="#3287a1">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#3287a1" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="annuler" buttonType="RAISED" layoutX="158.0" layoutY="136.0" onAction="#annuler" text="Annuler" textFill="#3287a1">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#3287a1" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchoConf" layoutX="-1.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="209.0" prefWidth="387.0" style="-fx-border-width: 5; -fx-border-color: #3287a1;" visible="false">
+         <children>
+            <ImageView fitHeight="209.0" fitWidth="388.0" layoutY="-2.0" opacity="0.42" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/back.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="code" layoutX="175.0" layoutY="45.0" />
+            <Label layoutX="14.0" layoutY="48.0" prefHeight="25.0" prefWidth="162.0" text="Code de confirmation " />
+            <TextField fx:id="mdp" layoutX="175.0" layoutY="105.0" />
+            <Label layoutX="14.0" layoutY="108.0" prefHeight="25.0" prefWidth="136.0" text="Nouveau Password" />
+            <JFXButton fx:id="annuler1" buttonType="RAISED" layoutX="175.0" layoutY="151.0" onAction="#annuler" text="Annuler" textFill="#3287a1">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#3287a1" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+            <JFXButton fx:id="confirmer1" buttonType="RAISED" layoutX="269.0" layoutY="151.0" onAction="#confirm" text="Confirmer" textFill="#3287a1">
+               <ripplerFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#3287a1" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </ripplerFill>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

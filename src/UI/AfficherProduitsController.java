@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableArray;
 import javafx.event.ActionEvent;
@@ -28,6 +29,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 /**
@@ -52,11 +56,13 @@ public class AfficherProduitsController implements Initializable {
 
     private static Produit pEdit = new Produit();
     @FXML
-    private TableColumn<Produit, Boolean> disponibilité;
+    private TableColumn<Produit, String> disponibilité;
     @FXML
     private Button retour;
     @FXML
     private Button commandes;
+    @FXML
+    private Button statistique;
 
     /**
      * Initializes the controller class.
@@ -69,7 +75,20 @@ public class AfficherProduitsController implements Initializable {
         nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
         prix.setCellValueFactory(new PropertyValueFactory<>("prix"));
         description.setCellValueFactory(new PropertyValueFactory<>("description"));
-        disponibilité.setCellValueFactory(new PropertyValueFactory<>("disponible"));
+        disponibilité.setCellValueFactory(cellData -> {
+            boolean dispo = cellData.getValue().isDisponible();
+            String dispoAsString;
+            if(dispo == true)
+            {
+                dispoAsString = "Disponible";
+            }
+            else
+            {
+                dispoAsString = "Indisponible";
+            }
+
+         return new ReadOnlyStringWrapper(dispoAsString);
+        });
         ajouterBoutonEdit();
         ajouterBoutonDelete();
 
@@ -95,6 +114,7 @@ public class AfficherProduitsController implements Initializable {
                             try {
                                 root = loader.load();
                                 table.getScene().setRoot(root);
+                               
 
                             } catch (IOException ex) {
                                 Logger.getLogger(AfficherProduitsController.class.getName()).log(Level.SEVERE, null, ex);
@@ -209,5 +229,36 @@ public class AfficherProduitsController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
 }
 }
+
+    @FXML
+    private void statistique(ActionEvent event) {
+        /*   try {
+           statistique.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/statistiqueP.fxml")));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+}*/
+        
+        
+  
+        try {
+            FXMLLoader fxmlLoader_panier = new FXMLLoader(getClass().getResource("../UI/statistiqueP.fxml"));
+            Parent root1 = (Parent) fxmlLoader_panier.load();
+            
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.initStyle(StageStyle.UNDECORATED);
+            stage.setScene(new Scene(root1));
+            stage.showAndWait();
+            
+            
+            /* try {
+            statistique.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/statistiqueP.fxml")));
+            } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/     } catch (IOException ex) {
+            Logger.getLogger(AfficherProduitsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
 
 }

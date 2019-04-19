@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="329.0" prefWidth="486.0" style="-fx-border-width: 5; -fx-border-color: #3287a1;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.PaiementController">
+   <children>
+      <ImageView fitHeight="318.0" fitWidth="480.0" layoutX="2.0" layoutY="3.0" pickOnBounds="true" style="-fx-opacity: 0.2;">
+         <image>
+            <Image url="@back.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="ccNumber" alignment="CENTER" layoutX="152.0" layoutY="119.0" onKeyTyped="#changerAction" prefHeight="35.0" prefWidth="175.0" promptText="Numéro de carte">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="mois" alignment="CENTER" layoutX="153.0" layoutY="193.0" onKeyTyped="#changerAction" prefHeight="27.0" prefWidth="63.0" promptText="MM">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="annee" alignment="CENTER" layoutX="259.0" layoutY="193.0" onKeyTyped="#changerAction" prefHeight="30.0" prefWidth="70.0" promptText="AAAA">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label layoutX="238.0" layoutY="195.0" text="/" textFill="#3287a1">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <TextField fx:id="montant" alignment="CENTER" disable="true" editable="false" layoutX="153.0" layoutY="44.0" prefHeight="39.0" prefWidth="175.0" promptText="Montant a payer">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <Label fx:id="erreurDonnees" layoutX="145.0" layoutY="271.0" textFill="RED">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="erreurCC" layoutX="7.0" layoutY="124.0" text="Vérifiez ce champ &gt;" textFill="RED" />
+      <Label fx:id="erreurMois" layoutX="8.0" layoutY="204.0" text="Vérifiez ce champ &gt;" textFill="RED" />
+      <Label fx:id="erreurAnnee" layoutX="339.0" layoutY="204.0" text="&lt; Vérifiez ce champ" textFill="RED" />
+      <Label fx:id="erreurCCLength" layoutX="335.0" layoutY="130.0" text="16 chiffres seulement" textFill="RED" />
+      <JFXButton buttonType="RAISED" layoutX="139.0" layoutY="271.0" text="Annuler" textFill="#3287a1" onAction="#quitterAction">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#3287a1" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="259.0" layoutY="271.0" text="Confirmer" textFill="#3287a1" onAction="#payerAction">
+         <ripplerFill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="WHITE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </ripplerFill>
+      </JFXButton>
+      <Label layoutX="9.0" layoutY="6.0" prefHeight="35.0" prefWidth="141.0" text="Payement " textFill="#3287a1">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="80.0" fitWidth="96.0" layoutX="375.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="32.0" layoutY="46.0" prefHeight="35.0" prefWidth="111.0" text="Montant a payer:" textFill="#030303">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

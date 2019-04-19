@@ -1,60 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ListView?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeController">
+<AnchorPane id="AnchorPane" fx:id="dashPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.HomeController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.96" pickOnBounds="true">
+      <AnchorPane fx:id="bgColor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #82b1ff;" />
+      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.28" pickOnBounds="true">
          <image>
             <Image url="@../img/Cite_de_la_Culture-68.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.56" pickOnBounds="true">
+      <ImageView fitHeight="40.0" fitWidth="50.0" layoutX="4.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/background-159244_960_720.png" />
+            <Image url="@../img/logout.png" />
          </image>
       </ImageView>
-      <ListView layoutX="342.0" layoutY="47.0" opacity="0.11" prefHeight="305.0" prefWidth="221.0" style="-fx-background-color: #4286f4;" />
-      <Button fx:id="Evenement" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="68.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Evenement" textFill="#102c5c">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Button>
-      <Button fx:id="Cinema" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="262.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Cinema" textFill="#102c5c">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Button>
-      <Button fx:id="Boutique" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="172.0" mnemonicParsing="false" onAction="#Boutique" prefHeight="27.0" prefWidth="144.0" text="Boutique" textFill="#102c5c">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Button>
-      <Button fx:id="Clubs" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="309.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Clubs" textFill="#3997df">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Button>
-      <Button fx:id="Forum" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="121.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Forum" textFill="#3997df">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Button>
-      <Button fx:id="Bibliotheque" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="221.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Bibliotheque" textFill="#3997df">
-         <cursor>
-            <Cursor fx:constant="DEFAULT" />
-         </cursor>
-      </Button>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="101.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="88.0" fitWidth="95.0" layoutX="121.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/logo.png" />
+            <Image url="@../img/movie.png" />
          </image>
       </ImageView>
-      <Button fx:id="Quitter" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Quitter" />
+      <ImageView fitHeight="88.0" fitWidth="95.0" layoutX="121.0" layoutY="238.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/forum.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="88.0" fitWidth="95.0" layoutX="260.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/club.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="88.0" fitWidth="95.0" layoutX="261.0" layoutY="99.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/event.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Boutique" fitHeight="88.0" fitWidth="95.0" layoutX="392.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/shop.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="Boutique1" layoutX="390.0" layoutY="104.0" onAction="#ShopAction" prefHeight="116.0" prefWidth="95.0" text="  " />
+      <Label layoutX="144.0" layoutY="201.0" onMouseClicked="#FilmAction" text="Films" textFill="WHITE" />
+      <Label layoutX="267.0" layoutY="198.0" onMouseClicked="#eventAction" text="Evenements" textFill="WHITE" />
+      <Label layoutX="419.0" layoutY="200.0" text="Shop" textFill="WHITE" />
+      <Label layoutX="279.0" layoutY="344.0" onMouseClicked="#ClubAction" text="Clubs" textFill="WHITE" />
+      <Label layoutX="144.0" layoutY="343.0" onMouseClicked="#ForumAction" text="Forum" textFill="WHITE" />
+      <Label layoutX="413.0" layoutY="40.0" text="Mon Profil" textFill="WHITE" />
+      <Label fx:id="welcomeLab" alignment="CENTER" contentDisplay="RIGHT" layoutX="39.0" layoutY="366.0" prefHeight="31.0" prefWidth="502.0" textAlignment="CENTER" textOverrun="CLIP">
+         <font>
+            <Font name="Berlin Sans FB" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="deconnect" layoutX="50.0" layoutY="40.0" text="Se déconnecter" textFill="WHITE" />
+      <ImageView fx:id="profil" fitHeight="43.0" fitWidth="43.0" layoutX="515.0" layoutY="28.0" onMouseClicked="#profileAction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/user.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="5.0" layoutY="31.0" onAction="#DeconnectAction" prefHeight="40.0" prefWidth="159.0" text=" " />
+      <ImageView fitHeight="88.0" fitWidth="95.0" layoutX="389.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/biblio.png" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="404.0" layoutY="27.0" onAction="#profileAction" prefHeight="43.0" prefWidth="159.0" text="  " />
+      <Label layoutX="395.0" layoutY="345.0" onMouseClicked="#BiblioAction" text="Bibliothèque" textFill="WHITE" />
    </children>
 </AnchorPane>

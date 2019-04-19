@@ -11,23 +11,51 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.CommandeBackController">
    <children>
-      <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.69" pickOnBounds="true">
-         <image>
-            <Image url="@../img/background-159244_960_720.png" />
-         </image>
-      </ImageView>
-      <TableView fx:id="table" blendMode="SCREEN" layoutX="62.0" layoutY="72.0" prefHeight="255.0" prefWidth="476.0">
-        <columns>
-          <TableColumn fx:id="nomClient" prefWidth="109.99999618530273" text="Nom Client" />
-            <TableColumn fx:id="etat" prefWidth="110.66670227050781" text="Etat" />
-          <TableColumn fx:id="reference" prefWidth="135.33331298828125" text="Réference" />
-        </columns>
-      </TableView>
-      <Button fx:id="Retour" layoutX="22.0" layoutY="358.0" mnemonicParsing="false" onAction="#retour" prefHeight="27.0" prefWidth="79.0" style="-fx-background-color: transparent; -fx-border-color: #002f7c;" text="Retour" />
-      <Label layoutX="171.0" layoutY="21.0" text="Gestion des commandes" textFill="#002f7c">
-         <font>
-            <Font name="System Bold Italic" size="23.0" />
-         </font>
-      </Label>
+      <AnchorPane>
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="600.0" opacity="0.69" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/background-159244_960_720.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="table" blendMode="SCREEN" layoutX="62.0" layoutY="72.0" prefHeight="255.0" prefWidth="476.0">
+              <columns>
+                <TableColumn fx:id="nomClient" prefWidth="109.99999618530273" text="Nom Client" />
+                  <TableColumn fx:id="etat" prefWidth="110.66670227050781" text="Etat" />
+                <TableColumn fx:id="reference" prefWidth="135.33331298828125" text="Réference" />
+              </columns>
+            </TableView>
+            <Button fx:id="Retour" layoutX="22.0" layoutY="358.0" mnemonicParsing="false" onAction="#retour" prefHeight="27.0" prefWidth="79.0" style="-fx-background-color: transparent; -fx-border-color: #002f7c;" text="Retour" />
+            <Label layoutX="171.0" layoutY="21.0" text="Gestion des commandes" textFill="#002f7c">
+               <font>
+                  <Font name="System Bold Italic" size="23.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="anchoDetails" layoutX="109.0" layoutY="82.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="405.0" visible="false">
+         <children>
+            <ImageView fitHeight="303.0" fitWidth="413.0" layoutX="-5.0" opacity="0.65" pickOnBounds="true">
+               <image>
+                  <Image url="@../img/background-159244_960_720.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableDetails" layoutX="3.0" layoutY="36.0" prefHeight="215.0" prefWidth="397.0">
+               <columns>
+                  <TableColumn fx:id="photoCol" prefWidth="178.00000762939453" text="Image" />
+                  <TableColumn fx:id="nom" prefWidth="112.0" text="Nom du produit" />
+                  <TableColumn fx:id="qte" prefWidth="106.66668701171875" text="Qte Commandée" />
+               </columns>
+            </TableView>
+            <Button fx:id="fermer" layoutX="374.0" layoutY="1.0" mnemonicParsing="false" onAction="#retourD" prefHeight="17.0" prefWidth="26.0" style="-fx-background-color: transparent; -fx-border-color: #fc0d0d;" text="X" textFill="#fc0d0d">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            <Label layoutX="23.0" layoutY="10.0" text="Commande Numero :" textFill="#010101" />
+            <Label fx:id="ref" layoutX="141.0" layoutY="11.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="105.0" />
+            <Button fx:id="valider" layoutX="175.0" layoutY="261.0" mnemonicParsing="false" onAction="#valider" prefHeight="27.0" prefWidth="67.0" style="-fx-background-color: transparent; -fx-border-color: green;" text="Valider" textFill="#237c35" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

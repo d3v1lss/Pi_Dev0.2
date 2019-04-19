@@ -32,7 +32,8 @@ public class ProduitService implements IProduit {
     public ProduitService() {
         cnx = DbConnexion.getInstance().getConnection();
     }
-public Produit Get_Produit(int idproduit) throws SQLException {
+
+    public Produit Get_Produit(int idproduit) throws SQLException {
 
         String query = "SELECT * FROM produit WHERE id =  ? ";
 
@@ -54,7 +55,7 @@ public Produit Get_Produit(int idproduit) throws SQLException {
         return null;
 
     }
-       
+
     @Override
     public List<Produit> AfficherProduits() {
         List<Produit> Produits = new ArrayList();
@@ -69,8 +70,8 @@ public Produit Get_Produit(int idproduit) throws SQLException {
                 String description = resultat.getString("description");
                 double prix = resultat.getDouble("prix");
                 String photo = resultat.getString("photo");
-                Boolean disponibilité= resultat.getBoolean("disponible");
-               
+                Boolean disponibilité = resultat.getBoolean("disponible");
+
                 Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
                 System.out.println(p.toString());
                 Produits.add(p);
@@ -88,7 +89,7 @@ public Produit Get_Produit(int idproduit) throws SQLException {
             preparedStatement.setString(1, p.getNom());
             preparedStatement.setDouble(2, p.getPrix());
             preparedStatement.setString(3, p.getDescription());
-            preparedStatement.setInt(4, p. getTva_id());
+            preparedStatement.setInt(4, p.getTva_id());
             preparedStatement.setString(5, p.getPhoto());
             preparedStatement.setBoolean(6, p.isDisponible());
             preparedStatement.execute();
@@ -110,7 +111,8 @@ public Produit Get_Produit(int idproduit) throws SQLException {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-     public void update(Produit p) {
+
+    public void update(Produit p) {
         String req = "update `produit` SET `nom`=?, `prix`=?,`description`=?,`photo`=?,`disponible`=? where id=?";
         try {
             PreparedStatement preparedStatement = cnx.prepareStatement(req);
@@ -127,32 +129,114 @@ public Produit Get_Produit(int idproduit) throws SQLException {
 
     }
 
-     public  ArrayList<Produit> trierlesproduitsdescendant() throws SQLException {
-       ArrayList<Produit> retour = new ArrayList<>();
-       Statement stm = cnx.createStatement();
+    public List<Produit> trierlesproduitsdescendant() throws SQLException {
+        List<Produit> retour = new ArrayList<>();
+        Statement stm = cnx.createStatement();
         String req = "SELECT * from `produit` order by prix desc";
         ResultSet resultat = stm.executeQuery(req);
-        while(resultat.next()){
-             int id= resultat.getInt(1);
-             String nom = resultat.getString(2);
-             String description= resultat.getString(3);
-             double prix= resultat.getInt(4);
-             String photo = resultat.getString(8);
-              Boolean disponibilité= resultat.getBoolean("disponible");  
-   
-            // HashSet<Produit.Saison> sais = Arrays.asList(resultat.getString(9).split(",")).stream().map(x->Produit.Saison.valueOf(x)).collect(Collectors.toCollection(()->new HashSet<Produit.Saison>()));
-              Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
-             //p.setListSaison(sais);
+        while (resultat.next()) {
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            String description = resultat.getString("description");
+            double prix = resultat.getInt("prix");
+            String photo = resultat.getString("photo");
+            Boolean disponibilité = resultat.getBoolean("disponible");
 
-           retour.add(p);
+            Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
+
+            retour.add(p);
 
         }
 
         return retour;
-}
-       
-          
+    }
 
+    public List<Produit> trierlesproduitsaescendant() throws SQLException {
+        List<Produit> retour = new ArrayList<>();
+        Statement stm = cnx.createStatement();
+        String req = "SELECT * from `produit` order by prix";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            String description = resultat.getString("description");
+            double prix = resultat.getInt("prix");
+            String photo = resultat.getString("photo");
+            Boolean disponibilité = resultat.getBoolean("disponible");
 
+            Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
+
+            retour.add(p);
+
+        }
+
+        return retour;
+    }
+
+    public List<Produit> produitDisponible() throws SQLException {
+        List<Produit> retour = new ArrayList<>();
+        Statement stm = cnx.createStatement();
+        String req = "SELECT * from `produit` where disponible=1";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            String description = resultat.getString("description");
+            double prix = resultat.getInt("prix");
+            String photo = resultat.getString("photo");
+            Boolean disponibilité = resultat.getBoolean("disponible");
+
+            Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
+
+            retour.add(p);
+
+        }
+
+        return retour;
+    }
+
+    public List<Produit> produitIndisponible() throws SQLException {
+        List<Produit> retour = new ArrayList<>();
+        Statement stm = cnx.createStatement();
+        String req = "SELECT * from `produit` where disponible=0";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            String description = resultat.getString("description");
+            double prix = resultat.getInt("prix");
+            String photo = resultat.getString("photo");
+            Boolean disponibilité = resultat.getBoolean("disponible");
+
+            Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
+
+            retour.add(p);
+
+        }
+
+        return retour;
+    }
+
+    public List<Produit> recherche(String s) throws SQLException {
+        List<Produit> retour = new ArrayList<>();
+        Statement stm = cnx.createStatement();
+        String req = "SELECT * from `produit` where nom LIKE '%"+s+"%'";
+        ResultSet resultat = stm.executeQuery(req);
+        while (resultat.next()) {
+            int id = resultat.getInt("id");
+            String nom = resultat.getString("nom");
+            String description = resultat.getString("description");
+            double prix = resultat.getInt("prix");
+            String photo = resultat.getString("photo");
+            Boolean disponibilité = resultat.getBoolean("disponible");
+
+            Produit p = new Produit(id, nom, prix, description, photo, disponibilité);
+
+            retour.add(p);
+
+        }
+
+        return retour;
+    }
 
 }
