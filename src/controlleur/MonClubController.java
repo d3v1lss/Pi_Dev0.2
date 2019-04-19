@@ -102,4 +102,19 @@ public class MonClubController implements Initializable {
         }
     }
 
+    @FXML
+    private void Email(ActionEvent event) {
+        
+        
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/mail.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(MonClubController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

@@ -12,6 +12,7 @@ import entities.workshop;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -73,8 +74,8 @@ public class AfficherBackWorkshopsController implements Initializable {
                 nom.setText(w.getNom());
                 des.setText(w.getDiscription());
                 nbr.setText(w.getNombreplaces() + "");
-                // debut.setDate(w.getDatedebut() + "");
-                // debut.setDate(w.getDatefin() + "");
+                debut.setValue(LocalDate.parse(w.getDatedebut().toString()));
+                fin.setValue(LocalDate.parse(w.getDatefin().toString()));
             });
 
         } catch (SQLException ex) {

@@ -15,6 +15,7 @@ import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -84,8 +85,8 @@ public class MesWorkshopsController implements Initializable {
                 nom.setText(w.getNom());
                 des.setText(w.getDiscription());
                 nbr.setText(w.getNombreplaces() + "");
-                // debut.setDate(w.getDatedebut() + "");
-                // debut.setDate(w.getDatefin() + "");
+                debut.setValue(LocalDate.parse(w.getDatedebut().toString()));
+                fin.setValue(LocalDate.parse(w.getDatefin().toString()));
 
                 System.out.println(w.getId());
             });
@@ -158,7 +159,7 @@ public class MesWorkshopsController implements Initializable {
         // w.setDatefin(f);
         w.setNombreplaces(nb);
         try {
- 
+
             String req = "UPDATE workshop SET nom=?, nombreplaces=?,discription=? where nom ='" + nom.getText() + "' ";
             PreparedStatement stm = cnx.prepareStatement(req);
             stm.setString(1, w.getNom());

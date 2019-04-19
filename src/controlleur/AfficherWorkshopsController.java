@@ -26,6 +26,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -71,6 +72,7 @@ public class AfficherWorkshopsController implements Initializable {
     @FXML
     private JFXTextField des;
     private int selectIndex;
+
     ListWorkshop l = new ListWorkshop();
     public static Connection cnx;
 
@@ -97,8 +99,8 @@ public class AfficherWorkshopsController implements Initializable {
                 des.setText(w.getDiscription());
                 nbr.setText(w.getNombreplaces() + "");
                 int i = w.getNombreplaces();
-                // debut.setDate(w.getDatedebut() + "");
-                // debut.setDate(w.getDatefin() + "");
+                debut.setValue(LocalDate.parse(w.getDatedebut().toString()));
+                fin.setValue(LocalDate.parse(w.getDatefin().toString()));
             });
 
         } catch (SQLException ex) {

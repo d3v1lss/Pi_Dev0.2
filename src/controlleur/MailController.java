@@ -5,12 +5,8 @@
  */
 package controlleur;
 
-import entities.club;
-import services.GestionClub;
-import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,29 +16,29 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import services.mailer;
 
 /**
  * FXML Controller class
  *
  * @author HCHAICHI
  */
-public class AjouterClubController implements Initializable {
+public class MailController implements Initializable {
 
+    @FXML
+    private GridPane table;
+    @FXML
+    private Label content;
     @FXML
     private TextArea txt_dis;
     @FXML
-    private TextField txt_nom;
+    private TextField to;
     @FXML
-    private TextField txt_mail;
-    @FXML
-    private TextField txt_act;
-    @FXML
-    private JFXButton retour;
-    @FXML
-    private GridPane table;
+    private TextField object;
 
     /**
      * Initializes the controller class.
@@ -53,32 +49,25 @@ public class AjouterClubController implements Initializable {
     }
 
     @FXML
-    private void ajouterclub(ActionEvent event) throws SQLException {
+    private void envoyer(ActionEvent event) {
+        String TO = to.getText();
+        String Object = object.getText();
+        String Content = txt_dis.getText();
 
-        String description = txt_dis.getText();
-        String Mail = txt_mail.getText();
-        String Nom = txt_nom.getText();
-        String Activite = txt_act.getText();
-        String S = "Non";
-        GestionClub gc = new GestionClub();
-        club C = new club(gc.getLasT()+1, Nom, Mail, description, 0, Activite,13 ,S);
-
-        gc.ajouter(C);
-                
-                
-        new Alert(Alert.AlertType.INFORMATION, "Club Ajouté").show();
+        mailer.sendMail(TO, Object, Content);
+        new Alert(Alert.AlertType.INFORMATION, "mail envoyé").show();
     }
 
     @FXML
     private void retour(ActionEvent event) {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherClubs.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/MonClub.fxml"));
         Parent root;
         try {
             root = loader.load();
             table.getScene().setRoot(root);
 
         } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MonClubController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }

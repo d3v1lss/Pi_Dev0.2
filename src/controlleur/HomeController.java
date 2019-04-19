@@ -55,15 +55,6 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void Boutique(ActionEvent event) {
-        try {
-            Boutique.getScene().setRoot(FXMLLoader.load(getClass().getResource("/UI/ProduitsclientsFXML.fxml")));
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
     private void Clubs(ActionEvent event) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AfficherClubs.fxml"));
@@ -78,4 +69,21 @@ public class HomeController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void Cinema(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/accueilCinema.fxml"));
+        Parent root;
+
+        try {
+            root = loader.load();
+
+            list.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 };

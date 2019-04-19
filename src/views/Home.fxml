@@ -25,12 +25,12 @@
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="Cinema" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="262.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Cinema" textFill="#102c5c">
+      <Button blendMode="HARD_LIGHT" layoutX="381.0" layoutY="262.0" mnemonicParsing="false" onAction="#Cinema" prefHeight="27.0" prefWidth="144.0" text="Cinema" textFill="#102c5c">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
       </Button>
-      <Button fx:id="Boutique" blendMode="HARD_LIGHT" layoutX="381.0" layoutY="172.0" mnemonicParsing="false" onAction="#Boutique" prefHeight="27.0" prefWidth="144.0" text="Boutique" textFill="#102c5c">
+      <Button blendMode="HARD_LIGHT" layoutX="381.0" layoutY="172.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="144.0" text="Boutique" textFill="#102c5c">
          <cursor>
             <Cursor fx:constant="DEFAULT" />
          </cursor>
