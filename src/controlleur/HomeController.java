@@ -31,10 +31,6 @@ public class HomeController implements Initializable {
     @FXML
     private Button Evenement;
     @FXML
-    private Button Cinema;
-    @FXML
-    private Button Boutique;
-    @FXML
     private Button Clubs;
     @FXML
     private Button Forum;
@@ -73,7 +69,7 @@ public class HomeController implements Initializable {
     @FXML
     private void Cinema(ActionEvent event) {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/accueilCinema.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/accueilCinemaUser.fxml"));
         Parent root;
 
         try {

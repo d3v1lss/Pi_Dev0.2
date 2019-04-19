@@ -25,7 +25,6 @@ import javafx.scene.layout.AnchorPane;
  */
 public class BackHomeController implements Initializable {
 
-
     @FXML
     private AnchorPane table;
 
@@ -36,8 +35,6 @@ public class BackHomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }
-
-    
 
     @FXML
     private void Clubs(ActionEvent event) {
@@ -54,6 +51,19 @@ public class BackHomeController implements Initializable {
 
     }
 
-    
+    @FXML
+    private void accsalle(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/accueilCinema.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(BackHomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
 }

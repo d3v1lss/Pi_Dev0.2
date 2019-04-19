@@ -54,9 +54,9 @@ public class AfficherBackClubsController implements Initializable {
     private JFXTextField mail;
     @FXML
     private JFXTextArea des;
-    
+
     private int selectIndex;
-    
+
     ListClub l = new ListClub();
 
     public AfficherBackClubsController() throws SQLException {
@@ -128,10 +128,6 @@ public class AfficherBackClubsController implements Initializable {
     }
 
     @FXML
-    private void confirmer(ActionEvent event) {
-    }
-
-    @FXML
     private void supp(ActionEvent event) throws SQLException {
 
         String query = "DELETE FROM club where nom ='" + nom.getText() + "' ";
@@ -171,5 +167,19 @@ public class AfficherBackClubsController implements Initializable {
         club c = table.getSelectionModel().getSelectedItem();
         selectIndex = table.getSelectionModel().getSelectedIndex();
 
+    }
+
+    @FXML
+    private void retour(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/BackHome.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

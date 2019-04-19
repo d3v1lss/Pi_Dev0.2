@@ -47,7 +47,7 @@
                            </rowConstraints>
                            <children>
                               <Button mnemonicParsing="false" onAction="#workshops" prefHeight="25.0" prefWidth="315.0" text="Workshops" />
-                              <Button mnemonicParsing="false" onAction="#confirmer" prefHeight="25.0" prefWidth="142.0" text="Confirmer" GridPane.columnIndex="2" />
+                              <Button mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="142.0" text="retour" GridPane.columnIndex="2" />
                               <Button mnemonicParsing="false" onAction="#supp" prefHeight="25.0" prefWidth="131.0" text="Supprimer" GridPane.columnIndex="1" />
                            </children>
                         </GridPane>

@@ -42,8 +42,9 @@
                   </Label>
                   <GridPane layoutX="10.0" layoutY="360.0" prefHeight="39.0" prefWidth="597.0">
                     <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="320.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="134.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="180.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="146.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="318.0" minWidth="10.0" prefWidth="139.0" />
                       <ColumnConstraints hgrow="SOMETIMES" maxWidth="297.0" minWidth="10.0" prefWidth="153.0" />
                     </columnConstraints>
                     <rowConstraints>
@@ -51,8 +52,9 @@
                     </rowConstraints>
                      <children>
                         <Button mnemonicParsing="false" onAction="#AjouterClub" prefHeight="25.0" prefWidth="315.0" text="Ajouter" />
-                        <Button mnemonicParsing="false" onAction="#inscrit" prefHeight="25.0" prefWidth="142.0" text="S'inscrit" GridPane.columnIndex="2" />
-                        <Button mnemonicParsing="false" onAction="#workshops" prefHeight="25.0" prefWidth="131.0" text="Workshops" GridPane.columnIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#inscrit" prefHeight="25.0" prefWidth="142.0" text="S'inscrit" GridPane.columnIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#workshops" prefHeight="25.0" prefWidth="131.0" text="Workshops" GridPane.columnIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#retour" prefHeight="25.0" prefWidth="149.0" text="retour" GridPane.columnIndex="1" />
                      </children>
                   </GridPane>
                   <GridPane layoutX="341.0" layoutY="81.0" prefHeight="218.0" prefWidth="253.0">

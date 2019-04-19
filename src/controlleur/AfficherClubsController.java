@@ -11,7 +11,7 @@ import entities.UserSession;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import entities.listeclub;
-import entities.listeworkshop;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -197,6 +197,20 @@ public class AfficherClubsController implements Initializable {
                 }
             }
             table.setItems(filteredList);
+        }
+    }
+
+    @FXML
+    private void retour(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/Home.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherWorkshopsController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }
