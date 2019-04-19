@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="devils_0.jnlp">
+  <information>
+    <title>devils_0</title>
+    <vendor>Info-Sys</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="devils_0.jar" size="1284332" download="eager" />
+    <jar href="lib\GMapsFX-2.12.0.jar" size="207618" download="eager" />
+    <jar href="lib\TrayTester.jar" size="52070" download="eager" />
+    <jar href="lib\client-2.0.1.jar" size="157755" download="eager" />
+    <jar href="lib\cmu_time_awb.jar" size="1723774" download="eager" />
+    <jar href="lib\cmu_us_kal.jar" size="4899359" download="eager" />
+    <jar href="lib\cmudict04.jar" size="894905" download="eager" />
+    <jar href="lib\cmulex.jar" size="599429" download="eager" />
+    <jar href="lib\cmutimelex.jar" size="1231" download="eager" />
+    <jar href="lib\commons-codec-1.9.jar" size="263965" download="eager" />
+    <jar href="lib\commons-lang3-3.5.jar" size="479881" download="eager" />
+    <jar href="lib\commons-lang3-3.7-javadoc.jar" size="1277784" download="eager" />
+    <jar href="lib\commons-lang3-3.7-sources.jar" size="550341" download="eager" />
+    <jar href="lib\commons-lang3-3.7-test-sources.jar" size="450015" download="eager" />
+    <jar href="lib\commons-lang3-3.7-tests.jar" size="842388" download="eager" />
+    <jar href="lib\commons-lang3-3.7.jar" size="499634" download="eager" />
+    <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib\controlsfx-8.0.1.jar" size="296347" download="eager" />
+    <jar href="lib\controlsfx-8.40.10.jar" size="954085" download="eager" />
+    <jar href="lib\controlsfx-8.40.11.jar" size="985420" download="eager" />
+    <jar href="lib\controlsfx-8.40.14.jar" size="1215643" download="eager" />
+    <jar href="lib\controlsfx-samples-8.40.14.jar" size="725707" download="eager" />
+    <jar href="lib\en_us.jar" size="866598" download="eager" />
+    <jar href="lib\fontawesomefx-8.9.jar" size="571068" download="eager" />
+    <jar href="lib\freetts-jsapi10.jar" size="56313" download="eager" />
+    <jar href="lib\freetts.jar" size="208668" download="eager" />
+    <jar href="lib\fxsampler-1.0.10.jar" size="30882" download="eager" />
+    <jar href="lib\gradle-wrapper.jar" size="53636" download="eager" />
+    <jar href="lib\httpclient-4.5.jar" size="727567" download="eager" />
+    <jar href="lib\httpcore-4.4.1.jar" size="322234" download="eager" />
+    <jar href="lib\itextpdf-5.5.1.jar" size="2135213" download="eager" />
+    <jar href="lib\jackson-annotations-2.8.0.jar" size="55784" download="eager" />
+    <jar href="lib\jackson-core-2.8.4.jar" size="281079" download="eager" />
+    <jar href="lib\jackson-databind-2.8.4.jar" size="1234984" download="eager" />
+    <jar href="lib\java-jwt-2.2.1.jar" size="4930837" download="eager" />
+    <jar href="lib\jbcrypt-0.3m.jar" size="17750" download="eager" />
+    <jar href="lib\jcl-over-slf4j-1.7.6.jar" size="16515" download="eager" />
+    <jar href="lib\jfoenix-8.0.1.jar" size="2405715" download="eager" />
+    <jar href="lib\json-simple-2.1.2.jar" size="57607" download="eager" />
+    <jar href="lib\junit.jar" size="235295" download="eager" />
+    <jar href="lib\log4j-over-slf4j-1.7.6.jar" size="23330" download="eager" />
+    <jar href="lib\logback-classic-1.1.2.jar" size="270750" download="eager" />
+    <jar href="lib\logback-classic-1.2.1.jar" size="310442" download="eager" />
+    <jar href="lib\logback-core-1.1.2.jar" size="427729" download="eager" />
+    <jar href="lib\logback-core-1.2.1.jar" size="473113" download="eager" />
+    <jar href="lib\mbrola.jar" size="11926" download="eager" />
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib\notification-4.4.6.jar" size="2462" download="eager" />
+    <jar href="lib\pdf.jar" size="4467" download="eager" />
+    <jar href="lib\restfb-1.32.0.jar" size="1015004" download="eager" />
+    <jar href="lib\selenium-server-standalone-3.11.0.jar" size="23422300" download="eager" />
+    <jar href="lib\slf4j-api-1.7.23.jar" size="41105" download="eager" />
+    <jar href="lib\slf4j-api-1.7.6.jar" size="28688" download="eager" />
+    <jar href="lib\stripe-java-7.23.0.jar" size="517898" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="devils_0" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="devils_0.Devils_0"  name="devils_0" />
+  <update check="always"/>
+</jnlp>

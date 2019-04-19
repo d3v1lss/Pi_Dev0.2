@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="329.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Evt1Controller">
+   <children>
+      <VBox layoutX="-2.0" layoutY="-6.0" prefHeight="293.0" prefWidth="335.0">
+         <children>
+            <AnchorPane fx:id="ap" prefHeight="276.0" prefWidth="335.0">
+               <children>
+                  <Pane fx:id="sq" layoutY="223.0" prefHeight="56.0" prefWidth="335.0">
+                     <children>
+                        <Pane layoutX="14.0" layoutY="-1.0" prefHeight="30.0" prefWidth="233.0" />
+                        <JFXButton fx:id="supprimerbtn" layoutX="242.0" layoutY="2.0" onMouseClicked="#supprimerEvenement" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #2064da;" text="supprimer" textFill="#fcf9f9" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="id" layoutX="244.0" layoutY="43.0" />
+                  <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#2064da" height="220.0" layoutX="-2.0" stroke="BLACK" strokeType="INSIDE" width="335.0" />
+                  <Label fx:id="txtdate" layoutX="14.0" layoutY="185.0" prefHeight="25.0" prefWidth="122.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_nbPlaces" layoutY="146.0" prefHeight="25.0" prefWidth="188.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_theme" layoutX="21.0" layoutY="98.0" prefHeight="25.0" prefWidth="262.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtdatefin" layoutX="180.0" layoutY="198.0" prefHeight="25.0" prefWidth="164.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_description" layoutX="17.0" layoutY="39.0" prefHeight="25.0" prefWidth="269.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_eventname" layoutX="17.0" layoutY="12.0" prefHeight="25.0" prefWidth="262.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
