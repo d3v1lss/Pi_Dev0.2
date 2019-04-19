@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -25,5 +26,6 @@
       </Label>
       <DatePicker fx:id="txt_dateP" layoutX="151.0" layoutY="158.0" />
       <Button fx:id="RetourListeFilm" layoutX="471.0" layoutY="355.0" mnemonicParsing="false" text="annuler" />
+      <ImageView fx:id="pic1" fitHeight="150.0" fitWidth="200.0" layoutX="371.0" layoutY="39.0" onMouseClicked="#addImage" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

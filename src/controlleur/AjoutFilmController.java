@@ -51,6 +51,7 @@ public class AjoutFilmController implements Initializable {
      * Initializes the controller class.
      */
         Connection cnx;
+        @FXML
     private ImageView pic1;
     @FXML
     private TextField txt_Nom;
@@ -108,6 +109,7 @@ public class AjoutFilmController implements Initializable {
     }
    
     
+        @FXML
     private void addImage(MouseEvent event) throws IOException{
         FileChooser fc = new FileChooser();
 
