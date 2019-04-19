@@ -9,6 +9,7 @@ import static controlleur.AjoutFilmController.saveToFileImageNormal;
 import static controlleur.ListesFilmsController.idFilm;
 import static controlleur.ModifierSalleController.idSalle;
 import entities.Film;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,12 +19,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
+import javafx.stage.Stage;
 import utils.DbConnexion;
 
 /**
@@ -64,6 +70,32 @@ Connection cnx;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          System.out.println(idSalle);
+         
+         
+         
+         RetourListeFilm.setOnAction(event->{
+            try {
+                Parent parent2=FXMLLoader
+                        .load(getClass().getResource("/views/listesFilms.fxml"));
+                
+                Scene scene=new Scene(parent2);
+                Stage stage=(Stage) ((Node) event.getSource())
+                        .getScene().getWindow();
+                stage.setScene(scene);
+                stage.setTitle("Interface 2");
+                stage.show();
+
+            } catch (IOException ex) {
+                Logger.getLogger(UpdateFilmController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        });
+         
+         
+         
+         
+         
+         
+         
     }
     
     
@@ -83,17 +115,37 @@ Connection cnx;
         
         try {
 
-            String req = "UPDATE salle SET nom=?, duree=? , discription	 where id = ? ";
+            String req = "UPDATE salle SET nom=?, duree=? , discription=?   , gettedDatePickerDate=?	 where id = ? ";
             PreparedStatement stmp = cnx.prepareStatement(req);
             stmp.setString(1, nom);
             stmp.setString(2, duree);
             stmp.setString(3, description);
-            stmp.setInt(3, idFilm);
+            stmp.setDate(4, gettedDatePickerDate);
+            stmp.setInt(5, idFilm);
             System.out.println("famma mochkel");
             stmp.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ModifierSalleController.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+        
+         try {
+            Parent parent2 = FXMLLoader
+                    .load(getClass().getResource("/views/listesFilms.fxml"));
+
+            Scene scene = new Scene(parent2);
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene().getWindow();
+            stage.setScene(scene);
+            stage.setTitle("Interface 2");
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficherSalleController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
 
     }
 }
