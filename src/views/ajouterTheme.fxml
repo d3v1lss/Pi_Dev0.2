@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="609.0" prefWidth="1095.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.AjouterThemeController">
+   <children>
+      <TableView fx:id="tableTheme" layoutX="58.0" layoutY="208.0" onMouseClicked="#afficherimage" prefHeight="294.0" prefWidth="707.0" stylesheets="@dark-theme.css">
+         <columns>
+            <TableColumn fx:id="colTheme" minWidth="0.0" prefWidth="706.0" text="Theme " />
+         </columns>
+      </TableView>
+      <ImageView fx:id="modofierBtn" fitHeight="25.0" fitWidth="25.0" layoutX="1048.0" layoutY="343.0" onDragDetected="#modifierTheme" onMouseReleased="#modifierTheme" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/modifier.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="addThemeBtn" fitHeight="25.0" fitWidth="18.0" layoutX="379.0" layoutY="146.0" onMouseReleased="#AjouterTheme" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/+.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="106.0" layoutY="42.0" prefHeight="60.0" prefWidth="185.0" stylesheets="@style.css" text="Theme" textFill="#202022" textOverrun="CENTER_ELLIPSIS">
+         <font>
+            <Font name="Arial Italic" size="48.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="txt_ajouter__theme" layoutX="106.0" layoutY="136.0" prefHeight="27.0" prefWidth="243.0" promptText="Nom Theme" />
+      <JFXTextField fx:id="txt_modifier_theme1" layoutX="788.0" layoutY="342.0" prefHeight="27.0" prefWidth="243.0" promptText="Modifier Theme" />
+      <ImageView fx:id="supprimerBtn" fitHeight="35.0" fitWidth="25.0" layoutX="1006.0" layoutY="30.0" onMouseReleased="#supprimerTheme" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/supprimer.jpg" />
+         </image>
+      </ImageView>
+   </children>
+   <stylesheets>
+      <URL value="@CSS/default.css" />
+      <URL value="@CSS/custom.css" />
+   </stylesheets>
+</AnchorPane>

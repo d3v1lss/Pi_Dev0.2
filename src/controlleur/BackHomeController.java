@@ -27,6 +27,8 @@ public class BackHomeController implements Initializable {
 
     @FXML
     private AnchorPane table;
+    @FXML
+    private Button Forums;
 
     /**
      * Initializes the controller class.
@@ -52,9 +54,39 @@ public class BackHomeController implements Initializable {
     }
 
     @FXML
+    private void Forum(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/AjoutForum.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(BackHomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
     private void accsalle(ActionEvent event) {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/accueilCinema.fxml"));
+        Parent root;
+        try {
+            root = loader.load();
+            table.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(BackHomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    @FXML
+    private void evenement(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ajouterTheme.fxml"));
         Parent root;
         try {
             root = loader.load();

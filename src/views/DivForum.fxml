@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="295.0" prefWidth="508.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.DivForumController">
+   <children>
+      <VBox layoutX="-2.0" layoutY="-6.0" prefHeight="293.0" prefWidth="335.0">
+         <children>
+            <AnchorPane fx:id="ap" prefHeight="276.0" prefWidth="335.0">
+               <children>
+                  <Pane fx:id="sq" layoutY="223.0" prefHeight="56.0" prefWidth="335.0">
+                     <children>
+                        <Pane layoutX="60.0" layoutY="-1.0" prefHeight="30.0" prefWidth="233.0" />
+                        <Label fx:id="txtprix" layoutX="112.0" layoutY="29.0" prefHeight="17.0" prefWidth="64.0" textAlignment="CENTER" textFill="#c9d301" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="Comic Sans MS" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#1f2932" height="302.0" layoutX="-10.0" stroke="BLACK" strokeType="INSIDE" width="520.0" />
+                  <Label fx:id="discriptionF" layoutX="160.0" layoutY="151.0" prefHeight="25.0" prefWidth="261.0" textAlignment="CENTER" textFill="#e6f206" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nomF" layoutX="160.0" layoutY="55.0" prefHeight="21.0" prefWidth="105.0" textFill="#b8da0b" />
+                  <Label fx:id="id" layoutX="246.0" layoutY="20.0" textFill="#b2dd15" />
+                  <Label layoutX="31.0" layoutY="52.0" prefHeight="26.0" prefWidth="92.0" text="Categorie :" textFill="#c5e114">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="31.0" layoutY="141.0" text="Description :" textFill="#cef50e">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="ajouterPublication" layoutX="328.0" layoutY="236.0" mnemonicParsing="false" onAction="#ajouterPub" prefHeight="31.0" prefWidth="118.0" text="Liste Publlication" />
+                  <Button fx:id="addpublication" layoutX="66.0" layoutY="236.0" mnemonicParsing="false" onMouseClicked="#gotopub" text="Ajouter Publication" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>

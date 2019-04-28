@@ -67,6 +67,15 @@ public class HomeController implements Initializable {
     }
 
     @FXML
+    private void Forum(ActionEvent event) {
+        try {
+            Forum.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/ListForum.fxml")));
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
     private void Cinema(ActionEvent event) {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/accueilCinemaUser.fxml"));
@@ -82,4 +91,35 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
+    private void Avis(ActionEvent event) {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/DonnerVotreAvis.fxml"));
+        Parent root;
+
+        try {
+            root = loader.load();
+
+            list.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void Evenement(ActionEvent event) {
+        
+         FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/ListEvenementclient.fxml"));
+        Parent root;
+
+        try {
+            root = loader.load();
+
+            list.getScene().setRoot(root);
+
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 };

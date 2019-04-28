@@ -31,14 +31,14 @@ public class MonClub extends ListCell<club> {
     private final JFXTextField Mail = new JFXTextField();
     private final JFXTextField Nom = new JFXTextField();
     private final JFXTextField Nbre = new JFXTextField();
-    private final JFXTextField Status = new JFXTextField();
+  
     private final JFXTextField Activite = new JFXTextField();
     private final JFXTextField descriptionLabel = new JFXTextField();
 
     private final Label txt_Mail = new Label();
     private final Label txt_Activite = new Label();
     private final Label txtNom = new Label();
-    private final Label txt_Status = new Label();
+  
     private final Label txt_desc = new Label();
 
     private final Label txt_NbrPlace = new Label();
@@ -64,10 +64,7 @@ public class MonClub extends ListCell<club> {
         return Nbre;
     }
 
-    public JFXTextField getStatus() {
-        return Status;
-    }
-
+ 
     public JFXTextField getActivite() {
         return Activite;
     }
@@ -88,9 +85,7 @@ public class MonClub extends ListCell<club> {
         return txtNom;
     }
 
-    public Label getTxtStatus() {
-        return txt_Status;
-    }
+ 
 
     public Label getTxt_desc() {
         return txt_desc;
@@ -113,14 +108,14 @@ public class MonClub extends ListCell<club> {
         GridPane.setConstraints(txt_NbrPlace, 0, 3);
         GridPane.setConstraints(txt_Activite, 0, 4);
 
-        GridPane.setConstraints(txt_Status, 0, 5);
+        
         txtNom.setText("Nom : ");
         txt_Mail.setText("Mail : ");
         txt_desc.setText("Description : ");
         txt_NbrPlace.setText("Nbre : ");
         txt_Activite.setText("Activite : ");
 
-        txt_Status.setText("status : ");
+       
 
         GridPane.setConstraints(Nom, 1, 0);
         GridPane.setConstraints(Mail, 1, 1);
@@ -128,7 +123,7 @@ public class MonClub extends ListCell<club> {
         GridPane.setConstraints(Nbre, 1, 3);
         GridPane.setConstraints(Activite, 1, 4);
 
-        GridPane.setConstraints(Status, 1, 5);
+      
 
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.NEVER, HPos.CENTER, true));
         gridPane.getColumnConstraints().add(new ColumnConstraints(Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Region.USE_COMPUTED_SIZE, Priority.ALWAYS, HPos.LEFT, true));
@@ -142,7 +137,8 @@ public class MonClub extends ListCell<club> {
         gridPane.setHgap(3);
         gridPane.setVgap(3);
 
-        gridPane.getChildren().setAll(txtNom, txt_Mail, txt_desc, txt_NbrPlace, txt_Activite, txt_Status, Nom, Mail, description, Nbre, Activite, Status);
+        gridPane.getChildren().setAll(txtNom, txt_Mail, txt_desc, txt_NbrPlace, txt_Activite,
+                Nom, Mail, description, Nbre, Activite);
 
         AnchorPane.setTopAnchor(gridPane, 0d);
         AnchorPane.setLeftAnchor(gridPane, 0d);
@@ -167,7 +163,7 @@ public class MonClub extends ListCell<club> {
             Nbre.setText(String.valueOf(item.getNbrparticipant()));
             Activite.setText(String.valueOf(item.getActivite()));
 
-            Status.setText(String.valueOf(item.getStatut()));
+           
             setText(null);
             setGraphic(content);
             setContentDisplay(ContentDisplay.GRAPHIC_ONLY);

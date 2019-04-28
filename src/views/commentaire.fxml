@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="832.0" prefWidth="1387.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.CommentaireController">
+   <children>
+      <Label layoutX="30.0" layoutY="230.0" prefHeight="85.0" prefWidth="431.0" text="Liste des Commentaires">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="38.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="-19.0" prefHeight="85.0" prefWidth="1454.0" style="-fx-background-color: rgba(0,0,0,.9);">
+         <children>
+            <Label layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="360.0" text="Cite De La Culture" textFill="#cedb0d">
+               <font>
+                  <Font name="Bodoni MT Poster Compressed" size="82.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ap" layoutX="61.0" layoutY="327.0" prefHeight="431.0" prefWidth="1101.0">
+         <children>
+            <ScrollPane fx:id="pane" prefHeight="463.0" prefWidth="1142.0" />
+         </children>
+      </AnchorPane>
+      <Button fx:id="retour" layoutX="743.0" layoutY="257.0" mnemonicParsing="false" onMouseClicked="#gotopubs" text="retour" />
+   </children>
+</AnchorPane>

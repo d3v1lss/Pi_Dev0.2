@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.ReservationCController">
+   <children>
+      <VBox layoutX="-2.0" layoutY="-6.0" prefHeight="293.0" prefWidth="335.0">
+         <children>
+            <AnchorPane fx:id="ap" minWidth="-Infinity" prefHeight="259.0" prefWidth="500.0">
+               <children>
+                  <Pane fx:id="sq" layoutY="223.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="56.0" prefWidth="500.0">
+                     <children>
+                        <Pane layoutX="14.0" layoutY="-1.0" prefHeight="30.0" prefWidth="233.0" />
+                        <JFXButton fx:id="reserverbtn" layoutX="346.0" layoutY="16.0" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#annulerReservation" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #2064da;" text="Annuler Reservation" textFill="#fcf9f9" />
+                        <Label fx:id="id" layoutX="343.0" layoutY="23.0" prefHeight="17.0" prefWidth="23.0" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="txtdate" layoutX="176.0" layoutY="198.0" prefHeight="25.0" prefWidth="188.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_nbPlaces" layoutY="146.0" prefHeight="25.0" prefWidth="188.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_theme" layoutX="21.0" layoutY="98.0" prefHeight="25.0" prefWidth="262.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtdatefin" layoutX="188.0" layoutY="198.0" prefHeight="25.0" prefWidth="164.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_description" layoutX="152.0" layoutY="127.0" prefHeight="25.0" prefWidth="269.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_eventname" layoutX="167.0" layoutY="58.0" prefHeight="25.0" prefWidth="233.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <JFXTextArea layoutX="14.0" layoutY="39.0" prefHeight="17.0" prefWidth="104.0" text="Nom evenement" unFocusColor="#4059a9">
+                     <font>
+                        <Font name="Arial Italic" size="13.0" />
+                     </font>
+                  </JFXTextArea>
+                  <JFXTextArea layoutX="21.0" layoutY="120.0" prefHeight="17.0" prefWidth="104.0" text="Description" unFocusColor="#4059a9">
+                     <font>
+                        <Font name="Arial Italic" size="13.0" />
+                     </font>
+                  </JFXTextArea>
+                  <JFXTextArea layoutX="21.0" layoutY="191.0" prefHeight="17.0" prefWidth="104.0" text="Date&#10;" unFocusColor="#4059a9">
+                     <font>
+                        <Font name="Arial Italic" size="13.0" />
+                     </font>
+                  </JFXTextArea>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>

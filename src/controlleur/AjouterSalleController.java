@@ -30,6 +30,7 @@ import utils.DbConnexion;
 import services.SalleServices;
 import org.controlsfx.control.Notifications;
 
+
 /**
  * FXML Controller class
  *
@@ -86,11 +87,11 @@ public class AjouterSalleController implements Initializable {
         SalleServices Ss = new SalleServices();
         Ss.ajouterSalle1(S);
 
-       /* Notifications.create()
-                .title("film ajouté")
+        Notifications.create()
+                .title("salle ajouté")
                 .graphic(null)
                 .hideAfter(Duration.seconds(5))
-                .position(Pos.CENTER).showConfirm();*/
+                .position(Pos.CENTER).show();
 
         try {
             Parent parent2 = FXMLLoader

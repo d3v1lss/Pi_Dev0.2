@@ -89,6 +89,9 @@ public class FirstXMLController implements Initializable {
             } else if (u.getRole().contains("ROLE_PRESIDENT")) {
                 // System.out.println("raw hedha admin");
                 logB.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/MonClub.fxml")));
+            } else if (u.getRole().contains("ROLE_ORGANISATEUR")) {
+                // System.out.println("raw hedha admin");
+                logB.getScene().setRoot(FXMLLoader.load(getClass().getResource("/views/ListEvenement.fxml")));
             } else {
                 // alert.setAlertType(Alert.AlertType.INFORMATION);
 

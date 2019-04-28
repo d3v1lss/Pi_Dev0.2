@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="284.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Evt1_cientController">
+   <children>
+      <VBox layoutX="-2.0" layoutY="-6.0" prefHeight="293.0" prefWidth="335.0">
+         <children>
+            <AnchorPane fx:id="ap" prefHeight="272.0" prefWidth="800.0">
+               <children>
+                  <Pane fx:id="sq" layoutY="223.0" prefHeight="56.0" prefWidth="800.0">
+                     <children>
+                        <Pane layoutX="14.0" layoutY="-1.0" prefHeight="30.0" prefWidth="233.0" />
+                     </children>
+                  </Pane>
+                  <Label fx:id="id" layoutX="244.0" layoutY="43.0" textFill="#1e61cc" />
+                  <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" fill="#02050a" height="279.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="689.0" />
+                  <Label fx:id="txtdate" layoutX="449.0" layoutY="32.0" prefHeight="25.0" prefWidth="122.0" textAlignment="CENTER" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_nbPlaces" layoutX="223.0" layoutY="149.0" prefHeight="25.0" prefWidth="188.0" textAlignment="CENTER" textFill="#f4f6f8" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_theme" layoutX="132.0" layoutY="94.0" prefHeight="25.0" prefWidth="211.0" textAlignment="CENTER" textFill="#edeff2" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtdatefin" layoutX="439.0" layoutY="94.0" prefHeight="25.0" prefWidth="164.0" textAlignment="CENTER" textFill="#f6f9ff" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_description" layoutX="157.0" layoutY="225.0" prefHeight="25.0" prefWidth="211.0" textAlignment="CENTER" textFill="#eff0f2" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font name="Comic Sans MS" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txt_eventname" layoutX="106.0" layoutY="31.0" prefHeight="25.0" prefWidth="262.0" textAlignment="CENTER" textFill="#fbfdff" textOverrun="CENTER_ELLIPSIS">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="27.0" prefHeight="17.0" prefWidth="114.0" text="Nom" textFill="#1e61cc">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="144.0" prefHeight="35.0" prefWidth="195.0" text="Nombre de places" textFill="#1e61cc">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="21.0" layoutY="89.0" prefHeight="17.0" prefWidth="114.0" text="Theme" textFill="#1e61cc">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="24.0" layoutY="215.0" prefHeight="35.0" prefWidth="175.0" text="Description" textFill="#1e61cc">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="313.0" layoutY="89.0" prefHeight="35.0" prefWidth="175.0" text="Date fin" textFill="#1e61cc">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="304.0" layoutY="26.0" prefHeight="35.0" prefWidth="175.0" text="Date debut" textFill="#1e61cc">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+      <JFXButton fx:id="reserverbtn" layoutX="725.0" layoutY="217.0" onAction="#reserverUnePlace" prefHeight="25.0" prefWidth="195.0" style="-fx-background-color: #2064da;" text="Reserver " textFill="#fcf9f9">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="imageEvnt" fitHeight="217.0" fitWidth="233.0" layoutX="725.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</Pane>

@@ -23,6 +23,7 @@ public class Devils_0 extends Application {
     public void start(Stage stage) throws Exception {
 
         Parent root = FXMLLoader.load(getClass().getResource("/views/firstXML.fxml"));
+        
        
         Scene scene = new Scene(root);
 

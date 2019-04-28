@@ -15,8 +15,8 @@
       <Button layoutX="93.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Boutique" />
       <Button layoutX="97.0" layoutY="242.0" mnemonicParsing="false" onAction="#Clubs" prefHeight="33.0" prefWidth="143.0" text="Clubs" />
       <Button layoutX="93.0" layoutY="166.0" mnemonicParsing="false" onAction="#accsalle" prefHeight="33.0" prefWidth="143.0" text="Cinema" />
-      <Button layoutX="369.0" layoutY="166.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Forum" />
-      <Button layoutX="369.0" layoutY="96.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Evenement" />
+      <Button fx:id="Forums" layoutX="369.0" layoutY="166.0" mnemonicParsing="false" onAction="#evenement" prefHeight="33.0" prefWidth="143.0" text="evenement" />
+      <Button layoutX="369.0" layoutY="96.0" mnemonicParsing="false" onAction="#Forum" prefHeight="33.0" prefWidth="143.0" text="Forum" />
       <Button layoutX="369.0" layoutY="248.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="143.0" text="Bibliotheque" />
    </children>
 </AnchorPane>

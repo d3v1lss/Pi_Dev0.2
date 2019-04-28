@@ -37,7 +37,6 @@ public class mailer {
             properties.put("mail.smtp.starttls.enable", "true");
             properties.put("mail.smtp.port", "587");
             properties.put("mail.smtp.ssl.trust", "in-v3.mailjet.com");
-
             Session session = Session.getInstance(properties,
                     new javax.mail.Authenticator() {
                         protected PasswordAuthentication getPasswordAuthentication() {
@@ -46,7 +45,7 @@ public class mailer {
                     });
             MimeMessage message = new MimeMessage(session);
             try {
-                message.setFrom(new InternetAddress(FROM));
+                message.setFrom(new InternetAddress("hchaichi-akrem@outlook.fr"));
 
                 message.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
 

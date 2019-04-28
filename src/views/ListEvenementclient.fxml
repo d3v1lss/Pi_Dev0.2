@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1416.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.ListEvenementclientController">
+   <children>
+      <Label layoutX="208.0" layoutY="117.0" prefHeight="85.0" prefWidth="485.0" text="Liste des Evenement">
+         <font>
+            <Font size="48.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="recherchetext" layoutX="323.0" layoutY="204.0" onKeyReleased="#RechercheDynamique" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher votre evenement " unFocusColor="#2e1fcd" />
+      <FontAwesomeIconView fill="#2e1fcd" glyphName="SEARCH" layoutX="562.0" layoutY="223.0" size="20" wrappingWidth="24.0" />
+      <ScrollPane fx:id="pane" layoutX="155.0" layoutY="258.0" prefHeight="385.0" prefWidth="1033.0" />
+      <FontAwesomeIconView fill="#2e1fcd" glyphName="SLIDERS" layoutX="370.0" layoutY="119.0" size="22" text="" x="970.0" y="117.0" />
+      <AnchorPane layoutX="-15.0" prefHeight="86.0" prefWidth="1431.0" style="-fx-background-color: rgba(0,0,0,.9);">
+         <children>
+            <Label layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="360.0" text="Cite de la culture" textFill="#2e1fcd">
+               <font>
+                  <Font name="Comic Sans MS" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXDrawer fx:id="menu" defaultDrawerSize="225.0" layoutY="21.0" prefHeight="624.0" prefWidth="200.0" />
+      <JFXCheckBox fx:id="checkNom" checkedColor="#1d0ec6" layoutX="1194.0" layoutY="207.0" onMouseClicked="#triByNomEv" text="Trier par nom" />
+      <JFXCheckBox fx:id="checkDate" checkedColor="#1d0ec6" layoutX="1194.0" layoutY="230.0" onMouseClicked="#triByDateDebut" text="Trier par date debut" />
+      <Label layoutX="48.0" layoutY="662.0" prefHeight="72.0" prefWidth="200.0" text="Nombres d'Evenements :">
+         <font>
+            <Font name="Agency FB" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="total" layoutX="262.0" layoutY="667.0" prefHeight="63.0" prefWidth="246.0">
+         <font>
+            <Font name="Bodoni MT Condensed" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXDrawer?>
+<?import com.jfoenix.controls.JFXHamburger?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ap" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="843.0" prefWidth="1416.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controlleur.ListCommController">
+   <children>
+      <Label layoutX="296.0" layoutY="117.0" prefHeight="85.0" prefWidth="431.0" text="Liste des Commentaires">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="38.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="recherchetext" focusColor="#9da840" layoutX="323.0" layoutY="204.0" prefHeight="24.0" prefWidth="239.0" promptText="Rechercher Commentaire" unFocusColor="#f6ff21" />
+      <FontAwesomeIconView fill="#edff21" glyphName="SEARCH" layoutX="562.0" layoutY="223.0" size="20" wrappingWidth="24.0" />
+      <ScrollPane fx:id="pane" layoutX="282.0" layoutY="257.0" prefHeight="445.0" prefWidth="1077.0" />
+      <JFXHamburger fx:id="affmenu" layoutX="1224.0" layoutY="117.0" prefHeight="40.0" prefWidth="68.0" />
+      <AnchorPane layoutX="-15.0" prefHeight="86.0" prefWidth="1454.0" style="-fx-background-color: rgba(0,0,0,.9);">
+         <children>
+            <Label layoutX="556.0" layoutY="18.0" prefHeight="35.0" prefWidth="360.0" text="Cite De La Culture" textFill="#cedb0d">
+               <font>
+                  <Font name="Bodoni MT Poster Compressed" size="82.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <JFXDrawer fx:id="menu" defaultDrawerSize="225.0" layoutY="21.0" prefHeight="624.0" prefWidth="200.0" />
+      <JFXCheckBox fx:id="checkprix" checkedColor="#ff214f" layoutX="1156.0" layoutY="216.0" text="TRIER PAR NOM" />
+      <Button fx:id="retour" layoutX="656.0" layoutY="201.0" mnemonicParsing="false" onMouseClicked="#gotopubs" text="retour" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="734.0" prefWidth="1127.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.Evenement_ajoutController">
+   <children>
+      <HBox prefHeight="60.0" prefWidth="1207.0" styleClass="box-topo" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <DatePicker fx:id="txtdate" layoutX="463.0" layoutY="390.0" prefHeight="27.0" prefWidth="243.0" promptText="Date debut" style="-fx-background-color: #2168ff;" />
+
+     <!--  <JFXDatePicker fx:id="txtdate" layoutX="449.0" layoutY="289.0" prefHeight="27.0" prefWidth="243.0" promptText="Date debut" /> -->
+      <JFXComboBox fx:id="listTheme" layoutX="62.0" layoutY="378.0" prefHeight="25.0" prefWidth="243.0" promptText="Theme" unFocusColor="#2168ff" />
+      <JFXTextField fx:id="txt_eventname" layoutX="72.0" layoutY="235.0" prefHeight="27.0" prefWidth="243.0" promptText="Nom evenement" unFocusColor="#2168ff" />
+      <JFXTextField fx:id="txt_description" focusColor="#2168ff" layoutX="481.0" layoutY="245.0" prefHeight="27.0" prefWidth="243.0" promptText="Description" unFocusColor="#2e1fcd" />
+      <JFXButton fx:id="btinsertimage" layoutX="830.0" layoutY="317.0" onAction="#insert_image" prefHeight="25.0" prefWidth="234.0" text="image evenement" textFill="#2168ff" />
+      <DatePicker fx:id="txtdatefin" layoutX="463.0" layoutY="549.0" prefHeight="27.0" prefWidth="243.0" promptText="Date fin " style="-fx-background-color: #2168ff;" />
+      <JFXTextField fx:id="txt_nbPlaces" layoutX="62.0" layoutY="535.0" prefHeight="27.0" prefWidth="243.0" promptText="nombre de places" unFocusColor="#2168ff" />
+      <ImageView fx:id="imagee" fitHeight="173.0" fitWidth="225.0" layoutX="835.0" layoutY="367.0" pickOnBounds="true" preserveRatio="true" />
+      <FontAwesomeIconView fill="#2168ff" glyphName="IMAGE" layoutX="851.0" layoutY="336.0" size="20" text="" />
+      <JFXButton fx:id="addEvButton" layoutX="904.0" layoutY="631.0" onAction="#ajouter101Evenement" prefHeight="40.0" prefWidth="108.0" ripplerFill="WHITE" style="-fx-background-color: #2168ff;" stylesheets="@fadwa-theme.css" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="imagee1" fitHeight="130.0" fitWidth="308.0" layoutX="388.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/logo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
